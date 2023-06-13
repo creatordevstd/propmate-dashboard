@@ -1,20 +1,18 @@
 .wrapper{
   height: 100vh;
-}
-.col-first{
-  background: #fafafa;
-  height: 100vh;
-}
-.col-second{
   display: flex;
   align-items: center;
 }
+
 .remember-container{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.btn-submit{
-  width: 100%;
+.create-account-link{
+  font-weight: 200;
+  font-size: 16px;
 }
-
+.forgot-password a{
+  font-weight: 200;
+}

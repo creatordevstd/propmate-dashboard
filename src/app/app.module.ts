@@ -13,11 +13,13 @@ import {
 } from "@ng-bootstrap/ng-bootstrap";
 import { LoginComponent } from './component/login/login.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { RegistrationComponent } from './component/registration/registration.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,

@@ -1,20 +1,21 @@
 <div class="wrapper">
-  <div class="row">
-    <div class="col col-first"></div>
-    <div class="col col-second">
-      <div class="container">
-        <div class="row">
-          <div class="col-8 offset-2">
+  <div class="container">
+    <div class="row">
+      <div class="col-6 offset-3 col-first">
+        <div class="card p-5 mb-5">
+          <div class="card-body">
             <form [formGroup]="loginForm">
-              <div class="mb-3 text-center">
-                <h1>Log into account</h1>
-                <div>Welcome back! Please enter your details</div>
+              <div class="mb-3 text-left">
+                <h1 class="main-heading">PropMate account login</h1>
+                <div class="sub-heading">Welcome back! Please enter your details</div>
               </div>
               <div class="mb-3">
                 <label for="username">Username</label>
-                <input type="text" class="form-control" formControlName="username" id="username" placeholder="enter your username">
-                <p class="error-field mt-1"
-                *ngIf="loginForm.controls['username'].errors?.['required'] && (loginForm.controls['username'].dirty
+                <input type="text" class="form-control" formControlName="username" id="username" placeholder="Username"
+                       [ngClass]="{'invalid-field' :loginForm.controls['username'].errors?.['required'] && (loginForm.controls['username'].dirty
+                || loginForm.controls['username'].touched && loginForm.controls['username'].invalid)}">
+                <p class="error-field-message mt-1"
+                   *ngIf="loginForm.controls['username'].errors?.['required'] && (loginForm.controls['username'].dirty
                 || loginForm.controls['username'].touched && loginForm.controls['username'].invalid)">
                   This field is mandatory
                 </p>
@@ -22,8 +23,10 @@
               </div>
               <div class="mb-3">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" formControlName="password" id="password" placeholder="enter your password">
-                <p class="error-field mt-1"
+                <input type="password" class="form-control" formControlName="password" id="password" placeholder="Password"
+                       [ngClass]="{'invalid-field' :loginForm.controls['password'].errors?.['required'] && (loginForm.controls['password'].dirty
+                || loginForm.controls['password'].touched && loginForm.controls['password'].invalid)}">
+                <p class="error-field-message mt-1"
                    *ngIf="loginForm.controls['password'].errors?.['required'] && (loginForm.controls['password'].dirty
                 || loginForm.controls['password'].touched && loginForm.controls['password'].invalid)">
                   This field is mandatory
@@ -46,11 +49,15 @@
                       class="btn btn-primary btn-submit"
                       [disabled]="loginForm.invalid"
                       (click)="onSubmit()"
-              >Sign in</button>
+              >Log in</button>
             </form>
           </div>
+        </div>
+        <div class="text-center create-account-link">
+            Not a client? <a href="">Create PropMate account</a>
         </div>
       </div>
     </div>
   </div>
 </div>
+
