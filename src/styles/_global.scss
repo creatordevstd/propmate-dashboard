@@ -1,0 +1,8 @@
+.ng-invalid:not(form){
+  border: 1px solid #ff0000;
+  background: #ffe5e5;
+}
+.error-field{
+  color: #ff0000;
+  font-size: 12px;
+}
