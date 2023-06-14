@@ -1,11 +1,15 @@
 .wrapper{
   height: 100vh;
 }
-.col-first{
-  background: #fafafa;
-  height: 100vh;
+img{
+  width: 60%;
 }
 .col-second{
+  background: #E7F0FE;
+  height: 100vh;
+  justify-content: center;
+}
+.col-first, .col-second{
   display: flex;
   align-items: center;
 }

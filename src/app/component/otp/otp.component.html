@@ -11,7 +11,7 @@
               </div>
               <div class="mb-3">
                 <label for="otpCode">OTP verification code</label>
-                <input type="text" class="form-control" formControlName="otpCode" id="otpCode" placeholder="Enter OTP code"
+                <input type="text" class="form-control form-control-lg" formControlName="otpCode" id="otpCode"
                        [ngClass]="{'invalid-field' :otpForm.controls['otpCode'].errors?.['required'] && (otpForm.controls['otpCode'].dirty
                 || otpForm.controls['otpCode'].touched && otpForm.controls['otpCode'].invalid)}">
                 <p class="error-field-message mt-1"
@@ -26,7 +26,7 @@
               </div>
               <div class="d-flex flex-column align-items-end">
                 <button type="submit"
-                        class="btn btn-danger btn-full"
+                        class="btn btn-primary btn-full btn-lg"
                         [disabled]="otpForm.invalid"
                         (click)="onSubmit()"
                 >Submit</button>

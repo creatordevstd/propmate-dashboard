@@ -1,122 +1,123 @@
 <div class="wrapper">
   <div class="row">
-    <div class="col col-first">
-    </div>
-    <div class="col col-second">
-        <div class="container">
-          <div class="row">
-            <div class="col-8 offset-2">
-              <form [formGroup]="registrationForm">
-                <div class="mb-3 text-center">
-                  <h1 class="main-heading">Create PropMate account</h1>
-                  <div class="sub-heading">Lorem ipsum dolor sit amet consectetur adipiscing elit varius, lacus fusce arcu hendrerit viverra lectus semper primis</div>
-                </div>
-                <div class="mb-3">
-                  <label for="applicationType">Applying as</label>
-                  <select class="form-select" aria-label="Default select example" formControlName="applicationType" id="applicationType" >
-                    <option value="1">Building Manager</option>
-                    <option value="2">Tenant</option>
-                    <option value="3">Landlord</option>
-                  </select>
-                  <p class="error-field-message mt-1"
-                     *ngIf="registrationForm.controls['applicationType'].errors?.['required'] && (registrationForm.controls['applicationType'].dirty
+    <div class="col-7 col-first">
+      <div class="container">
+        <div class="row">
+          <div class="col-8 offset-2">
+            <form [formGroup]="registrationForm">
+              <div class="mb-3 text-center">
+                <h1 class="main-heading">Welcome to Propmate</h1>
+                <div class="sub-heading">Get started - it's free. No credit card required </div>
+              </div>
+              <div class="mb-3">
+                <label for="applicationType">Applying as</label>
+                <select class="form-select" aria-label="Default select example" formControlName="applicationType" id="applicationType" >
+                  <option value="1">Building Manager</option>
+                  <option value="2">Tenant</option>
+                  <option value="3">Landlord</option>
+                </select>
+                <p class="error-field-message mt-1"
+                   *ngIf="registrationForm.controls['applicationType'].errors?.['required'] && (registrationForm.controls['applicationType'].dirty
                 || registrationForm.controls['applicationType'].touched && registrationForm.controls['applicationType'].invalid)">
-                    This field is mandatory
-                  </p>
-                  <div></div>
-                </div>
-                <div class="row">
-                  <div class="col">
-                    <div class="mb-3">
-                      <label for="firstName">First name</label>
-                      <input type="text" class="form-control" formControlName="firstName" id="firstName" placeholder="First name"
-                             [ngClass]="{'invalid-field': registrationForm.controls['firstName'].errors?.['required'] && (registrationForm.controls['firstName'].dirty
+                  This field is mandatory
+                </p>
+                <div></div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="mb-3">
+                    <label for="firstName">First name</label>
+                    <input type="text" class="form-control form-control-lg" formControlName="firstName" id="firstName"
+                           [ngClass]="{'invalid-field': registrationForm.controls['firstName'].errors?.['required'] && (registrationForm.controls['firstName'].dirty
                 || registrationForm.controls['firstName'].touched && registrationForm.controls['firstName'].invalid)}">
-                      <p class="error-field-message mt-1"
-                         *ngIf="registrationForm.controls['firstName'].errors?.['required'] && (registrationForm.controls['firstName'].dirty
+                    <p class="error-field-message mt-1"
+                       *ngIf="registrationForm.controls['firstName'].errors?.['required'] && (registrationForm.controls['firstName'].dirty
                 || registrationForm.controls['firstName'].touched && registrationForm.controls['firstName'].invalid)">
-                        This field is mandatory
-                      </p>
-                    </div>
+                      This field is mandatory
+                    </p>
                   </div>
-                  <div class="col">
-                    <div class="mb-3">
-                      <label for="lastName">Last name</label>
-                      <input type="text" class="form-control" formControlName="lastName" id="lastName" placeholder="Last name"
-                             [ngClass]="{'invalid-field' :registrationForm.controls['lastName'].errors?.['required'] && (registrationForm.controls['lastName'].dirty
+                </div>
+                <div class="col">
+                  <div class="mb-3">
+                    <label for="lastName">Last name</label>
+                    <input type="text" class="form-control form-control-lg" formControlName="lastName" id="lastName"
+                           [ngClass]="{'invalid-field' :registrationForm.controls['lastName'].errors?.['required'] && (registrationForm.controls['lastName'].dirty
                 || registrationForm.controls['lastName'].touched && registrationForm.controls['lastName'].invalid)}">
-                      <p class="error-field-message mt-1"
-                         *ngIf="registrationForm.controls['lastName'].errors?.['required'] && (registrationForm.controls['lastName'].dirty
+                    <p class="error-field-message mt-1"
+                       *ngIf="registrationForm.controls['lastName'].errors?.['required'] && (registrationForm.controls['lastName'].dirty
                 || registrationForm.controls['lastName'].touched && registrationForm.controls['lastName'].invalid)">
-                        This field is mandatory
-                      </p>
-                    </div>
+                      This field is mandatory
+                    </p>
                   </div>
                 </div>
-                <div class="mb-3">
-                  <label for="phoneNumber">Phone number</label>
-                  <input type="text" class="form-control" formControlName="phoneNumber" id="phoneNumber" placeholder="Phone number"
-                         [ngClass]="{'invalid-field' :registrationForm.controls['phoneNumber'].errors?.['required'] && (registrationForm.controls['phoneNumber'].dirty
+              </div>
+              <div class="mb-3">
+                <label for="phoneNumber">Phone number</label>
+                <input type="text" class="form-control form-control-lg" formControlName="phoneNumber" id="phoneNumber"
+                       [ngClass]="{'invalid-field' :registrationForm.controls['phoneNumber'].errors?.['required'] && (registrationForm.controls['phoneNumber'].dirty
                 || registrationForm.controls['phoneNumber'].touched && registrationForm.controls['phoneNumber'].invalid)}">
-                  <p class="error-field-message mt-1"
-                     *ngIf="registrationForm.controls['phoneNumber'].errors?.['required'] && (registrationForm.controls['phoneNumber'].dirty
+                <p class="error-field-message mt-1"
+                   *ngIf="registrationForm.controls['phoneNumber'].errors?.['required'] && (registrationForm.controls['phoneNumber'].dirty
                 || registrationForm.controls['phoneNumber'].touched && registrationForm.controls['phoneNumber'].invalid)">
-                    This field is mandatory
-                  </p>
-                </div>
-                <div class="mb-3">
-                  <label for="email">Email address</label>
-                  <input type="text" class="form-control" formControlName="email" id="email" placeholder="Email"
-                         [ngClass]="{'invalid-field' :registrationForm.controls['email'].errors?.['required'] && (registrationForm.controls['email'].dirty
+                  This field is mandatory
+                </p>
+              </div>
+              <div class="mb-3">
+                <label for="email">Email address</label>
+                <input type="text" class="form-control form-control-lg" formControlName="email" id="email"
+                       [ngClass]="{'invalid-field' :registrationForm.controls['email'].errors?.['required'] && (registrationForm.controls['email'].dirty
                 || registrationForm.controls['email'].touched && registrationForm.controls['email'].invalid)}">
-                  <p class="error-field-message mt-1"
-                     *ngIf="registrationForm.controls['email'].errors?.['required'] && (registrationForm.controls['email'].dirty
+                <p class="error-field-message mt-1"
+                   *ngIf="registrationForm.controls['email'].errors?.['required'] && (registrationForm.controls['email'].dirty
                 || registrationForm.controls['email'].touched && registrationForm.controls['email'].invalid)">
-                    This field is mandatory
-                  </p>
-                </div>
-                <div class="mb-3">
-                  <label for="password">Password</label>
-                  <input type="password" class="form-control" formControlName="password" id="password" placeholder="Password"
-                         [ngClass]="{'invalid-field' :registrationForm.controls['password'].errors?.['required'] && (registrationForm.controls['password'].dirty
+                  This field is mandatory
+                </p>
+              </div>
+              <div class="mb-3">
+                <label for="password">Password</label>
+                <input type="password" class="form-control form-control-lg" formControlName="password" id="password"
+                       [ngClass]="{'invalid-field' :registrationForm.controls['password'].errors?.['required'] && (registrationForm.controls['password'].dirty
                 || registrationForm.controls['password'].touched && registrationForm.controls['password'].invalid)}">
-                  <p class="error-field-message mt-1"
-                     *ngIf="registrationForm.controls['password'].errors?.['required'] && (registrationForm.controls['password'].dirty
+                <p class="error-field-message mt-1"
+                   *ngIf="registrationForm.controls['password'].errors?.['required'] && (registrationForm.controls['password'].dirty
                 || registrationForm.controls['password'].touched && registrationForm.controls['password'].invalid)">
-                    This field is mandatory
-                  </p>
-                </div>
-                <div class="mb-3">
-                  <label for="confirmPassword">Password</label>
-                  <input type="password" class="form-control" formControlName="confirmPassword" id="confirmPassword" placeholder="Confirmed password"
-                         [ngClass]="{'invalid-field' :registrationForm.controls['confirmPassword'].errors?.['required'] && (registrationForm.controls['confirmPassword'].dirty
+                  This field is mandatory
+                </p>
+              </div>
+              <div class="mb-3">
+                <label for="confirmPassword">Password</label>
+                <input type="password" class="form-control form-control-lg" formControlName="confirmPassword" id="confirmPassword"
+                       [ngClass]="{'invalid-field' :registrationForm.controls['confirmPassword'].errors?.['required'] && (registrationForm.controls['confirmPassword'].dirty
                 || registrationForm.controls['confirmPassword'].touched && registrationForm.controls['confirmPassword'].invalid)}">
-                  <p class="error-field-message mt-1"
-                     *ngIf="registrationForm.controls['confirmPassword'].errors?.['confirmPassword'] && (registrationForm.controls['confirmPassword'].dirty
+                <p class="error-field-message mt-1"
+                   *ngIf="registrationForm.controls['confirmPassword'].errors?.['confirmPassword'] && (registrationForm.controls['confirmPassword'].dirty
                 || registrationForm.controls['confirmPassword'].touched && registrationForm.controls['confirmPassword'].invalid)">
-                    This field is mandatory
-                  </p>
+                  This field is mandatory
+                </p>
+              </div>
+              <div class="mb-3">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="consentAgreement" formControlName="consentAgreement">
+                  <label class="form-check-label" for="consentAgreement">
+                    I agree that PropMate may store and process my data according to PropMate’s
+                    <a href="">Privacy Policy and Terms of Use.</a>  PropMate may contact me with news, offers
+                    and other information which may be of interest. I may revoke my consent at any
+                    time.*
+                  </label>
                 </div>
-                <div class="mb-3">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="consentAgreement" formControlName="consentAgreement">
-                    <label class="form-check-label" for="consentAgreement">
-                      I agree that PropMate may store and process my data according to PropMate’s
-                      <a href="">Privacy Policy and Terms of Use.</a>  PropMate may contact me with news, offers
-                      and other information which may be of interest. I may revoke my consent at any
-                      time.*
-                    </label>
-                  </div>
-                </div>
-                <button type="submit"
-                        class="btn btn-danger btn-full"
-                        [disabled]="registrationForm.invalid"
-                        (click)="onSubmit()"
-                >Create account</button>
-              </form>
-            </div>
+              </div>
+              <button type="submit"
+                      class="btn btn-primary btn-full btn-lg"
+                      [disabled]="registrationForm.invalid"
+                      (click)="onSubmit()"
+              >Create account</button>
+            </form>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="col-5 col-second">
+      <img src="../../../assets/images/Working-from-anywhere-bro.png" alt="lady on computer">
     </div>
   </div>
 </div>
