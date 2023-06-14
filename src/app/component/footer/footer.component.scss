@@ -1,0 +1,68 @@
+footer{
+  background: #fafafa;
+}
+.footer-brand{
+  font-weight: 500;
+  font-size: 24px;
+}
+.footer-header{
+  font-size: 16px;
+  font-weight: 500;
+}
+.footer-nav {
+  list-style-type: none;
+  padding-left: 0;
+}
+.footer-nav .footer-nav-item{
+  padding: 5px 0;
+}
+.footer-nav .footer-nav-item a{
+  text-decoration: none;
+  font-weight: 300;
+  font-size: 16px;
+  color: #262626;
+  text-transform: capitalize;
+}
+.footer-contact .phone-number{
+  font-size: 15px;
+  font-weight: 500;
+}
+.footer-contact .phone-number i{
+  padding-right: 5px;
+}
+.footer-contact .phone-number .feather{
+  height: 16px;
+  width: 16px;
+}
+.footer-contact .address-details span{
+  display: block;
+  font-weight: 300;
+  color: #262626;
+}
+.footer-nav-bottom{
+  flex-direction: row;
+  justify-content: space-between;
+}
+.footer-nav-bottom .footer-bottom-first span{
+  padding: 0 5px;
+  font-size: 12px;
+  font-weight: 300;
+  text-transform: capitalize;
+}
+.footer-nav-bottom .footer-bottom-first span a{
+  text-decoration: none;
+  color: black;
+  font-weight: 300;
+}
+.footer-nav-bottom .footer-bottom-second .feather{
+  width: 24px;
+  height: 24px;
+  padding: 0 5px;
+  margin: 0 3px;
+  background: lightgray;
+  border-radius: 50px;
+  color: #ffffff;
+}
+.footer-nav-bottom .footer-bottom-second i{
+
+}

@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import {Router} from "@angular/router";
+import {Constants} from "./common/Constants";
+
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'propmate-dashboard';
+  constructor(public router: Router) {
+  }
+
+  protected readonly Constants = Constants;
 }

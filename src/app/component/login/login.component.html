@@ -1,8 +1,8 @@
 <div class="wrapper">
   <div class="container">
     <div class="row">
-      <div class="col-4 offset-4 col-first">
-        <div class="card p-3 mb-3">
+      <div class="col-6 offset-3 col-first">
+        <div class="card px-3 py-5 mb-3">
           <div class="card-body">
             <form [formGroup]="loginForm">
               <div class="mb-3 text-center">
@@ -11,7 +11,7 @@
               </div>
               <div class="mb-3">
                 <label for="username">Username</label>
-                <input type="text" class="form-control" formControlName="username" id="username" placeholder="Username"
+                <input type="text" class="form-control form-control-lg" formControlName="username" id="username"
                        [ngClass]="{'invalid-field' :loginForm.controls['username'].errors?.['required'] && (loginForm.controls['username'].dirty
                 || loginForm.controls['username'].touched && loginForm.controls['username'].invalid)}">
                 <p class="error-field-message mt-1"
@@ -23,7 +23,7 @@
               </div>
               <div class="mb-3">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" formControlName="password" id="password" placeholder="Password"
+                <input type="password" class="form-control form-control-lg" formControlName="password" id="password"
                        [ngClass]="{'invalid-field' :loginForm.controls['password'].errors?.['required'] && (loginForm.controls['password'].dirty
                 || loginForm.controls['password'].touched && loginForm.controls['password'].invalid)}">
                 <p class="error-field-message mt-1"
@@ -46,7 +46,7 @@
                 </div>
               </div>
               <button type="submit"
-                      class="btn btn-danger btn-full"
+                      class="btn btn-primary btn-full btn-lg"
                       [disabled]="loginForm.invalid"
                       (click)="onSubmit()"
               >Log in</button>
@@ -54,7 +54,7 @@
           </div>
         </div>
         <div class="text-center create-account-link">
-            Not a client? <a href="">Create PropMate account</a>
+            Don't have an account yet? <a href="">Create account</a>
         </div>
       </div>
     </div>
