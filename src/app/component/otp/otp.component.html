@@ -1,0 +1,41 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-6 offset-3 col-first">
+        <div class="card p-3">
+          <div class="card-body">
+            <form [formGroup]="otpForm">
+              <div class="mb-3 text-center">
+                <h1 class="main-heading">OTP verification</h1>
+                <div class="sub-heading">Please enter the OTP sent to email*****. OTP will expire in <span>60</span></div>
+              </div>
+              <div class="mb-3">
+                <label for="otpCode">OTP verification code</label>
+                <input type="text" class="form-control" formControlName="otpCode" id="otpCode" placeholder="Enter OTP code"
+                       [ngClass]="{'invalid-field' :otpForm.controls['otpCode'].errors?.['required'] && (otpForm.controls['otpCode'].dirty
+                || otpForm.controls['otpCode'].touched && otpForm.controls['otpCode'].invalid)}">
+                <p class="error-field-message mt-1"
+                   *ngIf="otpForm.controls['otpCode'].errors?.['otpCode'] && (otpForm.controls['otpCode'].dirty
+                || otpForm.controls['otpCode'].touched && otpForm.controls['otpCode'].invalid)">
+                  This field is mandatory
+                </p>
+                <div></div>
+              </div>
+              <div class="mb-3 resend-otp-link text-center">
+                Did not receive OTP? <a href="">Send OTP</a>
+              </div>
+              <div class="d-flex flex-column align-items-end">
+                <button type="submit"
+                        class="btn btn-danger btn-full"
+                        [disabled]="otpForm.invalid"
+                        (click)="onSubmit()"
+                >Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
