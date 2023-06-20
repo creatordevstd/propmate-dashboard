@@ -18,6 +18,9 @@ import { OtpComponent } from './component/otp/otp.component';
 import { HeaderComponent } from './component/header/header.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { NavigationComponent } from './component/navigation/navigation.component';
+import { DashboardComponent } from './component/dashboard/dashboard.component';
+import {NgxEchartsModule} from "ngx-echarts";
+import {TruncatePipe} from "./common/pipes/truncate.pipe";
 
 @NgModule({
   declarations: [
@@ -27,7 +30,9 @@ import { NavigationComponent } from './component/navigation/navigation.component
     OtpComponent,
     HeaderComponent,
     FooterComponent,
-    NavigationComponent
+    NavigationComponent,
+    DashboardComponent,
+    TruncatePipe
   ],
   imports: [
     BrowserModule,
@@ -40,7 +45,10 @@ import { NavigationComponent } from './component/navigation/navigation.component
     NgbAccordionBody,
     NgbModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts')
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

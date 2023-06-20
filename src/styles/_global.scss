@@ -1,15 +1,55 @@
-.invalid-field{
-  border: 1px solid #ff0000;
-  background: #ffe5e5;
-}
-.error-field-message{
-  color: #ff0000;
-  font-size: 12px;
-}
 .main-heading{
   font-weight: 500;
   font-size: 32px;
 }
 .sub-heading, .form-check-label{
-  font-weight: 300;
+  font-weight: 400;
+}
+.card-title{
+  font-size: 14px;
+  font-weight: 500;
+  color: #000000;
+  text-transform: capitalize;
+}
+.card-text{
+  font-size: 13px;
+  font-weight: 400;
+  color: #525b75;
+}
+.badge-style{
+  //border-radius: 50px;
+  border-style: solid;
+  border-width: 1px;
+  padding: 2px 8px;
+  text-transform: uppercase;
+}
+.badge-success-bg{
+  background: #d9fbd0;
+  color: #53d633;
+  border-color:#53d633 ;
+}
+.badge-warning-bg{
+  background: #f8DDA8;
+  color: #d68839;
+  border-color: #d68839;
+}
+.badge-danger-bg{
+  background: #f7dad9;
+  color: #d63f3a;
+  border-color: #d63f3a;
+}
+.chart-total-value{
+  font-weight: 600;
+  color:  #000000;
+}
+.chart-size-small{
+  width: 100%;
+  height: 150px;
+}
+.chart-size-large{
+  width: 100%;
+  height: 400px;
+}
+.avatar{
+  max-width: 30%;
 }
