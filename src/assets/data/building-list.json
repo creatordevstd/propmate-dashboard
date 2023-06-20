@@ -1,0 +1,72 @@
+[
+  {
+    "name": "Building 1",
+    "address": "123 Main Street",
+    "number_of_units": 20,
+    "number_of_tenants": 18,
+    "average_monthly_rental_rate": 5000
+  },
+  {
+    "name": "Building 2",
+    "address": "456 Elm Avenue",
+    "number_of_units": 15,
+    "number_of_tenants": 12,
+    "average_monthly_rental_rate": 4500
+  },
+  {
+    "name": "Building 3",
+    "address": "789 Oak Road",
+    "number_of_units": 10,
+    "number_of_tenants": 8,
+    "average_monthly_rental_rate": 6000
+  },
+  {
+    "name": "Building 4",
+    "address": "321 Pine Lane",
+    "number_of_units": 12,
+    "number_of_tenants": 10,
+    "average_monthly_rental_rate": 5500
+  },
+  {
+    "name": "Building 5",
+    "address": "654 Cedar Court",
+    "number_of_units": 18,
+    "number_of_tenants": 16,
+    "average_monthly_rental_rate": 4800
+  },
+  {
+    "name": "Building 6",
+    "address": "987 Maple Street",
+    "number_of_units": 8,
+    "number_of_tenants": 6,
+    "average_monthly_rental_rate": 5200
+  },
+  {
+    "name": "Building 7",
+    "address": "135 Birch Avenue",
+    "number_of_units": 16,
+    "number_of_tenants": 14,
+    "average_monthly_rental_rate": 4700
+  },
+  {
+    "name": "Building 8",
+    "address": "246 Walnut Road",
+    "number_of_units": 14,
+    "number_of_tenants": 12,
+    "average_monthly_rental_rate": 5100
+  },
+  {
+    "name": "Building 9",
+    "address": "579 Sycamore Lane",
+    "number_of_units": 11,
+    "number_of_tenants": 9,
+    "average_monthly_rental_rate": 5900
+  },
+  {
+    "name": "Building 10",
+    "address": "768 Pine Court",
+    "number_of_units": 9,
+    "number_of_tenants": 7,
+    "average_monthly_rental_rate": 5300
+  }
+]
