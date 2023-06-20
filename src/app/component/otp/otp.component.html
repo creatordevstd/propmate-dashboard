@@ -9,13 +9,14 @@
                 <h1 class="main-heading">OTP verification</h1>
                 <div class="sub-heading">Please enter the OTP sent to email*****. OTP will expire in <span>60</span></div>
               </div>
-              <div class="mb-3">
-                <label for="otpCode">OTP verification code</label>
-                <input type="text" class="form-control form-control-lg" formControlName="otpCode" id="otpCode"
-                       [ngClass]="{'invalid-field' :otpForm.controls['otpCode'].errors?.['required'] && (otpForm.controls['otpCode'].dirty
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control form-control-lg" formControlName="otpCode" id="otpCode" placeholder="OTP verification code"
+                       [ngClass]="{'is-invalid' :otpForm.controls['otpCode'].errors?.['required'] && (otpForm.controls['otpCode'].dirty
                 || otpForm.controls['otpCode'].touched && otpForm.controls['otpCode'].invalid)}">
-                <p class="error-field-message mt-1"
-                   *ngIf="otpForm.controls['otpCode'].errors?.['otpCode'] && (otpForm.controls['otpCode'].dirty
+                <label for="otpCode">OTP verification code</label>
+
+                <p class="invalid-feedback mt-1"
+                   *ngIf="otpForm.controls['otpCode'].errors?.['required'] && (otpForm.controls['otpCode'].dirty
                 || otpForm.controls['otpCode'].touched && otpForm.controls['otpCode'].invalid)">
                   This field is mandatory
                 </p>

@@ -1,0 +1,53 @@
+.revenue-card-col{
+  flex-direction: column;
+  align-self: center;
+}
+.building-image img{
+  width: 75px;
+  border-radius: 4px;
+}
+.building-name{
+  font-size: 13px;
+  font-weight: 600;
+  color: #000000;
+}
+.building-address{
+  font-size: 12px;
+  font-weight: 400;
+  color: #525b75
+}
+.feather{
+  width: 12px;
+  height: 12px;
+}
+.tenants-number{
+  font-size: 12px;
+}
+.view-all-link,
+.view-all-link:active,
+.view-all-link:hover,
+{
+  text-decoration: underline;
+  text-decoration-color: #000000;
+  font-size: 13px;
+  font-weight: 300;
+  color: #000000;
+}
+.reporter-profile{
+  width: 75px;
+  height: 75px;
+  //max-width: 10%;
+  border-radius: 50px;
+}
+.reporter-name{
+  font-size: 13px;
+  font-weight: 600;
+}
+.btn-issue-type{
+  font-size: 10px;
+}
+.issue-description,
+.issue-reported-time{
+  font-size: 13px;
+}
+
