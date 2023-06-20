@@ -9,7 +9,7 @@
       <div class="nav-item navbar-right-profile d-flex flex-row align-items-center justify-content-end">
         <i data-feather="message-square"></i>
         <i data-feather="bell" class="mx-3"></i>
-        <img src="../../../assets/images/avatar.jpg" alt="" class="avatar">
+        <img src="../../../assets/images/avatar-5.png" alt="" class="avatar">
       </div>
     </div>
   </header>
@@ -82,8 +82,8 @@
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
             <div class="heading">
-              <h1 class="main-heading">Hello, Matthew</h1>
-              <div class="sub-heading">Here's your dashboard for today.</div>
+              <h1 class="main-heading">{{title}}</h1>
+              <div class="sub-heading">{{subTitle}}</div>
             </div>
             <div class="btn-toolbar mb-2 mb-md-0">
               <div class="btn-group me-2">
@@ -96,8 +96,10 @@
               </button>
             </div>
           </div>
-          <div class="load-component">
-            <!--        load component here-->
+          <div class="load-component py-5">
+            <div *ngIf="router.url === '/'.concat(Constants.DASHBOARD_ROUTE)">
+              <app-dashboard ></app-dashboard>
+            </div>
           </div>
         </main>
       </div>

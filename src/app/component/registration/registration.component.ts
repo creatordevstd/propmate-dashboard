@@ -10,7 +10,7 @@ import {NgbAccordionItem} from "@ng-bootstrap/ng-bootstrap";
 export class RegistrationComponent implements OnInit{
 
   registrationForm = new FormGroup({
-    applicationType: new FormControl(null),
+    applicationType: new FormControl(null, [Validators.required]),
     firstName: new FormControl('', [Validators.required]),
     lastName: new FormControl('', [Validators.required]),
     phoneNumber: new FormControl('', [Validators.required]),

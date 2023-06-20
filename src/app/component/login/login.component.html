@@ -9,24 +9,26 @@
                 <h1 class="main-heading">PropMate login</h1>
                 <div class="sub-heading">Welcome back! Please enter your details</div>
               </div>
-              <div class="mb-3">
-                <label for="username">Username</label>
-                <input type="text" class="form-control form-control-lg" formControlName="username" id="username"
-                       [ngClass]="{'invalid-field' :loginForm.controls['username'].errors?.['required'] && (loginForm.controls['username'].dirty
+              <div class="mb-3 form-floating">
+                <input type="text" class="form-control" formControlName="username" id="username" placeholder="Username"
+                       [ngClass]="{'is-invalid' :loginForm.controls['username'].errors?.['required'] && (loginForm.controls['username'].dirty
                 || loginForm.controls['username'].touched && loginForm.controls['username'].invalid)}">
-                <p class="error-field-message mt-1"
+                <label for="username">Username</label>
+
+                <p class="invalid-feedback mt-1"
                    *ngIf="loginForm.controls['username'].errors?.['required'] && (loginForm.controls['username'].dirty
                 || loginForm.controls['username'].touched && loginForm.controls['username'].invalid)">
                   This field is mandatory
                 </p>
                 <div></div>
               </div>
-              <div class="mb-3">
-                <label for="password">Password</label>
-                <input type="password" class="form-control form-control-lg" formControlName="password" id="password"
-                       [ngClass]="{'invalid-field' :loginForm.controls['password'].errors?.['required'] && (loginForm.controls['password'].dirty
+              <div class="mb-3 form-floating">
+                <input type="password" class="form-control" formControlName="password" id="password" placeholder="Password"
+                       [ngClass]="{'is-invalid' :loginForm.controls['password'].errors?.['required'] && (loginForm.controls['password'].dirty
                 || loginForm.controls['password'].touched && loginForm.controls['password'].invalid)}">
-                <p class="error-field-message mt-1"
+                <label for="password">Password</label>
+
+                <p class="invalid-feedback mt-1"
                    *ngIf="loginForm.controls['password'].errors?.['required'] && (loginForm.controls['password'].dirty
                 || loginForm.controls['password'].touched && loginForm.controls['password'].invalid)">
                   This field is mandatory

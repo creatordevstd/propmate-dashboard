@@ -1,0 +1,275 @@
+<div class="row mb-3">
+  <div class="col-6">
+    <div class="card bg-transparent border-0">
+      <div class="card-body">
+        <div class="d-flex justify-content-between">
+          <div>
+            <div class="card-title mb-0">
+              Account Overview
+              <span class="badge badge-style rounded-pill badge-danger-bg ms-2"> -5%</span>
+            </div>
+            <div class="card-text">Show overview Jan 1, 2021 - Dec 31, 2021 </div>
+          </div>
+          <div>
+            <div class="dropdown">
+              <button class="btn btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+               Jan 1 - Dec 31, 2021
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">2020</a></li>
+                <li><a class="dropdown-item" href="#">2021</a></li>
+                <li><a class="dropdown-item" href="#">2022</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-8 mb-3">
+            <div echarts [options]="chartOptionRevenue" class="account-chart"></div>
+          </div>
+          <div class="col-4  revenue-card-col d-flex">
+            <div class="card  mb-3 h-100">
+              <div class="card-body">
+                <div class="card-title">Current Net Rental</div>
+                <div class="card-text">
+                  <span class="currency-symbol me-1">R</span>
+                  <span class="amount">8,765.92</span>
+                 </div>
+              </div>
+            </div>
+            <div class="card mb-3">
+              <div class="card-body">
+                <div class="card-title">Total Rental Income</div>
+                <div class="card-text">
+                  <span class="currency-symbol me-1">R</span>
+                  <span class="amount">92,871.62</span>
+                </div>
+              </div>
+            </div>
+            <div class="card mb-3">
+              <div class="card-body">
+                <div class="card-title">Total Rental Revenue</div>
+                <div class="card-text">
+                  <span class="currency-symbol me-1">R</span>
+                  <span class="amount">115,249.35</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-6 mb-3">
+    <div class="row">
+      <div class="col-6 mb-3">
+        <div class="card bg-white  h-100">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <div>
+                <div class="card-title mb-0">
+                  Unit Inspection
+                  <span class="badge badge-style rounded-pill badge-warning-bg ms-2"> </span>
+                </div>
+                <div class="card-text">Last 7 days</div>
+              </div>
+              <h5 class="chart-total-value">
+                10
+              </h5>
+            </div>
+            <div echarts [options]="chartOptionUnitInspection" class="unit-inspection-chart chart-size-small"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 mb-3">
+        <div class="card bg-white h-100">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <div>
+                <div class="card-title mb-0">
+                  Total Landlords
+                  <span class="badge badge-style rounded-pill badge-warning-bg ms-2"> +10%</span>
+                </div>
+                <div class="card-text">Last 30 days</div>
+              </div>
+              <h5 class="chart-total-value">
+                246
+              </h5>
+            </div>
+            <div echarts [options]="chartOptionLandlords" class="landlord-chart chart-size-small"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 mb-3">
+        <div class="card bg-white h-100">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <div>
+                <div class="card-title mb-0">
+                  New Tenants
+                  <span class="badge badge-style rounded-pill badge-success-bg ms-2"> +15%</span>
+                </div>
+                <div class="card-text">Last 30 days</div>
+              </div>
+              <h5 class="chart-total-value">
+                73
+              </h5>
+            </div>
+            <div echarts [options]="chartOptionTenants" class="tenant-chart chart-size-small"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 mb-3">
+        <div class="card bg-white h-100">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <div>
+                <div class="card-title mb-0">
+                  Building managed
+                  <span class="badge badge-style rounded-pill badge-warning-bg ms-2"> </span>
+                </div>
+                <div class="card-text"></div>
+              </div>
+            </div>
+            <div echarts [options]="chartOptionUnitInspection" class="unit-inspection-chart chart-size-small"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-3">
+    <div class="card bg-white mb-3 h-100">
+      <div class="card-body">
+        <div class="d-flex justify-content-between mb-4">
+          <div>
+            <div class="card-title mb-0">
+              Building Listing
+              <span class="badge badge-style rounded-pill badge-warning-bg ms-2"> </span>
+            </div>
+            <div class="card-text">
+              List of properties
+            </div>
+          </div>
+          <div>
+            <a href="" class="view-all-link">View all buildings</a>
+          </div>
+        </div>
+        <div class=" mb-3 border-bottom pb-2" *ngFor="let building of buildingList; index as i"
+        [ngClass]="{'border-bottom pb-2': i < 2}">
+          <div class="d-flex" *ngIf="i <3">
+            <div class="building-image me-3">
+              <img src="{{building.image}}" alt="" class="img-fluid">
+            </div>
+            <div class="building-details d-flex flex-column justify-content-between">
+              <div>
+                <h5 class="building-name mb-0">{{building.name}}</h5>
+                <div class="building-address">{{building.address}}</div>
+              </div>
+              <div>
+                <div class="d-flex flex-row">
+                  <div>
+                    <i data-feather="users" class="me-1"></i>
+                    <span class="tenants-number" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Number of tenants">{{building.number_of_tenants}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="building-image me-3 d-none">
+            <img src="{{Constants.BUILDING_LISTING[0].image}}" alt="" class="img-fluid">
+          </div>
+          <div class="building-details d-flex flex-column justify-content-between d-none">
+            <div>
+              <h5 class="building-name mb-0">{{Constants.BUILDING_LISTING[0].name}}</h5>
+              <div class="building-address">{{Constants.BUILDING_LISTING[0].address}}</div>
+            </div>
+            <div>
+              <div class="d-flex flex-row">
+                <div>
+                  <i data-feather="users" class="me-1"></i>
+                  <span class="tenants-number" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Number of tenants">{{Constants.BUILDING_LISTING[0].number_of_tenants}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-3">
+    <div class="card bg-white mb-3 h-100">
+      <div class="card-body">
+        <div class="d-flex justify-content-between">
+          <div>
+            <div class="card-title mb-0">
+              Expiring leases
+              <span class="badge badge-style rounded-pill badge-warning-bg ms-2"> </span>
+            </div>
+            <div class="card-text">
+              Next 60 days
+            </div>
+          </div>
+        </div>
+        <div echarts [options]="chartOptionExpiringLease" class="expiring-lease-chart"></div>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card bg-white mb-3 h-100">
+      <div class="card-body">
+        <div class="d-flex justify-content-between mb-4">
+          <div>
+            <div class="card-title mb-0">
+              Maintenance Requests
+              <span class="badge badge-style rounded-pill badge-warning-bg ms-2"> </span>
+            </div>
+            <div class="card-text">
+             Incoming request
+            </div>
+          </div>
+          <div>
+            <a href="" class="view-all-link">View details</a>
+          </div>
+        </div>
+       <table class="table table responsive">
+         <thead>
+         <tr>
+           <th>Reporter</th>
+           <th>Issue</th>
+           <th>Time</th>
+           <th>Action</th>
+         </tr>
+         </thead>
+         <tbody>
+          <tr *ngFor="let maintenanceList of maintenanceRequestListing; index as i">
+            <ng-container *ngIf="i < 4">
+              <td class="reporter-details">
+                <img src="{{maintenanceList.img}}" alt="" class="image-fluid avatar me-3 d-inline-block">
+                <div class="d-inline-block">
+                  <div class="reporter-name">
+                    {{maintenanceList.fullName}}
+                  </div>
+                  <button class="btn btn-primary btn-sm btn-issue-type">{{maintenanceList.type}}</button>
+                </div>
+              </td>
+              <td class="issue">
+                <div class="issue-description">
+                  {{maintenanceList.description | truncate: 70}}
+                </div>
+              </td>
+              <td class="time">
+                <div class="issue-reported-time">{{maintenanceList.daysAgo.toString().concat(' ago')}}</div>
+              </td>
+              <td class="action">
+                <i data-feather="more-vertical"></i>
+              </td>
+            </ng-container>
+         </tr>
+         </tbody>
+       </table>
+      </div>
+    </div>
+  </div>
+</div>
