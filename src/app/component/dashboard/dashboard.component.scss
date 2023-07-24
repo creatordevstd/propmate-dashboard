@@ -1,53 +1,110 @@
-.revenue-card-col{
-  flex-direction: column;
-  align-self: center;
-}
-.building-image img{
-  width: 75px;
-  border-radius: 4px;
-}
-.building-name{
-  font-size: 13px;
-  font-weight: 600;
-  color: #000000;
-}
-.building-address{
-  font-size: 12px;
-  font-weight: 400;
-  color: #525b75
-}
-.feather{
-  width: 12px;
-  height: 12px;
-}
-.tenants-number{
-  font-size: 12px;
-}
-.view-all-link,
-.view-all-link:active,
-.view-all-link:hover,
-{
-  text-decoration: underline;
-  text-decoration-color: #000000;
-  font-size: 13px;
-  font-weight: 300;
-  color: #000000;
-}
-.reporter-profile{
-  width: 75px;
-  height: 75px;
-  //max-width: 10%;
-  border-radius: 50px;
-}
-.reporter-name{
-  font-size: 13px;
-  font-weight: 600;
-}
-.btn-issue-type{
-  font-size: 10px;
-}
-.issue-description,
-.issue-reported-time{
-  font-size: 13px;
+header.navbar{
+  border-bottom: 1px solid #e1e1e1;
 }
 
+.sidebar {
+  position: fixed;
+  top: 0;
+  /* rtl:raw:
+  right: 0;
+  */
+  bottom: 0;
+  /* rtl:remove */
+  left: 0;
+  z-index: 100; /* Behind the navbar */
+  padding: 48px 0 0; /* Height of navbar */
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+@media (max-width: 767.98px) {
+  .sidebar {
+    top: 5rem;
+  }
+}
+
+.sidebar-sticky {
+  position: relative;
+  top: 0;
+  height: calc(100vh - 48px);
+  padding-top: .5rem;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+.sidebar .nav-item{
+  margin: 5px 0;
+  font-size: 14px;
+}
+.sidebar .nav-link {
+  font-weight: 400;
+  color: #333;
+  font-size: 14px;
+}
+
+.sidebar .nav-link.active {
+  color: #377dff;
+}
+
+.sidebar .nav-link:hover .feather,
+.sidebar .nav-link.active .feather {
+  color: inherit;
+}
+
+.sidebar-heading {
+  font-size: .75rem;
+  text-transform: uppercase;
+}
+
+/*
+ * Navbar
+ */
+
+.navbar-brand {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  font-size: 24px;
+}
+
+.navbar .navbar-toggler {
+  top: .25rem;
+  right: 1rem;
+}
+
+.navbar .form-control {
+  padding: .75rem 1rem;
+  border-width: 0;
+  border-radius: 0;
+}
+
+.form-control-dark {
+  color: #fff;
+  background-color: rgba(255, 255, 255, .1);
+  border-color: rgba(255, 255, 255, .1);
+}
+
+.form-control-dark:focus {
+  border-color: transparent;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
+}
+
+.main-content-wrapper{
+  background: #FFffff;
+  height: auto;
+}
+
+.dropdown-toggle::after{
+  display: none;
+}
+#collapseAccountMenu,
+#collapseUserMenu{
+  margin-left: 40px;
+  border-left: 2px solid #EFF0F6;
+}
+#collapseAccountMenu a, #collapseUserMenu a{
+  font-size: 14px;
+  margin: 0 15px;
+}
+#collapseAccountMenu a:hover,
+#collapseUserMenu a:hover{
+  background: #F2F3F6;
+  border-radius: 4px;
+}

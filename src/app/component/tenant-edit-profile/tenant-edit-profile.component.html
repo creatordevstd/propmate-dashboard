@@ -1,0 +1,267 @@
+<div class="row">
+  <div class="col-3">
+    <div class="card">
+      <div class="card-body">
+        <nav id="navbar-side" class="h-100 flex-column align-items-stretch pe-4">
+          <nav class="nav nav-pills flex-column">
+            <a class="nav-link" href="#personalInformation">Personal Information</a>
+            <a class="nav-link" href="#emailSection">Email</a>
+            <a class="nav-link" href="#changePasswordSection">Change Password</a>
+            <a class="nav-link" href="#verificationMethodSection">Verification Method</a>
+            <a class="nav-link" href="#documentUploadSection">Document Upload</a>
+          </nav>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <div class="col-9">
+    <div class="profile">
+
+    </div>
+    <div data-bs-spy="scroll" data-bs-target="#navbar-side" data-bs-smooth-scroll="true" class="scrollspy-example-2" tabindex="0">
+      <div class="personal-information mb-3" id="personalInformation">
+        <div class="card">
+          <div class="card-header bg-transparent">
+            Personal information
+          </div>
+          <div class="card-body">
+            <form [formGroup]="tenantEditProfileForm">
+              <div class="row mb-3">
+                <label for="firstName" class="col-sm-2 col-form-label">First name</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" formControlName="firstName" id="firstName" placeholder="First name">
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label for="lastName" class="col-sm-2 col-form-label">Last name</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" formControlName="lastName" id="lastName" placeholder="Last name">
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label for="email" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                  <input type="email" class="form-control" formControlName="email" id="email" placeholder="Email">
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label for="phoneNumber" class="col-sm-2 col-form-label">Phone number</label>
+                <div class="col-sm-10">
+                  <input type="number" class="form-control" formControlName="phoneNumber" id="phoneNumber" placeholder="Phone number">
+                </div>
+              </div>
+              <div class="row">
+                <label for="gender" class="col-sm-2 col-form-label">Gender</label>
+                <div class="col-sm-10">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gender" id="gender" value="male">
+                    <label class="form-check-label" for="gender">
+                      Male
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gender" id="gender" value="female">
+                    <label class="form-check-label" for="gender">
+                      Female
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="d-flex justify-content-end">
+                  <button class="btn btn-lg btn-primary">Save changes</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="new-email-section mb-3" id="emailSection">
+        <div class="card">
+          <div class="card-header bg-transparent">
+            Email
+          </div>
+          <div class="card-body">
+            <div class="mb-3">Your current email address is </div>
+            <div class="row mb-3">
+              <label for="email" class="col-sm-2 col-form-label">New email address</label>
+              <div class="col-sm-10">
+                <input type="email" class="form-control" formControlName="newEmail" id="newEmail" placeholder="Enter new email address">
+              </div>
+            </div>
+            <div class="row">
+              <div class="d-flex  justify-content-end">
+                <button class="btn btn-lg btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="change-password-section mb-3" id="changePasswordSection">
+        <div class="card">
+          <div class="card-header bg-transparent">
+            Change Password
+          </div>
+          <div class="card-body">
+            <div class="alert alert-bg mb-5" role="alert">
+              <div class="alert-requirement-title mb-1">Ensure that these requirements are met:</div>
+              <ul>
+                <li>Minimum 8 characters long - the more, the better</li>
+                <li>At least one lowercase character</li>
+                <li>At least one uppercase character</li>
+                <li>At least one number or symbol</li>
+              </ul>
+            </div>
+            <div class="row mb-3">
+              <label for="currentPassword" class="col-sm-2 col-form-label">Current password</label>
+              <div class="col-sm-10">
+                <input type="password" class="form-control" formControlName="currentPassword" id="currentPassword" placeholder="Enter current password">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="newPassword" class="col-sm-2 col-form-label">New password</label>
+              <div class="col-sm-10">
+                <input type="password" class="form-control" formControlName="newPassword" id="newPassword" placeholder="Enter new password">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="confirmPassword" class="col-sm-2 col-form-label">Confirm new password</label>
+              <div class="col-sm-10">
+                <input type="password" class="form-control" formControlName="confirmPassword" id="confirmPassword" placeholder="Confirm your new password">
+              </div>
+            </div>
+            <div class="row">
+              <div class="d-flex justify-content-end">
+                <button class="btn btn-lg btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="verification-method-section mb-3" id="verificationMethodSection">
+        <div class="card">
+          <div class="card-header bg-transparent">
+            Communication Preferences
+          </div>
+          <div class="card-body">
+            <div class="row mb-3">
+              <label for="communicationPrefence" class="col-sm-2 col-form-label">Select communication method</label>
+              <div class="col-sm-10">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="sms" id="communicationPrefence" formControlName="communicationPrefence">
+                  <label class="form-check-label" for="communicationPrefence">
+                    SMS
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="email" id="flexCheckChecked" >
+                  <label class="form-check-label" for="communicationPrefence">
+                    Email
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex  justify-content-end">
+              <button class="btn btn-lg btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="document-upload mb-3" id="documentUploadSection">
+        <div class="card">
+          <div class="card-header bg-transparent">
+            Document Upload
+          </div>
+          <div class="card-body">
+            <div class="alert alert-bg mb-3" role="alert">
+              <div class="alert-requirement-title mb-1">Upload requirements:</div>
+              <ul>
+                <li>Must be of the following formats: PDF, JPG, JPEG or PNG.</li>
+                <li>Must not be empty, password protected or encrypted.</li>
+                <li>May not be more than 2MB per upload.</li>
+                <li>Document name should not include special characters other than '-'.</li>
+              </ul>
+            </div>
+            <div class="mb-3">
+              <div class="accordion" id="accordionProofOfAddress">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#proofOfAddress" aria-expanded="true" aria-controls="proofOfAddress">
+                      Proof of Address
+                    </button>
+                  </h2>
+                  <div id="proofOfAddress" class="accordion-collapse collapse show" data-bs-parent="#accordionProofOfAddress">
+                    <div class="accordion-body">
+                      <div class="row mb-3">
+                        <label for="bankStatementId" class="col-form-label col-sm-2 ">Bank statement</label>
+                        <div class="col-sm-10">
+                          <input class="form-control" type="file" id="bankStatementId">
+                          <small>Bank statements must not be older than 3 months.</small>
+                        </div>
+                      </div>
+                      <div class="row mb-3">
+                        <label for="utilityBillId" class="col-form-label col-sm-2">Utility Bill (Water or electricity) </label>
+                        <div class="col-sm-10">
+                          <input class="form-control" type="file" id="utilityBillId">
+                        </div>
+                      </div>
+                      <div class="mb-3">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <div class="accordion" id="accordionPaySlip">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#paySlip" aria-expanded="true" aria-controls="paySlip">
+                      Payslip
+                    </button>
+                  </h2>
+                  <div id="paySlip" class="accordion-collapse collapse show" data-bs-parent="#accordionPaySlip">
+                    <div class="accordion-body">
+                      <div class="row mb-3">
+                        <label for="accordionPaySlip" class="col-form-label col-sm-2">Payslip</label>
+                        <div class="col-sm-10">
+                          <input class="form-control" type="file" id="accordionPaySlip">
+                          <small>Payslip must not be older than 3 months</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <div class="accordion" id="accordionLeaseAgreement">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#leaseAgreement" aria-expanded="true" aria-controls="leaseAgreement">
+                      Lease Agreement
+                    </button>
+                  </h2>
+                  <div id="leaseAgreement" class="accordion-collapse collapse show" data-bs-parent="#accordionLeaseAgreement">
+                    <div class="accordion-body">
+                      <div class="row">
+                        <label for="leaseAgreement" class="col-form-label col-sm-2">Upload Lease Agreement</label>
+                        <div class="col-sm-10">
+                          <input class="form-control" type="file" id="leaseAgreement">
+                          <small>Complete and sign the lease agreement. <a href="#" class="lease-agreement-link">Click here to download</a>.</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex  justify-content-end">
+              <button class="btn btn-lg btn-primary">Upload documents</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

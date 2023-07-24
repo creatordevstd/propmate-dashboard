@@ -17,10 +17,15 @@ import { RegistrationComponent } from './component/registration/registration.com
 import { OtpComponent } from './component/otp/otp.component';
 import { HeaderComponent } from './component/header/header.component';
 import { FooterComponent } from './component/footer/footer.component';
-import { NavigationComponent } from './component/navigation/navigation.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import {NgxEchartsModule} from "ngx-echarts";
 import {TruncatePipe} from "./common/pipes/truncate.pipe";
+import { BuildingListComponent } from './component/building-list/building-list.component';
+import { DashboardOverviewComponent } from './component/dashboard-overview/dashboard-overview.component';
+import {CountdownComponent} from "ngx-countdown";
+import { BuildingDetailsComponent } from './component/building-details/building-details.component';
+import { TenantProfileComponent } from './component/tenant-profile/tenant-profile.component';
+import { TenantEditProfileComponent } from './component/tenant-edit-profile/tenant-edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -30,26 +35,31 @@ import {TruncatePipe} from "./common/pipes/truncate.pipe";
     OtpComponent,
     HeaderComponent,
     FooterComponent,
-    NavigationComponent,
     DashboardComponent,
-    TruncatePipe
+    TruncatePipe,
+    BuildingListComponent,
+    DashboardOverviewComponent,
+    BuildingDetailsComponent,
+    TenantProfileComponent,
+    TenantEditProfileComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    NgbAccordionItem,
-    NgbAccordionHeader,
-    NgbAccordionButton,
-    NgbAccordionDirective,
-    NgbAccordionCollapse,
-    NgbAccordionBody,
-    NgbModule,
-    ReactiveFormsModule,
-    FormsModule,
-    NgxEchartsModule.forRoot({
-      echarts: () => import('echarts')
-    }),
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        NgbAccordionItem,
+        NgbAccordionHeader,
+        NgbAccordionButton,
+        NgbAccordionDirective,
+        NgbAccordionCollapse,
+        NgbAccordionBody,
+        NgbModule,
+        ReactiveFormsModule,
+        FormsModule,
+        NgxEchartsModule.forRoot({
+            echarts: () => import('echarts')
+        }),
+        CountdownComponent,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

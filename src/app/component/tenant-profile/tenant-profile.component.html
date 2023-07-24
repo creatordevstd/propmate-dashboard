@@ -1,0 +1,328 @@
+<div class="row">
+  <div class="col-3">
+    <div class="card mb-3">
+      <div class="card-body ">
+        <ng-container *ngFor="let tenant of filterTenant">
+          <div class="profile-img mb-3 d-flex flex-row justify-content-center">
+            <img src="{{tenant.img}}" alt="" class="img-fluid" width="95">
+          </div>
+          <div class="full-name-verification d-flex flex-row justify-content-center mb-3">
+            {{tenant.name}}
+            <span *ngIf="tenant.isVerified == 'true'">
+               <i class="bi bi-patch-check-fill ms-2"></i>
+            </span>
+          </div>
+          <div class="d-flex flex-row justify-content-center tenant-details">
+            <div class="user-id me-3">
+              <i class="bi bi-person-vcard"></i> ID: {{tenant.id}}
+            </div>
+            <div class="joined-date">
+              <i class="bi bi-calendar2-week me-1"></i> Joined {{tenant.joinedDate}}
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <div class="card mb-3">
+      <div class="card-header bg-transparent">Profile</div>
+      <div class="card-body">
+        <ng-container *ngFor="let tenant of filterTenant">
+          <div class="about-section mb-3">
+            <div class="heading mb-1">About</div>
+            <div class="details">
+              <div class="mb-1 about-name">
+                <i class="bi bi-person me-1"></i>
+                {{tenant.name}}
+              </div>
+              <div class="mb-1 about-occupation">
+                <i class="bi bi-briefcase me-1"></i>
+                {{tenant.occupation}}
+              </div>
+            </div>
+          </div>
+          <div class="contact-section">
+            <div class="heading mb-1">Contact</div>
+            <div class="details">
+              <div class="mb-1 email-contact">
+                <i class="bi bi-envelope-at me-1"></i> {{tenant.email}}
+              </div>
+              <div class="mb-1 phone-contact">
+                <i class="bi bi-phone me-1"></i> {{tenant.phoneNumber}}
+              </div>
+            </div>
+          </div>
+        </ng-container>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-9">
+    <div class="card mb-3">
+      <div class="card-header bg-transparent">
+        Lease details
+      </div>
+      <div class="card-body">
+        <div class="card mb-3 property-details">
+          <div class="card-body">
+            <div class="card-heading-title-main mb-3">Overview</div>
+            <div class="d-flex justify-content-between flex-wrap flex-row">
+              <div class="lease-overview-content">
+                <div class="card-heading-title-sub">
+                  <div class="property-name">The View</div>
+                  <div class="unit-number">Unit no.3</div>
+                </div>
+              </div>
+              <div class="lease-overview-content text-center">
+                <img src="../../../assets/icons/001-bathroom.png" alt="" class="img-fluid" width="24">
+                <div class="card-heading-title-sub">3 Bedrooms</div>
+              </div>
+              <div class="lease-overview-content text-center">
+                <img src="../../../assets/icons/single-bed.png" alt="" class="img-fluid" width="24">
+                <div class="card-heading-title-sub">3 Bedrooms</div>
+              </div>
+              <div class="lease-overview-content text-center">
+                <img src="../../../assets/icons/006-garage.png" alt="" class="img-fluid" width="24">
+                <div class="card-heading-title-sub">2 Parking lots</div>
+              </div>
+              <div class="lease-overview-content text-center">
+                <img src="../../../assets/icons/005-blueprint.png" alt="" class="img-fluid" width="24">
+                <div class="card-heading-title-sub">12ft square</div>
+              </div>
+            </div>
+            <hr>
+            <div class="card-heading-title-main mb-3">Address</div>
+            <div class="d-flex justify-content-between flex-wrap flex-row">
+              <div class="lease-address-content">
+                <span class="me-1 card-heading-title-sub">Address:</span>
+                <span class="card-description-text">234 Blvd Street Pretoria</span>
+              </div>
+              <div class="lease-address-content">
+                <span class="me-1 card-heading-title-sub">City:</span>
+                <span class="card-description-text">Pretoria</span>
+              </div>
+              <div class="lease-address-content">
+                <span class="me-1 card-heading-title-sub">Province:</span>
+                <span class="card-description-text">Pretoria</span>
+              </div>
+              <div class="lease-address-content">
+                <span class="me-1 card-heading-title-sub">Zip code:</span>
+                <span class="card-description-text">20 January, 2023</span>
+              </div>
+            </div>
+            <hr>
+            <div class="card-heading-title-main mb-3">Details</div>
+            <div class="d-flex  flex-wrap flex-row">
+              <div class="lease-detail-content">
+                <span class="me-1 card-heading-title-sub">Lease Start Date:</span>
+                <span class="card-description-text">20 January, 2023</span>
+              </div>
+              <div class="lease-detail-content">
+                <span class="me-1 card-heading-title-sub">Lease End Date:</span>
+                <span class="card-description-text">19 January, 2024</span>
+              </div>
+              <div class="lease-detail-content">
+                <span class="me-1 card-heading-title-sub">Lease Duration:</span>
+                <span class="card-description-text">12 months</span>
+              </div>
+              <div class="lease-detail-content">
+                <span class="me-1 card-heading-title-sub">Notice period:</span>
+                <span class="card-description-text">n/a</span>
+              </div>
+              <div class="lease-detail-content">
+                <span class="me-1 card-heading-title-sub">Monthly Rental:</span>
+                <span class="card-description-text">n/a</span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3">
+      <div class="card-header bg-transparent">
+        Accounting
+      </div>
+      <div class="card-body">
+        <div class="card">
+          <div class="card-body">
+            <table class="table table-responsive">
+              <thead>
+              <tr>
+                <th>Tenant Balance</th>
+                <th class="text-end">
+                  <button class="btn btn-sm btn-primary">View Details</button>
+                </th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td class="balance-name">Opening Balance</td>
+                <td class="balance-amount">
+                  0.00
+                </td>
+              </tr>
+              <tr>
+                <td class="balance-name">Invoiced (Invoices, debit & credit notes)</td>
+                <td class="balance-amount">
+                  32,384.00
+                </td>
+              </tr>
+              <tr>
+                <td class="balance-name">Amount paid</td>
+                <td class="balance-amount">
+                  11,500.00
+                </td>
+              </tr>
+              </tbody>
+              <tfoot class="table-light">
+              <tr>
+                <td class="balance-name">Closing Balance (due)</td>
+                <td class="balance-amount">
+                  -20,884.00
+                </td>
+              </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3">
+      <div class="card-header bg-transparent">
+        Documents
+      </div>
+      <div class="card-body">
+        <div class="mb-3">
+          <div class="document-heading-main">Uploaded documents</div>
+          <div class="document-heading-sub">Added 3 files </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <div class="document-item mb-3">
+              <table class="table table-responsive">
+                <thead>
+                <tr>
+                  <th>Document name</th>
+                  <th>Document type</th>
+                  <th>Last modified</th>
+                  <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>
+                    <div class="d-flex">
+                      <img src="../../../assets/icons/jpg-file.png" alt="" class="img-fluid me-2 document-icon">
+                      <div>
+                        <div class="document-name">id-copy-document.pdf</div>
+                        <div class="document-size">11.55kb</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="document-description">Proof of Identity</div>
+                  </td>
+                  <td>
+                    <div class="date-modified">12 june, 2023</div>
+                  </td>
+                  <td>
+                    <button class="btn btn-bordered btn-sm btn-edit"><i class="bi bi-pencil"></i> Edit</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="d-flex">
+                      <img src="../../../assets/icons/pdf.png" alt="" class="img-fluid me-2 document-icon">
+                      <div>
+                        <div class="document-name">lease-agreement.pdf</div>
+                        <div class="document-size">19.55kb</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="document-description">Lease Agreement</div>
+                  </td>
+                  <td>
+                    <div class="date-modified">8 jan, 2021</div>
+                  </td>
+                  <td>
+                    <button class="btn btn-bordered btn-sm btn-edit"><i class="bi bi-pencil"></i> Edit</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="d-flex">
+                      <img src="../../../assets/icons/pdf.png" alt="" class="img-fluid me-2 document-icon">
+                      <div>
+                        <div class="document-name">payslip-copy.pdf</div>
+                        <div class="document-size">21.9kb</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="document-description">3 Months Payslip</div>
+                  </td>
+                  <td>
+                    <div class="date-modified">9 july, 2023</div>
+                  </td>
+                  <td>
+                    <button class="btn btn-bordered btn-sm btn-edit"><i class="bi bi-pencil"></i> Edit</button>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3">
+      <div class="card-header bg-transparent">
+        Tasks
+      </div>
+      <div class="card-body">
+        <div class="mb-3">
+          <div class="document-heading-main">Issues reported</div>
+          <div class="document-heading-sub">Added 3 files </div>
+          <hr>
+        </div>
+        <div class="card">
+
+        </div>
+        <div class="mb-3">
+          <div class="document-heading-main">Past Issues</div>
+          <div class="document-heading-sub">Added 3 files </div>
+          <hr>
+        </div>
+        <div class="card">
+          <div class="card-header bg-transparent">
+            <div class="d-flex justify-content-between">
+              <div class="issue-type issue-title">
+                Flow of water
+              </div>
+              <div class="issue-id issue-title">
+                ID: 2384978623
+              </div>
+              <div class="issue-date-update issue-title">
+                Last update: 23 Aug, 23
+              </div>
+              <div class="issue-status issue-title">
+                Pending
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="issue-description">Lorem ipsum dolor sit amet consectetur adipiscing elit ut eleifend, duis donec luctus odio non parturient sodales pulvinar vulputate, fames potenti posuere varius nulla sollicitudin nec penatibus. Magna ad leo placerat vestibulum netus magnis penatibus, aliquet</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="card d-none mb-3">
+      <div class="card-header bg-transparent">
+        Activity
+      </div>
+      <div class="card-body"></div>
+    </div>
+  </div>
+</div>

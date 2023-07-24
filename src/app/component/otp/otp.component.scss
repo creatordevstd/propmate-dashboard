@@ -3,7 +3,19 @@
   display: flex;
   align-items: center;
 }
-.resend-otp-link{
-  font-weight: 300;
-  font-size: 16px;
+.resend-otp-link,
+.time-remaining{
+  font-weight: 400;
+  font-size: 14px;
+}
+countdown{
+  font-weight: bold;
+}
+.otp-input-wrapper{
+  gap: 10%;
+}
+.otp-input-wrapper .otp-code-input input{
+  padding: 16px 20px;
+  text-align: center;
+  font-size: 24px;
 }

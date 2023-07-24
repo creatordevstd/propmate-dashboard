@@ -4,3 +4,34 @@
 .btn-small{
   width: 30%;
 }
+.btn-bordered{
+  border-color: #e1e1e1;
+  background: #FFffff;
+  color: #6C757D;
+}
+.btn-bordered:hover,
+.btn-bordered:focus,
+.btn-bordered:active
+{
+  background: #FFffff;
+  color: #6C757D;
+  border: 1px solid #e1e1e1 !important;
+}
+
+.btn{
+  font-size: 14px;
+}
+.btn-primary-custom{
+  background-color: #3675fe;
+}
+.btn-secondary-custom{
+  background-color: #e5edff;
+}
+.btn-success{
+  background-color: #03C9A6;
+  border-color: #03C9A6;
+}
+.btn-danger{
+  background-color: #EC4C78;
+  border-color: #EC4C78;
+}

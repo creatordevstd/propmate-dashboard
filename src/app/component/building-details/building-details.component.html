@@ -1,0 +1,238 @@
+<div class="row mb-3">
+    <div class="col">
+      <div class="card mb-3 h-100">
+        <div class="card-body">
+          <div>
+            <div class="card-title mb-0">
+              Enquiry Messages
+            </div>
+            <div class="card-text">
+              Last 7 days
+            </div>
+          </div>
+          <div class="d-flex justify-content-between align-items-center mt-4">
+            <h5 class="card-value">46</h5>
+            <div class="bg-chart">
+              <span class="badge badge-style border-0 p-2  badge-success-bg ms-2"><i class="bi bi-graph-up"></i> +11.2%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card mb-3 h-100">
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <div>
+              <div class="card-title mb-0">
+                New Tenants
+              </div>
+              <div class="card-text">
+                Last 30 days
+              </div>
+            </div>
+            <div class="bg-chart">
+              <span class="badge badge-style border-0 p-2  badge-danger-bg ms-2"><i class="bi bi-graph-down"></i> -15.7%</span>
+            </div>
+          </div>
+          <h5 class="card-value mt-4">27</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card mb-3 h-100">
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <div>
+              <div class="card-title mb-0">
+                Outgoing Tenants
+              </div>
+              <div class="card-text">
+                Expiring leases < 30 days
+              </div>
+            </div>
+            <div class="bg-chart">
+              <span class="badge badge-style border-0 p-2  badge-success-bg ms-2"><i class="bi bi-graph-down"></i> -1.9%</span>
+            </div>
+          </div>
+          <h5 class="card-value mt-4">16</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card mb-3 h-100">
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <div>
+              <div class="card-title mb-0">
+                No. of Units
+              </div>
+              <div class="card-text">
+                Unit Vacancy
+              </div>
+            </div>
+            <h5 class="card-value">59</h5>
+            <div class="bg-chart d-none">
+              <span class="badge badge-style border-0 p-2  badge-success-bg ms-2"><i class="bi bi-graph-up"></i> +11.2%</span>
+            </div>
+          </div>
+          <div class="card-legend mt-4">
+            <div class="d-flex justify-content-between mb-1">
+              <div class="card-legend-title">
+                <button class="btn btn-sm btn-status btn-primary-custom" ></button>
+                Vacant
+              </div>
+              <div class="card-legend-value">11</div>
+            </div>
+            <div class="d-flex justify-content-between">
+              <div class="card-legend-title">
+                <button class="btn btn-sm btn-status btn-secondary-custom" ></button>
+                Occupied
+              </div>
+              <div class="card-legend-value">48</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="row d-none mb-3">
+  <div class="col-6 mb-3">
+    <div class="card h-100">
+      <ng-container *ngFor="let building of filteredBuildingList">
+        <div class="card-body">
+          <div class="d-flex">
+            <img src="{{building.image}}" alt="" class="img-fluid rounded" width="125">
+            <div class="building-details"></div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="row">
+      <div class="col">
+        <div class="card mb-3 h-100">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <div>
+                <div class="card-title mb-0">
+                  New Tenants
+                </div>
+                <div class="card-text">
+                  Last 30 days
+                </div>
+              </div>
+              <div class="bg-chart">
+                <span class="badge badge-style border-0 p-2  badge-danger-bg ms-2"><i class="bi bi-graph-down"></i> -15.7%</span>
+              </div>
+            </div>
+            <h5 class="card-value mt-4">27</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card mb-3 h-100">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <div>
+                <div class="card-title mb-0">
+                  New Tenants
+                </div>
+                <div class="card-text">
+                  Last 30 days
+                </div>
+              </div>
+              <div class="bg-chart">
+                <span class="badge badge-style border-0 p-2  badge-danger-bg ms-2"><i class="bi bi-graph-down"></i> -15.7%</span>
+              </div>
+            </div>
+            <h5 class="card-value mt-4">27</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header bg-white">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <div class="input-group">
+                <div class="input-group-prepend bg-white">
+                 <span class="input-group-text bg-white" id="input-group-icon">
+                 <i class="bi bi-search"></i>
+                 </span>
+                </div>
+                <input type="text" id="searchInputId" (keyup)="filterTable('tenantTableId', 'searchInputId')" class="form-control" placeholder="Search tenant">
+              </div>
+            </div>
+            <div>
+              <div class="dropdown">
+                <button class="btn btn-bordered btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="bi bi-download me-1"></i>
+                  Export
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#"> <img src="../../../assets/icons/sheets.png" alt="" width="16" class="me-1">Excel</a></li>
+                  <li><a class="dropdown-item" href="#"><img src="../../../assets/icons/pdf.png" alt="" width="16" class="me-1">PDF</a></li>
+                  <li><a class="dropdown-item" href="#"><img src="../../../assets/icons/csv-file.png" alt="" width="16" class="me-1">.CSV</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body" >
+          <table class="table table-responsive" id="tenantTableId">
+            <thead class="thead-dark">
+            <tr>
+              <th>Tenant Name</th>
+              <th>Lease Start date</th>
+              <th>Lease End date</th>
+              <th>Monthly Rental Fee</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let tenant of tenantList">
+              <td>
+                <div class="d-flex">
+                  <img src="{{tenant.img}}" alt="" class="img-fluid me-2" width="35">
+                  <div class="d-flex flex-column">
+                    <div class="name tenant-name">
+                      <a
+                        [routerLink]="'/'.concat(Constants.DASHBOARD_ROUTE.concat('/'.concat(Constants.TENANT_PROFILE_ROUTE)))"
+                        [queryParams]="{id: tenant.id}"
+                        class="building-name-link">{{tenant.name}}</a>
+                    </div>
+                    <div class="email">{{tenant.email}}</div>
+                  </div>
+                </div>
+
+              </td>
+              <td class="start-date">{{tenant.leaseStartDate}}</td>
+              <td class="end-date">{{tenant.leaseEndDate}}</td>
+              <td class="rental-fee">
+                <span class="currency">R</span>
+                {{tenant.monthlyRentalFee}}
+                <span class="amount"></span>
+              </td>
+              <td class="status">
+                <button class="btn btn-sm btn-status" [ngClass]="{'btn-success' : tenant.status != 'Overdue', 'btn-danger' : tenant.status == 'Overdue'}">
+                </button>
+                {{tenant.status}}
+              </td>
+              <td class="edit">
+                <button class="btn btn-bordered btn-sm btn-edit"><i class="bi bi-pencil"></i> View</button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+

@@ -1,13 +1,13 @@
 table thead tr th{
   font-size: 14px;
   font-weight: 500;
+  color: #000000;
 }
 table tbody tr td{
-  vertical-align: center;
+  font-size: 14px;
 }
-table tbody tr td.reporter-details{
-  width: 35%;
-}
-table tbody tr td.issue{
-  width: 45%;
-}
+//table tbody tr td{
+//  vertical-align: center;
+//}
+
+

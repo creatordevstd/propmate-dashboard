@@ -2,12 +2,17 @@
   <div class="container">
     <div class="row">
       <div class="col-6 offset-3 col-first">
-        <div class="card px-3 py-5 mb-3">
+        <div class="card p-5 mb-3">
           <div class="card-body">
             <form [formGroup]="loginForm">
               <div class="mb-3 text-center">
                 <h1 class="main-heading">PropMate login</h1>
                 <div class="sub-heading">Welcome back! Please enter your details</div>
+              </div>
+              <div *ngIf="isInvalidCredentials" class="alert alert-danger mb-3" role="alert">
+                <div>
+                  Invalid username or password
+                </div>
               </div>
               <div class="mb-3 form-floating">
                 <input type="text" class="form-control" formControlName="username" id="username" placeholder="Username"

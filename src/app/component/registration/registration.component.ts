@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {NgbAccordionItem} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-registration',
@@ -27,7 +26,7 @@ export class RegistrationComponent implements OnInit{
 
   onSubmit(){
     if (this.registrationForm.valid){
-      alert('Navigate to next page');
+
     }
   }
 }

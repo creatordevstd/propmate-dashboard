@@ -1,9 +1,72 @@
+:root{
+  //Font
+  --lg-font-size: 16px;
+  --md-font-size: 14px;
+  --sm-font-size: 12px;
+
+  --bold-weight: 600;
+  --semi-bold-weight: 500;
+  --regular-weight: 400;
+  --light-weight: 300;
+
+  --dark-color: #000000;
+  --primary-lighter-color: #15a1ff;
+  --primary-darker-color: #196dff;
+  --secondary-color: #377dff;
+  --tertiary-color: #e5edff;
+  --success-color: #53d533;
+  --success-lighter-color: #0ed7b5;
+  --danger-color: #d63f39;
+  --danger-lighter-color: #ec5244;
+  --warning-color: #d68939;
+  --warning-light-color: #fdd14e;
+  --info-color: #00dffc;
+  --indigo-color: #2d1582;
+  --gray-color: #e7eaf3;
+  --gray-lighter: #bcc5d1;
+
+
+  --bg-light-gray-color: #fafafa;
+  --bg-secondary-color: #e5edfB;
+  --bg-success-color:#ebf9f6;
+  --bg-danger-color:#feedf1;
+  --bg-warning-color:#fcfaf4;
+  --bg-info-color: #d5f4fA;
+  --bg-indigo-color: #e3e2ef;
+  --bg-activated-color: #065cff;
+
+  //Text
+  --title-size: 32px;
+  --lg-heading-size: 24px;
+  --md-heading-size: 16px;
+  --text-size: 14px;
+  --small-text-size: 12px;
+
+  //Border
+  --border-color: rgba(231, 234, 243, 0.7);
+
+}
+body{
+  font-family: "Helvetica Neue", sans-serif;
+}
+p{
+  font-size: 14px;
+  font-weight: 400;
+}
 .main-heading{
   font-weight: 500;
   font-size: 32px;
 }
 .sub-heading, .form-check-label{
   font-weight: 400;
+  font-size: 14px;
+}
+.card{
+  border-color:rgba(231, 234, 243, 0.7);
+  box-shadow: 0 .375rem .75rem rgba(140,152,164,.075);
+}
+.card-header{
+  padding: 16px 21px;
 }
 .card-title{
   font-size: 14px;
@@ -12,9 +75,21 @@
   text-transform: capitalize;
 }
 .card-text{
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 400;
   color: #525b75;
+}
+.card-value{
+  font-weight: 600;
+  color: #000000;
+  font-size: 24px;
+}
+.card-header{
+  border-bottom-color: rgba(231, 234, 243, 0.7);
+  font-weight: 500;
+}
+.card-footer{
+  border-top-color: rgba(231, 234, 243, 0.7);
 }
 .badge-style{
   //border-radius: 50px;
@@ -22,19 +97,21 @@
   border-width: 1px;
   padding: 2px 8px;
   text-transform: uppercase;
+  font-weight: 500;
+  font-size: 10px;
 }
 .badge-success-bg{
-  background: #d9fbd0;
+  background: #EBF9F6;
   color: #53d633;
   border-color:#53d633 ;
 }
 .badge-warning-bg{
-  background: #f8DDA8;
+  background: #FDFAF4;
   color: #d68839;
   border-color: #d68839;
 }
 .badge-danger-bg{
-  background: #f7dad9;
+  background: #FEEDF1;
   color: #d63f3a;
   border-color: #d63f3a;
 }
@@ -53,3 +130,27 @@
 .avatar{
   max-width: 30%;
 }
+.alert{
+  padding: 8px 10px;
+  font-size: 12px;
+}
+hr{
+  border-color: #e1e1e1;
+}
+.dropdown-item{
+  font-size: 14px;
+}
+.card-legend-title, .card-legend-value{
+  font-size: 13px;
+}
+.accordion{
+  border-color: red;
+}
+.accordion-button:focus, .accordion-button.collapsed{
+  box-shadow: none;
+  border-bottom: 1px solid rgba(231, 234, 243, 0.7);
+}
+.accordion-item{
+  border: 1px solid rgba(231, 234, 243, 0.7);
+}
+

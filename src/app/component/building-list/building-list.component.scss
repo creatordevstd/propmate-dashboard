@@ -1,0 +1,23 @@
+.feather{
+  width: 12px;
+  height: 12px;
+}
+
+table tbody tr td.name{
+  color: #000000;
+  font-weight: 600;
+}
+table tbody tr td.address,
+table tbody tr td.numberOfTenants,
+table tbody tr td.numberOfUnits,
+table tbody tr td.averageMonthlyRate{
+  color: #677788;
+}
+.building-name-link{
+  text-transform: capitalize;
+  font-weight: 500;
+  color: black;
+}
+.building-name-link:hover{
+  color: #377dff;
+}
