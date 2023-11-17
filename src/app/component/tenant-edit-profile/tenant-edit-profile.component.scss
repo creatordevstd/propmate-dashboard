@@ -20,3 +20,84 @@ ul li{
 label, input{
   font-size: 14px;
 }
+#navbar-side .nav a {
+  font-size: var(--md-font-size);
+  color: var(--bs-dark);
+}
+#navbar-side .nav a:hover{
+  color: var(--primary-darker-color);
+}
+.card-body-profile{
+  align-self: center;
+}
+.bi-patch-check-fill{
+  color: #377dff;
+}
+.card-header-profile{
+  position: relative;
+}
+.profile-container{
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.avatar-profile{
+  border: 4px solid white;
+  border-radius: 50%;
+}
+.username{
+  color: white;
+}
+
+
+.avatar {
+  position: relative;
+  display: inline-block;
+  // width: 2.625rem;
+  // height: 2.625rem;
+  border-radius: .5rem
+}
+
+.avatar:not(img) {
+  background-color: #fff
+}
+
+.avatar-img {
+  max-width: 100%;
+  height: 100%;
+  // -o-object-fit: cover;
+  // object-fit: cover;
+  border-radius: .5rem
+}
+
+.avatar-initials {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 2.625rem;
+  height: 2.625rem;
+  font-size: .875rem;
+  font-weight: 600;
+  pointer-events: none;
+  text-transform: uppercase;
+  border-radius: .5rem
+}
+
+.avatar-circle {
+  border-radius: 50%
+}
+
+.avatar-circle .avatar,.avatar-circle .avatar-img,.avatar-circle .avatar-initials {
+  border-radius: 50%
+}
+
+.avatar-centered {
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: auto;
+  margin-left: auto
+}

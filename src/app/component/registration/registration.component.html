@@ -6,17 +6,17 @@
           <div class="col-8 offset-2">
             <form [formGroup]="registrationForm">
               <div class="mb-3 text-center">
-                <h1 class="main-heading">Welcome to PropMate</h1>
-                <div class="sub-heading">Get started - it's free. No credit card required </div>
+                <h1 class="heading-title">Welcome to PropMate</h1>
+                <div class="subtitle-text">Get started - it's free. No credit card required. </div>
               </div>
-              <div class="mb-3 form-floating">
+              <div class="mb-3">
+                <label for="applicationType">Applying as</label>
                 <select class="form-select" aria-label="Applying as" formControlName="applicationType" id="applicationType" >
                   <option value="1">Building Manager</option>
                   <option value="2">Tenant</option>
                   <option value="3">Landlord</option>
                 </select>
-                <label for="applicationType">Applying as</label>
-                <p class="error-field-message mt-1"
+                <p class="invalid-feedback mt-1"
                    *ngIf="registrationForm.controls['applicationType'].errors?.['required'] && (registrationForm.controls['applicationType'].dirty
                 || registrationForm.controls['applicationType'].touched && registrationForm.controls['applicationType'].invalid)">
                   This field is mandatory
@@ -25,11 +25,11 @@
               </div>
               <div class="row">
                 <div class="col">
-                  <div class="mb-3 form-floating">
-                    <input type="text" class="form-control" formControlName="firstName" id="firstName" placeholder="First name"
+                  <div class="mb-3">
+                    <label for="firstName">First name</label>
+                    <input type="text" class="form-control form-control-lg" formControlName="firstName" id="firstName" placeholder="First name"
                            [ngClass]="{'is-invalid': registrationForm.controls['firstName'].errors?.['required'] && (registrationForm.controls['firstName'].dirty
                 || registrationForm.controls['firstName'].touched && registrationForm.controls['firstName'].invalid)}">
-                    <label for="firstName">First name</label>
 
                     <p class="invalid-feedback mt-1"
                        *ngIf="registrationForm.controls['firstName'].errors?.['required'] && (registrationForm.controls['firstName'].dirty
@@ -39,12 +39,11 @@
                   </div>
                 </div>
                 <div class="col">
-                  <div class="mb-3 form-floating">
-                    <input type="text" class="form-control" formControlName="lastName" id="lastName" placeholder="Last name"
+                  <div class="mb-3">
+                    <label for="lastName">Last name</label>
+                    <input type="text" class="form-control form-control-lg" formControlName="lastName" id="lastName" placeholder="Last name"
                            [ngClass]="{'is-invalid' :registrationForm.controls['lastName'].errors?.['required'] && (registrationForm.controls['lastName'].dirty
                 || registrationForm.controls['lastName'].touched && registrationForm.controls['lastName'].invalid)}">
-                    <label for="lastName">Last name</label>
-
                     <p class="invalid-feedback mt-1"
                        *ngIf="registrationForm.controls['lastName'].errors?.['required'] && (registrationForm.controls['lastName'].dirty
                 || registrationForm.controls['lastName'].touched && registrationForm.controls['lastName'].invalid)">
@@ -53,11 +52,12 @@
                   </div>
                 </div>
               </div>
-              <div class="mb-3 form-floating">
-                <input type="text" class="form-control" formControlName="phoneNumber" id="phoneNumber" placeholder="Phone number"
+              <div class="mb-3">
+                <label for="phoneNumber">Phone number</label>
+
+                <input type="text" class="form-control form-control-lg" formControlName="phoneNumber" id="phoneNumber" placeholder="Phone number"
                        [ngClass]="{'is-invalid' :registrationForm.controls['phoneNumber'].errors?.['required'] && (registrationForm.controls['phoneNumber'].dirty
                 || registrationForm.controls['phoneNumber'].touched && registrationForm.controls['phoneNumber'].invalid)}">
-                <label for="phoneNumber">Phone number</label>
 
                 <p class="invalid-feedback mt-1"
                    *ngIf="registrationForm.controls['phoneNumber'].errors?.['required'] && (registrationForm.controls['phoneNumber'].dirty
@@ -65,11 +65,11 @@
                   This field is mandatory
                 </p>
               </div>
-              <div class="mb-3 form-floating">
-                <input type="text" class="form-control" formControlName="email" id="email" placeholder="Email address"
+              <div class="mb-3">
+                <label for="email">Email address</label>
+                <input type="text" class="form-control form-control-lg" formControlName="email" id="email" placeholder="Email address"
                        [ngClass]="{'is-invalid' :registrationForm.controls['email'].errors?.['required'] && (registrationForm.controls['email'].dirty
                 || registrationForm.controls['email'].touched && registrationForm.controls['email'].invalid)}">
-                <label for="email">Email address</label>
 
                 <p class="invalid-feedback mt-1"
                    *ngIf="registrationForm.controls['email'].errors?.['required'] && (registrationForm.controls['email'].dirty
@@ -77,26 +77,30 @@
                   This field is mandatory
                 </p>
               </div>
-              <div class="mb-3 form-floating">
-                <input type="password" class="form-control" formControlName="password" id="password" placeholder="Password"
-                       [ngClass]="{'is-invalid' :registrationForm.controls['password'].errors?.['required'] && (registrationForm.controls['password'].dirty
-                || registrationForm.controls['password'].touched && registrationForm.controls['password'].invalid)}">
+              <div class="mb-3">
                 <label for="password">Password</label>
-
+                <div class="input-group">
+                  <input type="{{defaultInputTypePassword}}" class="form-control form-control-lg" formControlName="password" maxlength="32" minlength="8"
+                  [ngClass]="{'is-invalid' :registrationForm.controls['password'].errors?.['required'] && (registrationForm.controls['password'].dirty
+                || registrationForm.controls['password'].touched && registrationForm.controls['password'].invalid)}" placeholder="8+ characters required">
+                <i class="b icon-input" [ngClass]="showPasswordIcon ? 'bi-eye-slash' : 'bi-eye'" (click)="setToggleIcon('password')"></i>
+                </div>
                 <p class="invalid-feedback mt-1"
                    *ngIf="registrationForm.controls['password'].errors?.['required'] && (registrationForm.controls['password'].dirty
                 || registrationForm.controls['password'].touched && registrationForm.controls['password'].invalid)">
                   This field is mandatory
                 </p>
               </div>
-              <div class="mb-3 form-floating">
-                <input type="password" class="form-control" formControlName="confirmPassword" id="confirmPassword" placeholder="Confirm password"
-                       [ngClass]="{'is-invalid' :registrationForm.controls['confirmPassword'].errors?.['required'] && (registrationForm.controls['confirmPassword'].dirty
-                || registrationForm.controls['confirmPassword'].touched && registrationForm.controls['confirmPassword'].invalid)}">
-                <label for="confirmPassword">Confirm password</label>
-
+              <div class="mb-3">
+                <label for="password">Confirm password</label>
+                <div class="input-group">
+                  <input type="{{defaultInputTypeConfirmedPassword}}" class="form-control form-control-lg" formControlName="confirmPassword" maxlength="32" minlength="8"
+                  [ngClass]="{'is-invalid' :registrationForm.controls['confirmPassword'].errors?.['required'] && (registrationForm.controls['confirmPassword'].dirty
+                || registrationForm.controls['confirmPassword'].touched && registrationForm.controls['confirmPassword'].invalid)}" placeholder="8+ characters required">
+                <i class="bi icon-input" [ngClass]="showConfirmPasswordIcon ? 'bi-eye-slash' : 'bi-eye'" (click)="setToggleIcon('confirmPassword')"></i>
+                </div>
                 <p class="invalid-feedback mt-1"
-                   *ngIf="registrationForm.controls['confirmPassword'].errors?.['confirmPassword'] && (registrationForm.controls['confirmPassword'].dirty
+                   *ngIf="registrationForm.controls['confirmPassword'].errors?.['required'] && (registrationForm.controls['confirmPassword'].dirty
                 || registrationForm.controls['confirmPassword'].touched && registrationForm.controls['confirmPassword'].invalid)">
                   This field is mandatory
                 </p>
@@ -106,17 +110,20 @@
                   <input class="form-check-input" type="checkbox" value="" id="consentAgreement" formControlName="consentAgreement">
                   <label class="form-check-label" for="consentAgreement">
                     I agree that PropMate may store and process my data according to PropMate’s
-                    <a href="">Privacy Policy and Terms of Use.</a>  PropMate may contact me with news, offers
+                    <a href="" class="policy">Privacy Policy and Terms of Use.</a>  PropMate may contact me with news, offers
                     and other information which may be of interest. I may revoke my consent at any
                     time.*
                   </label>
                 </div>
               </div>
               <button type="submit"
-                      class="btn btn-primary btn-full btn-lg"
+                      class="btn btn-primary btn-full btn-lg mb-3"
                       [disabled]="registrationForm.invalid"
                       (click)="onSubmit()"
               >Create account</button>
+              <div class="subtitle-text text-center">
+                Already have an account? <a href="/" class="login-link">Sign in here</a>
+              </div>
             </form>
           </div>
         </div>

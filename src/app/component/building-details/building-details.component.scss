@@ -1,21 +1,21 @@
 table tbody tr td .name a{
   font-weight: 500;
-  color: #000000;
+  color: var(--bs-dark);
   text-transform: capitalize;
 }
 table tbody tr td .name a:hover{
-  color: #377dff;
+  color: var(--primary-darker-color);
 }
 table tbody tr td .email{
-  font-size: 12px;
-  color: #677788;
+  font-size: var(--sm-font-size);
+  color: var(--bs-gray-600);
 }
 table tbody tr td.start-date,
 table tbody tr td.end-date,
 table tbody tr td.rental-fee,
 table tbody tr td.status
 {
-  color: #677788;
+  color: var(--bs-gray-600);
 }
 
 .btn-status{
@@ -25,11 +25,15 @@ table tbody tr td.status
   border-radius: 50px;
 }
 .btn-edit{
-  border-color: #e1e1e1;
-  color: #677788;
+  border-color: var(--border-color);
+  color: var(--bs-gray-600);
+  font-size: var(--sm-font-size);
+}
+.btn-edit:hover{
+  color: var(--primary-darker-color);
 }
 #searchInputId, #input-group-icon{
-  border: 1px solid #e1e1e1;
+  border: 1px solid var(--border-color);
   border-top: 0;
   border-left: 0;
   border-right: 0;
@@ -39,10 +43,14 @@ table tbody tr td.status
   box-shadow: none;
   outline: none;
 }
-.bi-search{
-  color: #8c98a4;
-}
+//.bi-search{
+//  color: var;
+//}
 input#searchInputId::placeholder{
   font-size: 14px;
   color: #8c98a4;
+}
+
+th.sorting::before:nth-last-child(1){
+  content: "" !important;
 }

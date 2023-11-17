@@ -10,9 +10,13 @@ import {Constants} from "../../common/Constants";
 })
 export class LoginComponent implements OnInit{
 
+  defaultInputType ='password';
+  showPasswordIcon = false;
+  
+
   isInvalidCredentials = false;
   loginForm = new FormGroup({
-    username: new FormControl('',[Validators.required]),
+    username: new FormControl('',[Validators.required, Validators.pattern(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)]),
     password: new FormControl('', [Validators.required]),
     rememberMe: new FormControl()
   })
@@ -21,20 +25,31 @@ export class LoginComponent implements OnInit{
   }
 
   ngOnInit() {
+
   }
 
   onSubmit(){
-    const usernameValue = 'admin';
-    const passwordValue = 'admin';
+    const usernameValue = 'admin@mail.com';
+    const passwordValue = 'admin@1234';
     if (this.loginForm.valid){
-      if (this.loginForm.controls.username.value !== usernameValue &&
-      this.loginForm.controls.password.value !== passwordValue){
-        this.isInvalidCredentials = true;
-      } else {
+      console.log(this.loginForm.controls.username.value);
+      
+      if (this.loginForm.controls.username.value === usernameValue.toLowerCase() &&
+      this.loginForm.controls.password.value === passwordValue.toLowerCase()){
         this.isInvalidCredentials = false;
         this.router.navigate([Constants.OTP_ROUTE]);
+      } else {
+        this.isInvalidCredentials = true;
       }
     }
   }
 
+  setToggleIcon(){
+   this.showPasswordIcon = !this.showPasswordIcon;
+   if(this.showPasswordIcon){
+    this.defaultInputType ='text'
+   } else {
+    this.defaultInputType = 'password'
+   }
+  }
 }

@@ -1,23 +1,24 @@
 <div class="wrapper">
   <div class="container">
     <div class="row">
-      <div class="col-6 offset-3 col-first">
-        <div class="card p-5">
+      <div class="col"></div>
+      <div class="col-5  col-first">
+        <div class="card card-padding">
           <div class="card-body">
             <form [formGroup]="otpForm">
-              <div class="mb-3 text-center">
-                <img src="../../../assets/icons/Authentication-rafiki.png" alt="" width="260">
-                <h1 class="main-heading">Authenticate account</h1>
-                <div class="sub-heading w-80">We sent a verification code to your email*****.
+              <div class="mb-4 text-center">
+                <img src="../../../assets/icons/Authentication-rafiki.png" alt="" width="180">
+                <h1 class="heading-title">2-step verification</h1>
+                <div class="subtitle-text w-80">We sent a verification code to your email*****.
                   Enter the code from the email in the field below. Code will expire in: <span><countdown #OtpCountdown [config]="config" (event)="notifyRemainingTime($event)"></countdown></span>
                 </div>
               </div>
               <div class="alert alert-danger mb-3" role="alert" *ngIf="isInvalidOtp">
                 Invalid OTP. Try again
               </div>
-              <div class="mb-3 d-flex flex-row justify-content-between otp-input-wrapper">
+              <div class="mb-4 d-flex flex-row justify-content-between otp-input-wrapper">
                 <div class="otp-code-input">
-                  <input type="text" class="form-control form-control-lg" formControlName="otpCode1" id="otpCode1" spellcheck="false" maxlength="1"
+                  <input type="text" class="form-control " formControlName="otpCode1" id="otpCode1" spellcheck="false" maxlength="1"
                          [ngClass]="{'is-invalid' :otpForm.controls['otpCode1'].errors?.['required'] && (otpForm.controls['otpCode1'].dirty
                 || otpForm.controls['otpCode1'].touched && otpForm.controls['otpCode1'].invalid)}">
                   <p class="invalid-feedback mt-1"
@@ -27,7 +28,7 @@
                   </p>
                 </div>
                 <div class="otp-code-input">
-                  <input type="text" class="form-control form-control-lg" formControlName="otpCode2" id="otpCode2" spellcheck="false" maxlength="1"
+                  <input type="text" class="form-control" formControlName="otpCode2" id="otpCode2" spellcheck="false" maxlength="1"
                          [ngClass]="{'is-invalid' :otpForm.controls['otpCode2'].errors?.['required'] && (otpForm.controls['otpCode2'].dirty
                 || otpForm.controls['otpCode2'].touched && otpForm.controls['otpCode2'].invalid)}">
                   <p class="invalid-feedback mt-1"
@@ -37,7 +38,7 @@
                   </p>
                 </div>
                 <div class="otp-code-input">
-                  <input type="text" class="form-control form-control-lg" formControlName="otpCode3" id="otpCode3" spellcheck="false" maxlength="1"
+                  <input type="text" class="form-control " formControlName="otpCode3" id="otpCode3" spellcheck="false" maxlength="1"
                          [ngClass]="{'is-invalid' :otpForm.controls['otpCode3'].errors?.['required'] && (otpForm.controls['otpCode3'].dirty
                 || otpForm.controls['otpCode3'].touched && otpForm.controls['otpCode3'].invalid)}">
                   <p class="invalid-feedback mt-1"
@@ -47,7 +48,7 @@
                   </p>
                 </div>
                 <div class="otp-code-input">
-                  <input type="text" class="form-control form-control-lg" formControlName="otpCode4" id="otpCode4" spellcheck="false" maxlength="1"
+                  <input type="text" class="form-control " formControlName="otpCode4" id="otpCode4" spellcheck="false" maxlength="1"
                          [ngClass]="{'is-invalid' :otpForm.controls['otpCode4'].errors?.['required'] && (otpForm.controls['otpCode4'].dirty
                 || otpForm.controls['otpCode4'].touched && otpForm.controls['otpCode4'].invalid)}">
                   <p class="invalid-feedback mt-1"
@@ -63,15 +64,16 @@
                         class="btn btn-primary btn-full btn-lg"
                         [disabled]="otpForm.invalid"
                         (click)="onSubmit()"
-                >Verify authentication code</button>
+                >Verify code</button>
               </div>
-              <div class="resend-otp-link text-center">
+              <div class="resend-otp-link text-center subtitle-text">
                 Haven't received it? <a href="">Resend a new code</a>
               </div>
             </form>
           </div>
         </div>
       </div>
+      <div class="col"></div>
     </div>
   </div>
 </div>

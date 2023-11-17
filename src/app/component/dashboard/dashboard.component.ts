@@ -10,6 +10,9 @@ import {DashboardOverviewComponent} from "../dashboard-overview/dashboard-overvi
 import {BuildingDetailsComponent} from "../building-details/building-details.component";
 import {TenantProfileComponent} from "../tenant-profile/tenant-profile.component";
 import {TenantEditProfileComponent} from "../tenant-edit-profile/tenant-edit-profile.component";
+import { AddTenantComponent } from '../add-tenant/add-tenant.component';
+import { FinancialHistoryComponent } from '../financial-history/financial-history.component';
+import { MaintenanceComponent } from '../maintenance/maintenance.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -27,25 +30,10 @@ export class DashboardComponent implements OnInit, AfterViewInit{
   buildingList: any;
   filteredBuildingList: any;
   propertyName: any = ''
+  userList: any = {};
   constructor(public router: Router, private route: ActivatedRoute) {
     this.buildingList = Constants.BUILDING_LISTING;
-    // const dropdownButton: HTMLElement | null = document.querySelector(".dropdown-toggle i.toggle-icon");
-    // console.log(dropdownButton)
-    // if (dropdownButton) {
-    //   dropdownButton.addEventListener("click", function () {
-    //     // Check if the icon has the "fa-caret-down" class
-    //     const isCaretDown: boolean = dropdownButton.classList.contains("bi-chevron-compact-down");
-    //
-    //     // Toggle classes to change the icon
-    //     if (isCaretDown) {
-    //       dropdownButton.classList.remove("bi-chevron-compact-down");
-    //       dropdownButton.classList.add("bi-chevron-compact-up");
-    //     } else {
-    //       dropdownButton.classList.remove("bi-chevron-compact-up");
-    //       dropdownButton.classList.add("bi-chevron-compact-down");
-    //     }
-    //   });
-    // }
+    this.userList = Constants.TENANTS_LIST[0]
   }
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
@@ -95,14 +83,28 @@ export class DashboardComponent implements OnInit, AfterViewInit{
         this.title = 'Tenant details'
         this.subTitle = 'Showing tenant details '
         break;
-      case 'edit-tenant':
+      case Constants.EDIT_TENANT_PROFILE:
         this.currentComponent = TenantEditProfileComponent;
         this.title = 'Edit Profile';
-        this.subTitle = 'Showing tenant profile'
+        this.subTitle = 'Showing user profile'
         break;
+        case Constants.ADD_TENANT:
+        this.currentComponent = AddTenantComponent;
+        this.title = 'Add User';
+        this.subTitle = 'Adding new user'
+        break;
+        case Constants.FINANCIAL_HISTORY:
+          this.currentComponent = FinancialHistoryComponent;
+          this.title = 'Financial History';
+          this.subTitle = 'Showing Financial History'
+          break;
+          case Constants.MAITNENACE_ROUTE:
+            this.currentComponent = MaintenanceComponent;
+            this.title = 'Maintenance';
+            this.subTitle = 'Showing Maintenance Requests'
+            break;
       default:
         this.currentComponent = DashboardComponent;
-
         break;
     }
   }

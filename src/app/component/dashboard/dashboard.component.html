@@ -1,19 +1,42 @@
-<div class="container-fluid">
-  <header class="navbar navbar-light sticky-top bg-white flex-md-nowrap py-2 ">
-    <a class="navbar-brand col-md-3 col-lg-2 me-0 " href="#">Propmate</a>
-    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <input class="d-none form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
-    <div class="navbar-nav">
-      <div class="nav-item navbar-right-profile d-flex flex-row align-items-center justify-content-end">
-        <i class="bi bi-chat-left"></i>
-        <i class="bi bi-bell mx-3"></i>
-        <img src="../../../assets/images/avatar-5.png" alt="" class="avatar">
+<!-- <div class="container-fluid"> -->
+  <header class="navbar navbar-light sticky-top bg-white flex-md-nowrap py-2 container-fluid ">
+    <div class="container-fluid">
+      <a class="navbar-brand col-md-3 col-lg-2 me-0 " href="#">
+        <img src="../../../assets/icons/logo-brand.png" alt="propmate-logo">
+      </a>
+      <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <input class=" d-none form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+      <div class="navbar-nav">
+        <div class="nav-item navbar-right-profile d-flex flex-row align-items-center justify-content-end">
+          <i class="bi bi-chat-left bi-gray"></i>
+          <i class="bi bi-bell mx-4 bi-gray"></i>
+          <img src="../../../assets/images/avatar-6.png" alt="" class="avatar d-none">
+          <div class="dropdown">
+            <!-- Dropdown Toggle Image -->
+            <img src="{{userList.img}}" alt="Dropdown" class="dropdown-toggle-img" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="dropdown-menu p-2" aria-labelledby="dropdownMenuButton">
+              <div class="dropdown-item d-flex flex-row">
+                <img src="{{userList.img}}" class="dropdown-toggle-img me-2">
+                <div class="user-details">
+                  <div class="username">{{userList.name}}</div>
+                  <div class="user-email">{{userList.email}}</div>
+                </div>
+              </div>
+              <div class="dropdown-divider"></div>
+              <div class="dropdown-item" >
+                <a href="#" class="dropdown-item-link">Account</a>
+                <a href="##" class="dropdown-item-link">Settings</a>
+                <a href="##" class="dropdown-item-link">Sign out</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </header>
-</div>
+<!-- </div> -->
 
 <div class="container-fluid">
   <div class="row">
@@ -22,13 +45,13 @@
         <ul class="nav flex-column">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" [routerLink]="['/'.concat(Constants.DASHBOARD_ROUTE.concat('/'.concat(Constants.DASHBOARD_OVERVIEW_ROUTE)))]">
-              <i class="bi bi-columns-gap me-1"></i>
+              <i class="bi bi-house me-2 bi-gray"></i>
               Dashboard
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" [routerLink]="['/'.concat(Constants.DASHBOARD_ROUTE.concat('/'.concat(Constants.BUILDING_LIST_ROUTE)))]">
-              <i class="bi bi-buildings me-1"></i>
+              <i class="bi bi-houses me-2 bi-gray"></i>
               Properties
             </a>
           </li>
@@ -38,26 +61,41 @@
             <div class="dropdown">
               <a class="dropdown-toggle nav-link d-flex justify-content-between" data-bs-toggle="collapse" data-bs-target="#collapseUserMenu" aria-expanded="false" aria-controls="collapseUserMenu">
                 <span>
-                  <i class="bi bi-people me-1"></i>Users
+                  <i class="bi bi-people me-2 bi-gray"></i>User Management
                 </span>
-                <i class="toggle-icon bi bi-chevron-compact-down"></i>
+                <i class="toggle-icon bi bi-chevron-down bi-gray"></i>
               </a>
               <div class="collapse" id="collapseUserMenu">
                 <a class="nav-link" href="">List of users</a>
-                <a class="nav-link" href="">Add new</a>
+                <a class="nav-link" href="" [routerLink]="['/'.concat(Constants.DASHBOARD_ROUTE.concat('/'.concat(Constants.ADD_TENANT)))]">Add new</a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="dropdown">
+              <a class="dropdown-toggle nav-link d-flex justify-content-between" data-bs-toggle="collapse" data-bs-target="#collapseUserProfileMenu" aria-expanded="false" aria-controls="collapseUserProfileMenu">
+                <span>
+                  <i class="bi bi-person me-2 bi-gray"></i>Account
+                </span>
+                <i class="toggle-icon bi bi-chevron-down bi-gray"></i>
+              </a>
+              <div class="collapse" id="collapseUserProfileMenu">
+                <a class="nav-link" href="#" [routerLink]="['/'.concat(Constants.DASHBOARD_ROUTE.concat('/'.concat(Constants.EDIT_TENANT_PROFILE)))]">Settings</a>
+                <a class="nav-link" href="" [routerLink]="['/'.concat(Constants.DASHBOARD_ROUTE.concat('/'.concat(Constants.FINANCIAL_HISTORY)))]">Accounting</a>
+                <a class="nav-link" href="">Statement</a>
               </div>
             </div>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">
-              <i class="bi bi-stickies me-1"></i>
-              Maintenance
+              <i class="bi bi-stickies me-2 bi-gray"></i>
+              Reports
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">
-              <i class="bi bi-flag me-1"></i>
-              Reports
+              <i class="bi bi-flag me-2 bi-gray"></i>
+              Maintenance
             </a>
           </li>
         </ul>
@@ -68,20 +106,20 @@
         <ul class="nav flex-column mb-2">
           <li class="nav-item">
             <a class="nav-link" href="#">
-              <i class="bi bi-list-task me-1"></i>
+              <i class="bi bi-list-task me-2 bi-gray"></i>
               Task
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">
-              <i class="bi bi-envelope me-1"></i>
+              <i class="bi bi-envelope me-2 bi-gray"></i>
               Communication
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#"
                [routerLink]="['/'.concat(Constants.DASHBOARD_ROUTE.concat('/'.concat(Constants.EDIT_TENANT_PROFILE)))]">
-              <i class="bi bi-gear me-1"></i>
+              <i class="bi bi-gear me-2 bi-gray"></i>
               Settings
             </a>
           </li>
@@ -94,7 +132,7 @@
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
             <div class="heading">
               <h1 class="main-heading">{{title}}</h1>
-              <div class="sub-heading">{{subTitle}}</div>
+              <div class="subtitle-text">{{subTitle}}</div>
             </div>
             <div class="d-none btn-toolbar mb-2 mb-md-0">
               <div class="btn-group me-2">

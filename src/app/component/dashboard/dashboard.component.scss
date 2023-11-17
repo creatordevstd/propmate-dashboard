@@ -1,5 +1,5 @@
 header.navbar{
-  border-bottom: 1px solid #e1e1e1;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .sidebar {
@@ -36,17 +36,18 @@ header.navbar{
 }
 .sidebar .nav-link {
   font-weight: 400;
-  color: #333;
-  font-size: 14px;
+  color: var(--bs-dark);
+  font-size: var(--md-font-size);
 }
 
 .sidebar .nav-link.active {
-  color: #377dff;
+  color: var(--primary-darker-color);
 }
 
-.sidebar .nav-link:hover .feather,
-.sidebar .nav-link.active .feather {
-  color: inherit;
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active  {
+  color: var(--primary-darker-color);
+
 }
 
 .sidebar-heading {
@@ -95,16 +96,71 @@ header.navbar{
   display: none;
 }
 #collapseAccountMenu,
-#collapseUserMenu{
+#collapseUserMenu,
+#collapseUserProfileMenu{
   margin-left: 40px;
   border-left: 2px solid #EFF0F6;
 }
-#collapseAccountMenu a, #collapseUserMenu a{
+#collapseAccountMenu a, #collapseUserMenu a, 
+#collapseUserProfileMenu a{
   font-size: 14px;
   margin: 0 15px;
+  color: var(--bs-gray-600);
 }
 #collapseAccountMenu a:hover,
-#collapseUserMenu a:hover{
+#collapseUserMenu a:hover,
+#collapseUserProfileMenu a:hover{
   background: #F2F3F6;
   border-radius: 4px;
+}
+
+.dropdown-menu{
+  position: absolute;
+  left: -226px;
+  top: 68px;
+  width: 16rem;
+  border-color: var(--border-color);
+  z-index: 9999;
+}
+
+.dropdown-toggle-img {
+  cursor: pointer;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+}
+.username{
+  font-size: var(--md-font-size);
+}
+.user-email{
+  font-size: var(--sm-font-size);
+  color: var(--bs-gray-600);
+}
+.dropdown-item-link{
+  color: var(--bs-dark);
+  font-size: var(--md-font-size);
+  display: block;
+  background: none;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+}
+.dropdown-item-link:hover{
+  background-color: #EFF0F6;
+}
+.dropdown-divider{
+  border-color: var(--border-color);
+}
+.dropdown-item{
+  padding: 5px;
+}
+.navbar-brand img{
+  width: 96px;
+}
+// .navbar.sticky-top{
+//   padding: ;
+// }
+.dropdown-item:hover,
+.dropdown-item:focus{
+  background: none;
 }

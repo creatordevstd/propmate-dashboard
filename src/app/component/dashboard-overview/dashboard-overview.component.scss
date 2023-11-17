@@ -3,35 +3,34 @@
   align-self: center;
 }
 .building-image img{
-  width: 75px;
+  width: 45px;
   border-radius: 4px;
 }
 .building-name{
-  font-size: 13px;
-  font-weight: 600;
-  color: #000000;
+  font-size: var(--md-font-size);
+  font-weight: var(--semi-bold-weight);
+  color: var(--bs-dark);
+}
+.building-name:hover{
+  color: var(--primary-darker-color);
 }
 .building-address{
-  font-size: 12px;
-  font-weight: 400;
-  color: #525b75
+  font-size: var(--sm-font-size);
+  font-weight: var(--regular-weight);
+  color: var(--bs-gray-600)
 }
-.feather{
-  width: 12px;
-  height: 12px;
-}
+
 .tenants-number{
-  font-size: 12px;
+  font-size: var(--sm-font-size);
 }
 .view-all-link,
 .view-all-link:active,
 .view-all-link:hover,
 {
-  text-decoration: underline;
-  text-decoration-color: #000000;
-  font-size: 13px;
-  font-weight: 300;
-  color: #000000;
+
+  font-size: var(--sm-font-size);
+  font-weight: var(--regular-weight);
+  color: var(--bs-gray-600);
 }
 .reporter-profile{
   width: 75px;
@@ -61,4 +60,11 @@ table tbody tr td.reporter-details{
 }
 table tbody tr td.issue{
   width: 45%;
+}
+.btn-dropdown-date{
+  color: var(--bs-gray-600);
+  font-size: var(--sm-font-size);
+}
+.chart-value{
+  text-align: center;
 }

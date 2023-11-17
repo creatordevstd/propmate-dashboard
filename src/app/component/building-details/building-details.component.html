@@ -48,7 +48,7 @@
                 Outgoing Tenants
               </div>
               <div class="card-text">
-                Expiring leases < 30 days
+                Expiring leases &#60; 30 days
               </div>
             </div>
             <div class="bg-chart">
@@ -79,14 +79,14 @@
           <div class="card-legend mt-4">
             <div class="d-flex justify-content-between mb-1">
               <div class="card-legend-title">
-                <button class="btn btn-sm btn-status btn-primary-custom" ></button>
+                <button class="btn btn-sm btn-status btn-rounded-primary" ></button>
                 Vacant
               </div>
               <div class="card-legend-value">11</div>
             </div>
             <div class="d-flex justify-content-between">
               <div class="card-legend-title">
-                <button class="btn btn-sm btn-status btn-secondary-custom" ></button>
+                <button class="btn btn-sm btn-status btn-rounded-secondary" ></button>
                 Occupied
               </div>
               <div class="card-legend-value">48</div>
@@ -154,16 +154,18 @@
     </div>
   </div>
 </div>
+
 <div class="row">
     <div class="col">
       <div class="card">
-        <div class="card-header bg-white">
+        <div class="card-header border-bottom-0 bg-white p-3">
           <div class="d-flex justify-content-between align-items-center">
             <div>
+              <div class="card-table-header d-none">Tenants list</div>
               <div class="input-group">
                 <div class="input-group-prepend bg-white">
                  <span class="input-group-text bg-white" id="input-group-icon">
-                 <i class="bi bi-search"></i>
+                 <i class="bi bi-search bi-gray"></i>
                  </span>
                 </div>
                 <input type="text" id="searchInputId" (keyup)="filterTable('tenantTableId', 'searchInputId')" class="form-control" placeholder="Search tenant">
@@ -172,7 +174,7 @@
             <div>
               <div class="dropdown">
                 <button class="btn btn-bordered btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <i class="bi bi-download me-1"></i>
+                  <i class="bi bi-download me-1 bi-gray"></i>
                   Export
                 </button>
                 <ul class="dropdown-menu">
@@ -184,19 +186,19 @@
             </div>
           </div>
         </div>
-        <div class="card-body" >
-          <table class="table table-responsive" id="tenantTableId">
-            <thead class="thead-dark">
+        <div class="card-body p-0" >
+          <table class="table table-responsive table-borderless table-align-middle " id="tenantTableId" style="width: 100%;">
+            <thead class="thead-light">
             <tr>
               <th>Tenant Name</th>
               <th>Lease Start date</th>
               <th>Lease End date</th>
               <th>Monthly Rental Fee</th>
               <th>Status</th>
-              <th></th>
+              <th class="view-link"></th>
             </tr>
             </thead>
-            <tbody>
+            <tbody class="p-5">
             <tr *ngFor="let tenant of tenantList">
               <td>
                 <div class="d-flex">
@@ -221,12 +223,11 @@
                 <span class="amount"></span>
               </td>
               <td class="status">
-                <button class="btn btn-sm btn-status" [ngClass]="{'btn-success' : tenant.status != 'Overdue', 'btn-danger' : tenant.status == 'Overdue'}">
-                </button>
+                <span class="legend-indicator" [ngClass]="{'btn-rounded-success' : tenant.status != 'Overdue', 'btn-rounded-danger' : tenant.status == 'Overdue'}"></span>
                 {{tenant.status}}
               </td>
               <td class="edit">
-                <button class="btn btn-bordered btn-sm btn-edit"><i class="bi bi-pencil"></i> View</button>
+                <a class="btn btn-bordered btn-sm btn-edit"><i class="bi bi-pencil me-1"></i> View</a>
               </td>
             </tr>
             </tbody>

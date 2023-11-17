@@ -1,0 +1,17 @@
+i:hover{
+    color: var(--secondary-color);
+  }
+  i.icon-input{
+    position: absolute;
+    right: 28px;
+    bottom: 5px;
+    z-index: 99;
+  }
+  .col-avatar, .avatar-img{
+    position: relative;
+  }
+  .icon-bg{
+    position:absolute;
+    bottom: 0;
+    left: 55%;
+  }

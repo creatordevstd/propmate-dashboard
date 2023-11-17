@@ -4,6 +4,9 @@ import {Constants} from "../../common/Constants";
 import {EChartsOption} from "echarts";
 import * as moment from "moment";
 import {TableFilterService} from "../../services/table-filter/table-filter.service";
+import * as $ from 'jquery';
+import 'datatables.net';
+
 
 @Component({
   selector: 'app-building-details',
@@ -31,6 +34,14 @@ export class BuildingDetailsComponent implements OnInit {
       this.filteredBuildingList = this.buildingList.filter(item => item.id == buildingId)
     });
     this.setUnitVacancyChart();
+  
+    $(document).ready(function () {
+      $('#tenantTableId').DataTable({
+        order: [[4, 'desc']]
+      }
+      );
+  });
+  
   }
 
   getDaysDifference(){

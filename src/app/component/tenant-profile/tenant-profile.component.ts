@@ -12,8 +12,11 @@ export class TenantProfileComponent implements OnInit{
 
   tenantList: any = [];
   filterTenant: any;
+  maintenance: any = []
+Constants: any;
   constructor(private activatedRoute: ActivatedRoute) {
     this.tenantList = Constants.TENANTS_LIST;
+    this.maintenance = Constants.MAINTENANCE_REQUEST_LISTING
   }
 ngOnInit() {
     this.activatedRoute.queryParams.subscribe((param) =>{
