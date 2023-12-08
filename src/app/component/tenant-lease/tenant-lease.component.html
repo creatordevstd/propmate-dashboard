@@ -1,0 +1,255 @@
+<div class="row mb-3">
+    <div class="col-12 col-stepper">
+        <nav class="stepper">
+            <div class="stepper-nav" *ngFor="let item of stepMenuItems; index as i" [ngClass]="{'active': currentStep == i + 1}">
+              <div class="stepper-item-container">
+                <div class="stepper-index" >{{i+1}}</div>
+              </div>
+              <div class="stepper-item"><a href="">{{item}}</a></div>
+            </div>
+        </nav>
+    </div>
+</div>
+<div class="row">
+    <div class="col-8 mx-auto">
+        <div class="card" *ngIf="currentStep ==1">
+            <div class="card-body card-padding">
+                <form [formGroup]="propertyInfoForm">
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-3 d-flex align-items-center">
+                                <label for="">Property name</label>
+                            </div>
+                            <div class="col-9">
+                                <div class="form-group">
+                                    <select class="form-select form-select-lg" aria-label="Select" formControlName="buildingName" id="buildingName" (change)="onSelectedBuilding()">
+                                        <option [value]="item" *ngFor="let item of filteredBuildingList">{{item}}</option>
+                                      </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-3 d-flex align-items-center">
+                                <label for="unitNumber">Unit number</label>
+                            </div>
+                            <div class="col-9">
+                                <div class="form-group">
+                                    <select class="form-select form-select-lg" aria-label="Select" formControlName="unitNumber" id="unitNumber" (change)="onSelectedBuilding()">
+                                        <option [value]="item" *ngFor="let item of filteredUnitList">{{item}}</option>
+                                      </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+               
+            </div>
+            <div class="card-footer bg-transparent d-flex justify-content-end mb-3">
+                <button class="btn btn-ordered" (click)="prevStep()" [disabled]="isPreviousStepDisabled" *ngIf="currentStep != startStepperIndex"><i class="bi bi-chevron-left me-2"></i>Previous step</button>
+                <button class="btn btn-dark ms-3" (click)="nextStep()">Next <i class="bi bi-chevron-right ms-2"></i> </button>
+           </div>
+        </div>
+        <div class="card" *ngIf="currentStep ==2">
+            <div class="card-body card-padding">
+                <form [formGroup]="leaseForm">
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-3 d-flex align-items-center">
+                                <label for="tenant">Tenant</label>
+                            </div>
+                            <div class="col-9">
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <select class="form-select form-select-lg" aria-label="Select" formControlName="tenant" id="tenant">
+                                            <option [value]="item" *ngFor="let item of filteredTenantList">{{item}}</option>
+                                          </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-3 d-flex align-items-center">
+                                <label for="unitNumber">Lease term</label>
+                            </div>
+                            <div class="col-9">
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="leaseTerm" id="fixedTerm" formControlName="leaseTerm" value="fixed">
+                                        <label class="form-check-label" for="fixedTerm">
+                                         Fixed terms
+                                        </label>
+                                      </div>
+                                      <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="leaseTerm" id="monthlyTerm" formControlName="leaseTerm" value="monthly">
+                                        <label class="form-check-label" for="monthlyTerm">
+                                          Month-to-month
+                                        </label>
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-3 d-flex align-items-center">
+                                <label for="unitNumber">Lease start date</label>
+                            </div>
+                            <div class="col-9">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input
+                                          class="form-control custom-dp"
+                                          placeholder="yyyy-mm-dd"
+                                          name="dp"
+                                          ngbDatepicker
+                                          #startDate="ngbDatepicker"
+                                          formControlName="leaseStartDate"
+                                          id="maintenanceDateTo"
+                                        />
+                                        <button class="btn btn-outline-secondary bi bi-calendar3" (click)="startDate.toggle()" type="button"></button>
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-3 d-flex align-items-center">
+                                <label for="unitNumber">Lease end date</label>
+                            </div>
+                            <div class="col-9">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input
+                                          class="form-control custom-dp"
+                                          placeholder="yyyy-mm-dd"
+                                          name="dp"
+                                          ngbDatepicker
+                                          #endDate="ngbDatepicker"
+                                          formControlName="leaseEndDate"
+                                          id="maintenanceDateTo"
+                                        />
+                                        <button class="btn btn-outline-secondary bi bi-calendar3" (click)="endDate.toggle()" type="button"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </form>
+               
+            </div>
+            <div class="card-footer bg-transparent d-flex justify-content-between mb-3">
+                <button class="btn btn-ordered" (click)="prevStep()" [disabled]="isPreviousStepDisabled" ><i class="bi bi-chevron-left me-2"></i>Previous step</button>
+                <button class="btn btn-dark ms-3" (click)="nextStep()">Next <i class="bi bi-chevron-right ms-2"></i> </button>
+           </div>
+        </div>
+        <div class="card" *ngIf="currentStep ==3">
+            <div class="card-body card-padding">
+                <form [formGroup]="rentalChargeForm">
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-3 d-flex align-items-center">
+                                <label for="tenant">Tenant</label>
+                            </div>
+                            <div class="col-9">
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <select class="form-select" aria-label="Select" formControlName="tenant" id="tenant">
+                                            <option [value]="item" *ngFor="let item of filteredTenantList">{{item}}</option>
+                                          </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-3 d-flex align-items-center">
+                                <label for="unitNumber">Lease term</label>
+                            </div>
+                            <div class="col-9">
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="leaseTerm" id="fixedTerm" formControlName="leaseTerm" value="fixed">
+                                        <label class="form-check-label" for="fixedTerm">
+                                         Fixed terms
+                                        </label>
+                                      </div>
+                                      <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="leaseTerm" id="monthlyTerm" formControlName="leaseTerm" value="monthly">
+                                        <label class="form-check-label" for="monthlyTerm">
+                                          Month-to-month
+                                        </label>
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-3 d-flex align-items-center">
+                                <label for="unitNumber">Lease start date</label>
+                            </div>
+                            <div class="col-9">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input
+                                          class="form-control custom-dp"
+                                          placeholder="yyyy-mm-dd"
+                                          name="dp"
+                                          ngbDatepicker
+                                          #startDate="ngbDatepicker"
+                                          formControlName="leaseStartDate"
+                                          id="maintenanceDateTo"
+                                        />
+                                        <button class="btn btn-outline-secondary bi bi-calendar3" (click)="startDate.toggle()" type="button"></button>
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-3 d-flex align-items-center">
+                                <label for="unitNumber">Lease end date</label>
+                            </div>
+                            <div class="col-9">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input
+                                          class="form-control custom-dp"
+                                          placeholder="yyyy-mm-dd"
+                                          name="dp"
+                                          ngbDatepicker
+                                          #endDate="ngbDatepicker"
+                                          formControlName="leaseEndDate"
+                                          id="maintenanceDateTo"
+                                        />
+                                        <button class="btn btn-outline-secondary bi bi-calendar3" (click)="endDate.toggle()" type="button"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </form>
+               
+            </div>
+            <div class="card-footer bg-transparent d-flex justify-content-between mb-3">
+                <button class="btn btn-ordered" (click)="prevStep()" [disabled]="isPreviousStepDisabled"><i class="bi bi-chevron-left me-2"></i>Previous step</button>
+                <button class="btn btn-dark ms-3" (click)="nextStep()" >Add lease </button>
+           </div>
+        </div>
+    </div>
+</div>

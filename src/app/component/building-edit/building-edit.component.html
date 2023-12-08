@@ -1,0 +1,138 @@
+<div class="row">
+    <div class="col">
+        <form [formGroup]="buildingEditForm">
+            <div class="card mb-3">
+                <div class="card-header bg-transparent">
+                    <div class="card-heading">Property info</div>
+                   
+                </div>
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-3 d-flex align-items-center">
+                            <label for="">Type</label>
+                        </div>
+                        <div class="col-9">
+                            <div class="form-group">
+                                <select class="form-select" aria-label="Default select example" formControlName="propertyType">
+                                    <option [value]="item.value" *ngFor="let item of propertyType">{{item.name}}</option>
+                                  </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-3 d-flex align-items-center">
+                            <label for="">Property name</label>
+                        </div>
+                        <div class="col-9">
+                            <div class="form-group">
+                                <input type="text" name="" id="" class="form-control" placeholder="Property name" formControlName="propertyName">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-3 d-flex align-items-top">
+                            <label for="">Address details</label>
+                        </div>
+                        <div class="col-9">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-6 mb-3">
+                                        <input type="text" name="" id="" class="form-control" placeholder="Address 1" formControlName="address1">
+                                    </div>
+                                    <div class="col-6 mb-3">
+                                        <input type="text" name="" id="" class="form-control" placeholder="Address 2" formControlName="address2">
+                                    </div>
+                                    <div class="col-6 mb-3">
+                                        <input type="text" name="" id="" class="form-control" placeholder="City" formControlName="city">
+                                    </div>
+                                    <div class="col-6 mb-3">
+                                        <input type="text" name="" id="" class="form-control" placeholder="Province" formControlName="province">
+                                    </div>
+                                    <div class="col-6 mb-3">
+                                        <input type="text" name="" id="" class="form-control" placeholder="Postal code" formControlName="postalCode">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer bg-transparent border-top-0 mb-3">
+                    <div class="d-flex justify-content-end">
+                        <button class="btn btn-dark"> Save changes</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="card-header bg-transparent">
+                    <div class="card-heading">Property units</div>
+                </div>
+                <div class="card-body p-0">
+                    <div>
+                        <table class="table table-responsive table-borderless" id="buildingUnitTable">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th></th>
+                                    <th>Unit number</th>
+                                    <th>Beds</th>
+                                    <th>Bathrooms</th>
+                                    <th>Size &#13217; </th>
+                                    <th>Rental fee</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <ng-container formArrayName="buildingUnitItemArray">
+                                    <ng-container *ngFor="let buildingUnitForm of buildingItemArray.controls; let index = index">
+                                      <ng-container [formGroupName]="index">
+                                        <tr>
+                                          <td>  {{index+1}}</td>
+                                            <td>
+                                                <input type="text" name="unitName" id="unitName" formControlName="unitName" class="form-control" placeholder="Number">
+                                            </td>
+                                            <td>
+                                                <input type="text" name="unitBed" id="unitBed" formControlName="unitBed" class="form-control" placeholder="Beds">
+                                            </td>
+                                            <td>
+                                                <input type="text" name="unitBathroom" id="unitBathroom" formControlName="unitBathroom" class="form-control" placeholder="Bathrooms">
+                                            </td>
+                                            <td>
+                                                <input type="text" name="unitSize" id="unitSize" formControlName="unitSize" class="form-control" placeholder="Size">
+                                            </td>
+                                            <td>
+                                                <input type="text" name="unitRent" id="unitRent" formControlName="unitRent" class="form-control" placeholder="Monthly Rent">
+                                            </td>
+                                            <td class="remove" width="5%">
+                                              
+                                                <button class="btn btn-dark" (click)="deleteUnitItem(index)" [disabled]="index  === 0"> Delete</button>
+                                            </td>
+                                        </tr>
+                                        
+                                        </ng-container>
+                                    </ng-container>
+                                </ng-container>
+                                
+                            </tbody>
+                            <tfoot >
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td with="100%">
+                                        <button class="btn bg-transparent mb-3" (click)="addUnitItem()"><i class="bi bi-plus-lg me-2"></i>Add another unit</button>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+                <div class="card-footer bg-transparent border-top-0 mb-3">
+                    <div class="d-flex justify-content-end">
+                        <button class="btn btn-dark"> Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

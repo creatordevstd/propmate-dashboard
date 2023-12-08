@@ -9,6 +9,13 @@ import {BuildingListComponent} from "./component/building-list/building-list.com
 import {DashboardOverviewComponent} from "./component/dashboard-overview/dashboard-overview.component";
 import {TenantProfileComponent} from "./component/tenant-profile/tenant-profile.component";
 import {TenantEditProfileComponent} from "./component/tenant-edit-profile/tenant-edit-profile.component";
+import { AddTenantComponent } from './component/add-tenant/add-tenant.component';
+import { FinancialHistoryComponent } from './component/financial-history/financial-history.component';
+import { MaintenanceComponent } from './component/maintenance/maintenance.component';
+import { OwnerFinanceComponent } from './component/owner-finance/owner-finance.component';
+import { GenerateInvoiceComponent } from './component/generate-invoice/generate-invoice.component';
+import { BuildingDetailsComponent } from './component/building-details/building-details.component';
+import { TenantComponent } from './component/tenant/tenant.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent},
@@ -18,8 +25,15 @@ const routes: Routes = [
   {path: Constants.DASHBOARD_OVERVIEW_ROUTE, component: DashboardOverviewComponent},
   {path: Constants.BUILDING_LIST_ROUTE, component: BuildingListComponent},
   {path: Constants.BUILDING_DETAILS_ROUTE.concat('/:id'), component: BuildingListComponent},
+  {path: Constants.BUILDING_ROUTE.concat('/:component/:id'), component: BuildingDetailsComponent},
   {path: Constants.TENANT_PROFILE_ROUTE.concat('/:id'), component: TenantProfileComponent},
-  {path: Constants.EDIT_TENANT_PROFILE, component: TenantEditProfileComponent}
+  {path: Constants.EDIT_TENANT_PROFILE, component: TenantEditProfileComponent},
+  {path: Constants.ADD_TENANT, component: AddTenantComponent},
+  {path: Constants.FINANCIAL_HISTORY, component: FinancialHistoryComponent},
+  {path: Constants.MAITNENACE_ROUTE, component: MaintenanceComponent},
+  {path: Constants.OWNER_FINANCIAL_ROUTE, component: OwnerFinanceComponent},
+  {path: Constants.INVOICE_ROUTE, component: GenerateInvoiceComponent},
+  {path: Constants.TENANT_ROUTE.concat('/:component'), component: TenantComponent},
 ];
 
 @NgModule({

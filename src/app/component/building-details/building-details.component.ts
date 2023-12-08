@@ -1,11 +1,20 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {Component, OnInit, Type} from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
 import {Constants} from "../../common/Constants";
 import {EChartsOption} from "echarts";
 import * as moment from "moment";
 import {TableFilterService} from "../../services/table-filter/table-filter.service";
 import * as $ from 'jquery';
 import 'datatables.net';
+import { BuildingAccountingComponent } from '../building-accounting/building-accounting.component';
+import { BuildingListComponent } from '../building-list/building-list.component';
+import { BuildingOverviewComponent } from '../building-overview/building-overview.component';
+import { BuildingDocumentsComponent } from '../building-documents/building-documents.component';
+import { BuildingDirectoryComponent } from '../building-directory/building-directory.component';
+import { BuildingMaintenanceComponent } from '../building-maintenance/building-maintenance.component';
+import { BuildingEditComponent } from '../building-edit/building-edit.component';
+import { BuildingLeaseComponent } from '../building-lease/building-lease.component';
+import { BuildingTenantComponent } from '../building-tenant/building-tenant.component';
 
 
 @Component({
@@ -16,32 +25,48 @@ import 'datatables.net';
 export class BuildingDetailsComponent implements OnInit {
 
   chartOptionUnits: EChartsOption = {};
+  // @ts-ignore
+  currentComponent: Type<any>;
+  propertyId: any;
   buildingName: any;
   buildingList: any = [];
   tenantList: any = [];
   filteredBuildingList: any;
+  userList: any = {};
+  setCurrentLinkActive = false;
+  buildingId: any;
+  componentName: any;
+  showDropdown = false;
+  showChatDropdown = false;
+  showNotificationDropdown = false;
+  showImageDropdown = false;
+  notificationList : any = [];
 
   constructor(private activatedRoute: ActivatedRoute,
-              private tableFilterService: TableFilterService) {
+              private tableFilterService: TableFilterService,
+              public router: Router) {
     this.buildingList = Constants.BUILDING_LISTING;
     this.tenantList = Constants.TENANTS_LIST;
+    this.userList = Constants.TENANTS_LIST[0]
+    this.notificationList = Constants.NOTIFICATION_LIST;
   }
 
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe((param) => {
-      const buildingId = param['id'];
+      this.buildingId = param['id'];
       // @ts-ignore
-      this.filteredBuildingList = this.buildingList.filter(item => item.id == buildingId)
+      this.filteredBuildingList = this.buildingList.filter(item => item.id == this.buildingId)
     });
     this.setUnitVacancyChart();
-  
-    $(document).ready(function () {
-      $('#tenantTableId').DataTable({
-        order: [[4, 'desc']]
-      }
-      );
+  this.activatedRoute.paramMap.subscribe(params => {
+     this.componentName = params.get('component');
+    console.log( this.componentName);
+    
+    this.activatedRoute.queryParams.subscribe((params)=>{
+      this.propertyId = params['id'];
+    })
+    this.loadComponent( this.componentName);
   });
-  
   }
 
   getDaysDifference(){
@@ -150,4 +175,44 @@ export class BuildingDetailsComponent implements OnInit {
   }
 
   protected readonly Constants = Constants;
+
+  loadComponent(componentName: string, param?:any){
+    switch(componentName){
+      case 'accounting':
+        this.currentComponent = BuildingAccountingComponent;
+        break;
+      case Constants.BUILDING_OVERVIEW:
+        this.currentComponent = BuildingOverviewComponent;
+        break;
+      case Constants.BUILDING_DOCUMENTS:
+        this.currentComponent = BuildingDocumentsComponent;
+        break;
+      case Constants.BUILDING_DIRECTORY:
+        this.currentComponent = BuildingDirectoryComponent;
+        break;
+      case Constants.BUILDING_MAINTENANCE:
+        this.currentComponent = BuildingMaintenanceComponent;
+        break;
+      case Constants.BUILDING_EDIT:
+          this.currentComponent = BuildingEditComponent;
+          break;
+      case Constants.BUILDING_TENANT:
+            this.currentComponent = BuildingTenantComponent;
+            break;
+        default:
+          this.currentComponent = BuildingOverviewComponent;
+    }
+  }
+
+  toggleChatHeader() {
+
+    this.showChatDropdown = !this.showChatDropdown;
+  }
+  toggleNotificationHeader(){
+    this.showNotificationDropdown = !this.showNotificationDropdown;
+  }
+
+  toggleNotificationHedaer(){
+    this.showNotificationDropdown = !this.showNotificationDropdown;
+  }
 }

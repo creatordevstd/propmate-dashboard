@@ -1,0 +1,23 @@
+.badge-style{
+  border-style: solid;
+  border-width: 1px;
+  padding: 4px 8px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: var(--bs-badge-font-size);
+}
+.badge-success-bg{
+  background: var(--bg-success-color);
+  color: var(--success-color);
+  border-color: var(--success-color);
+}
+.badge-warning-bg{
+  background: var(--bg-warning-color);
+  color: var(--warning-color);
+  border-color: var(--warning-color);
+}
+.badge-danger-bg{
+  background: var(--bg-danger-color);
+  color: var(--danger-color);
+  border-color:var(--danger-color);
+}

@@ -18,13 +18,15 @@ table > tbody > tr > td{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    font-size: small;
 }
 .profile-image-container{
     align-items: center;
 }
 .maintenance-status > span{
-    padding: 6px 12px;
+    padding: 6px 21px;
     border-radius: var(--bs-border-radius);
+    font-size: smaller;
 }
 .maintenance-status > span.bg-success-color{
     background: var(--bg-success-color);
@@ -42,17 +44,14 @@ table > tbody > tr > td{
     border-color:var(--ligth-color);
 }
 .maintenance-type > span{
-    padding: 6px 12px;
-    border-radius: var(--bs-border-radius);
-    background: #377DFF;
-    color: var(--bs-white);
     border-color:var(--bg-info-color);
+    font-size: smaller;
 }
-.property-details > .property-name{
+.profile-name{
     font-weight: 500;
     color: var(--text-color-primary);
 }
-.property-details > .property-location{
+.property-name{
     font-size: smaller;
 }
 .col-filter{
@@ -75,3 +74,22 @@ table > tbody > tr > td{
     border-top-right-radius: 0 !important;
     border-bottom-right-radius: 0 !important;
 }
+#searchInputId, #input-group-icon{
+    border: 1px solid var(--border-color);
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+  }
+  #searchInputId:focus{
+    box-shadow: none;
+    outline: none;
+  }
+  
+  input#searchInputId::placeholder{
+    font-size: 14px;
+    color: #8c98a4;
+  }
+  .profile-name{
+    font-weight: 500;
+  }

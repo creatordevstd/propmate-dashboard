@@ -120,31 +120,42 @@
             </div>
           </div>
           <div class="col-filter-item mb-3">
-            <button class="btn btn-primary">Filter</button>
+            <button class="btn btn-dark"><i class="bi bi-filter me-2"></i>Filter</button>
           </div>
         </div>
       </form>
     </div>
-    <div class="create-task-button">
-      <button class="btn btn-primary">Add tasks</button>
-    </div>
   </div>
 </div>
 <div class="row mb-3">
-    <div class="card">
+    <div class="card p-0">
         <div class="card-header bg-transparent border-bottom-0 p-3">
-          <div class="card-heading">Tasks</div>
+          <div class="d-flex justify-content-between">
+            <div>
+              <div class="input-group">
+                <div class="input-group-prepend bg-white">
+                 <span class="input-group-text bg-white" id="input-group-icon">
+                 <i class="bi bi-search bi-gray"></i>
+                 </span>
+                </div>
+                <input type="text" id="searchInputId" (keyup)="filterTable('maintenanceTableList', 'searchInputId')" class="form-control" placeholder="Search task">
+              </div>
+            </div>
+            <div class="export-button">
+              <button class="btn btn-bordered"><i class="bi bi-download me-2"></i>Export</button>
+              <button class="btn btn-dark ms-3"><i class="bi bi-plus-circle me-2"></i>Add Tasks</button>
+          </div>
+          </div>
+         
         </div>
         <div class="card-body p-0">
-          <table class="table table-responsive table-align-middle" id="maintenanceTableList">
+          <table class="table table-responsive table-borderless table-align-middle" id="maintenanceTableList">
             <thead class="thead-light">
             <tr>
               <th>Ticket</th>
-              <th>Date created</th>
-              <th>Property</th>
-              <th>Reporter</th>
-              <th>Unit</th>
+              <th>Tenant</th>
               <th>Description</th>
+              <th>Date</th>
               <th>Status</th>
               <th class="view-link"></th>
             </tr>
@@ -152,31 +163,31 @@
             <tbody>
             <tr *ngFor="let maintenanceRequest of MaintenanceRequestList; index as i">
               <ng-container>
-                <td class="ticketNumber">#00{{i+1}}</td>
-                <td class="date-created">{{maintenanceRequest.dateCreated}}</td>
-                <td class="property-details">
-                  <div class="property-name">{{maintenanceRequest.buildingName}}</div>
-                  <div class="property-location">{{maintenanceRequest.address}}</div>
-                </td>
+                <td class="ticketNumber">{{i+1}}</td>
                 <td class="reporter-details">
                   <div class="profile-image-container d-flex">
                     <div class="profile-background-cover">
-                      <div class="profile-image"> {{maintenanceRequest.fullName | slice:0:1}}</div>
+                      <div class="profile-image"> {{helperService.getFirstCharacters(maintenanceRequest.fullName)}}</div>
                     </div>
-                    <div class="profile-name ms-3">{{maintenanceRequest.fullName}}</div>
+                    <div class="ms-3">
+                      <div class="profile-name">
+                        {{maintenanceRequest.fullName}}
+                      </div>
+                      <div class="property-name">{{maintenanceRequest.buildingName}}</div>
+                     </div>
                   </div>
                 </td>
-                <td class="maintenance-unit">{{maintenanceRequest.unit}}</td>
+
                 <td class="maintenance-description">
-                  <div class="maintenance-description-details mb-2">
+                  <div class="maintenance-description-details">
                     {{maintenanceRequest.description}}
                   </div>
                   <div class="maintenance-type">
                     <span>{{maintenanceRequest.maintenanceType}}</span>
                   </div>
                  </td>
+                <td class="date-created">{{maintenanceRequest.dateCreated}}</td>
                 <td class="maintenance-status">
-                  
                   <span [ngClass]="{'bg-light-color' : maintenanceRequest.status =='New', 'bg-success-color': maintenanceRequest.status =='Completed', 
                   'bg-warning-color':  maintenanceRequest.status == 'In-Progress'}">{{maintenanceRequest.status}}</span>
                 </td>

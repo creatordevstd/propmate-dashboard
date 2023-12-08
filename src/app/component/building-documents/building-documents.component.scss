@@ -1,0 +1,29 @@
+.document-icon i{
+    font-size: xx-large;
+}
+
+.document-icon i.bg-pdf{
+    color: var(--pdf-color);
+}
+.document-icon i.bg-doc{
+    color: var(--doc-color)
+}
+tbody tr td {
+    color: var(--text-color-secondary);
+}
+.document-name{
+    font-weight: 500;
+    color: var(--bs-black)
+}
+.document-size{
+    font-size: smaller;
+}
+.document-status i.bg-success-color{
+    color: var(--success-color);
+}
+.document-status i.bg-danger-color{
+    color: var(--danger-color)
+}
+.required-documents{
+    padding-left: 16px;
+}

@@ -1,0 +1,9 @@
+.completed-task.bg-light-color{
+    background: var(--bg-light-color);
+    padding: 3px 6px;
+    font-weight: 400;
+    border-radius: var(--bs-border-radius);
+}
+.progress-percentage{
+    font-size: smaller;
+}

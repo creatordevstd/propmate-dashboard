@@ -1,0 +1,172 @@
+<div class="row mb-3">
+    <div class="col mb-3">
+        <div class="card h-100">
+          <div class="card-body">
+            <div class="card-title">
+             Total Rental Revenue
+            </div>
+            <div class="card-details d-flex">
+              <div class="card-figure">
+                <span class="amount">R98,361</span>
+                <span class="card-subtitle-description ms-2">Last 7 days</span>
+              </div>
+              <div class="card-graph d-none">
+                <span class="badge badge-style border-0 p-2  badge-success-bg ms-2"><i class="bi bi-graph-up"></i> +11.2%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="col mb-3">
+        <div class="card h-100">
+          <div class="card-body">
+            <div class="card-title">
+              Total Rental Income
+            </div>
+            <div class="card-details d-flex">
+              <div class="card-figure">
+                <span class="amount">R452,782</span>
+                <span class="card-subtitle-description ms-2">Last 30 days</span>
+              </div>
+              <div class="card-graph d-none">
+                <span class="badge badge-style border-0 p-2  badge-danger-bg ms-2"><i class="bi bi-graph-down"></i> -15.7%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="col mb-3">
+        <div class="card h-100">
+          <div class="card-body">
+            <div class="card-title">
+              Total Operation Cost
+            </div>
+            <div class="card-details d-flex">
+              <div class="card-figure">
+                <span class="amount">R26,789</span>
+                <span class="card-subtitle-description ms-2">last 30 days</span>
+              </div>
+              <div class="card-graph d-none">
+                <span class="badge badge-style border-0 p-2  badge-success-bg ms-2"><i class="bi bi-graph-down"></i> -1.9%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="col mb-3">
+        <div class="card h-100">
+          <div class="card-body">
+            <div class="card-title">
+              Current Net Rental
+            </div>
+            <div class="card-details d-flex">
+              <div class="card-figure">
+                <span class="amount">R34,328</span>
+                <span class="card-subtitle-description ms-2">last 30 days</span>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+<div class="row mb-5">
+  <div class="col-12">
+    <div class="d-flex justify-content-between py-3">
+      <div class="card-heading">Payments</div>
+      <div class="export-button">
+          <button class="btn btn-dark ms-3"><i class="bi bi-plus-lg me-2"></i>Create Payments</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="empty-message-container">
+          <span><i class="bi bi-inbox-fill"></i></span>
+          <span class="empty-message-container ms-2 card-title">There are no payments</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row mb-5">
+  <div class="col-12">
+    <div class="d-flex justify-content-between py-3">
+      <div class="card-heading">Invoices</div>
+      <div class="export-button">
+          <button class="btn btn-bordered"><i class="bi bi-send me-2"></i>Send reminder</button>
+          <button class="btn btn-dark ms-3"><i class="bi bi-plus-lg me-2"></i>Create Invoice</button>
+      </div>
+    </div>
+  </div>
+    <div class="col-12">
+      <div class="table-card">
+        <div class="card-body p-0">
+          <table class="table table-responsive tabble-bordered table-align-middle" id="transactionHistoryTable">
+            <thead class="thead-light">
+            <tr>
+              <th>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                </div>
+              </th>
+              <th>Tenant</th>
+              <th>Invoice ID </th>
+              <th>date</th>
+              <th>Amount</th>
+              <th>Status</th>
+
+              <th class="view-link"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let transactionHistory of transactionHistoryList; index as i ">
+              <ng-container>
+                <td>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                  </div>
+                </td>
+                <td>
+                  <div class="tenant-profile-container d-flex">
+                      <div class="tenant-profile-cover">
+                          <div class="tenant-profile">{{helperService.getFirstCharacters(transactionHistory.tenantFullName)}}</div>
+                      </div>
+                      <div class="ms-2">
+                        <div class="tenant-name">
+                          {{transactionHistory.tenantFullName}}
+                        </div>
+                        <div class="tenant-mail">
+                          Unit {{transactionHistory.unitNumber}}
+                        </div>
+                      </div>
+                  </div>
+               </td>
+               
+                <td>
+                    <div>
+                        <span class="separtor mx-1 d-none">&#8211;</span>
+                        <div class="transctionId">{{transactionHistory.transactionId}}000{{i+12}}</div>
+                        <div class="transaction-type ">{{transactionHistory.transactionType}}</div>
+                    </div>
+                </td>
+                
+                <td>{{transactionHistory.transactionDate}}</td>
+                <td>{{transactionHistory.amountPaid}}</td>
+                <td>
+                    <span class="transaction-status" [ngClass]="{'bg-success-color': transactionHistory.transactionStatus == 'Paid',
+                'bg-warning-color': transactionHistory.transactionStatus == 'Pending', 'bg-danger-color': 
+                transactionHistory.transactionStatus == 'Declined'}">{{transactionHistory.transactionStatus}}</span>
+                </td>
+                
+                <td>
+                  <a class="btn btn-sm btn-edit"><i class="bi bi-three-dots-vertical"></i></a>
+                </td>
+              </ng-container>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>

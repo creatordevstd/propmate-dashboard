@@ -1,13 +1,18 @@
 :root{
-  //Font
+  //Font size
+  --title-size: 32px;
+  --xl-font-size: 24px;
   --lg-font-size: 16px;
   --md-font-size: 14px;
   --sm-font-size: 12px;
 
+  //Font weight
   --bold-weight: 600;
   --semi-bold-weight: 500;
   --regular-weight: 400;
   --light-weight: 300;
+
+  //color
 
   --dark-color: #000000;
   --primary-lighter-color: #15a1ff;
@@ -24,9 +29,11 @@
   --indigo-color: #2d1582;
   --gray-color: #e7eaf3;
   --gray-lighter: #bcc5d1;
+  --placeholder-color: #ced3d9;
+  --light-color: #71869D;
 
-
-  --bg-light-gray-color: #fafafa;
+  //background color
+  --bg-light-color: #f0f3f5;
   --bg-secondary-color: #e5edfB;
   --bg-success-color:#ebf9f6;
   --bg-danger-color:#feedf1;
@@ -35,86 +42,61 @@
   --bg-indigo-color: #e3e2ef;
   --bg-activated-color: #065cff;
 
-  //Text
-  --title-size: 32px;
-  --lg-heading-size: 24px;
-  --md-heading-size: 16px;
-  --text-size: 14px;
-  --small-text-size: 12px;
+  //text color
+  --paragraph-color : #677788;
+
+  --text-color-primary: #000000;
+  --text-color-secondary: #677788;
 
   //Border
   --border-color: rgba(231, 234, 243, 0.7);
+  //--border-color: rgba(231, 234, 243, 0.7);
+
+  //Box shadow
+  --boxshadow-color: 0 .375rem .75rem rgba(140,152,164,.075);
+
+  //Table head background color
+  --bg-thead-color: #f8fafd;
+
+  //document color
+  --pdf-color : #E21B23;
+  --doc-color : #377CF4;
 
 }
 body{
   font-family: "Helvetica Neue", sans-serif;
+  height: 100svh;
+}
+header.stick-top{
+  z-index: 1000;
+}
+a{
+  cursor: pointer;
 }
 p{
   font-size: 14px;
   font-weight: 400;
 }
-.main-heading{
-  font-weight: 500;
-  font-size: 32px;
+hr{
+  border: 1px solid var(--bs-border-color)
 }
-.sub-heading, .form-check-label{
-  font-weight: 400;
-  font-size: 14px;
+.heading-title{
+  font-weight: var(--semi-bold-weight);
 }
-.card{
-  border-color:rgba(231, 234, 243, 0.7);
-  box-shadow: 0 .375rem .75rem rgba(140,152,164,.075);
+.subtitle-text{
+  font-size: var(--lg-font-size);
+  color: var(--bs-gray-600);
 }
-.card-header{
-  padding: 16px 21px;
+
+.form-check-label{
+  // font-size: var(--sm-font-size);
+  font-size: var(--bs);
 }
-.card-title{
-  font-size: 14px;
-  font-weight: 500;
-  color: #000000;
-  text-transform: capitalize;
+
+.bi-gray {
+  color: var(--bs-gray-600);
 }
-.card-text{
-  font-size: 12px;
-  font-weight: 400;
-  color: #525b75;
-}
-.card-value{
-  font-weight: 600;
-  color: #000000;
-  font-size: 24px;
-}
-.card-header{
-  border-bottom-color: rgba(231, 234, 243, 0.7);
-  font-weight: 500;
-}
-.card-footer{
-  border-top-color: rgba(231, 234, 243, 0.7);
-}
-.badge-style{
-  //border-radius: 50px;
-  border-style: solid;
-  border-width: 1px;
-  padding: 2px 8px;
-  text-transform: uppercase;
-  font-weight: 500;
-  font-size: 10px;
-}
-.badge-success-bg{
-  background: #EBF9F6;
-  color: #53d633;
-  border-color:#53d633 ;
-}
-.badge-warning-bg{
-  background: #FDFAF4;
-  color: #d68839;
-  border-color: #d68839;
-}
-.badge-danger-bg{
-  background: #FEEDF1;
-  color: #d63f3a;
-  border-color: #d63f3a;
-}
+
 .chart-total-value{
   font-weight: 600;
   color:  #000000;
@@ -129,6 +111,26 @@ p{
 }
 .avatar{
   max-width: 30%;
+}
+.avatar-lg{
+  max-width: 80%;
+}
+.avatar-sm{
+  max-width: 10%;
+}
+.rounded-avatar{
+  border-radius: 50%;
+}
+.icon-bg{
+  background-color: var(--bs-white);
+  height: 48px;
+  width: 48px;
+  text-align: center;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
 }
 .alert{
   padding: 8px 10px;
@@ -154,3 +156,42 @@ hr{
   border: 1px solid rgba(231, 234, 243, 0.7);
 }
 
+small{
+  color: var(--bs-gray-600);
+}
+.rounded{
+  border-radius: 50%;
+}
+.legend-indicator{
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+}
+
+.avatar-rounded{
+  height: 42px;
+  width: 42px;
+  border-radius: 50%;
+}
+.avatar-rounded-large{
+  height: 84px;
+  width: 84px;
+  border-radius: 50%;
+}
+
+.progress-bar.bg-success-color{
+  background-color: var(--success-color);
+}
+.progress-bar.bg-transparent{
+  background: transparent;
+}
+.progress-bar.bg-dark-color{
+  background: var(--bs-black);
+}
+// .progress-bar{
+//   font-size: xx-small;
+// }
+.progress{
+  height: 4px;
+}

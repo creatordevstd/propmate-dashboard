@@ -13,6 +13,8 @@ import {TenantEditProfileComponent} from "../tenant-edit-profile/tenant-edit-pro
 import { AddTenantComponent } from '../add-tenant/add-tenant.component';
 import { FinancialHistoryComponent } from '../financial-history/financial-history.component';
 import { MaintenanceComponent } from '../maintenance/maintenance.component';
+import { OwnerFinanceComponent } from '../owner-finance/owner-finance.component';
+import { GenerateInvoiceComponent } from '../generate-invoice/generate-invoice.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -70,8 +72,8 @@ export class DashboardComponent implements OnInit, AfterViewInit{
         break;
       case 'building-list':
         this.currentComponent = BuildingListComponent;
-        this.title = 'Building List';
-        this.subTitle = 'Showing building list';
+        this.title = 'Properties';
+        this.subTitle = 'Showing properties list';
         break;
       case 'building-details':
         this.currentComponent = BuildingDetailsComponent;
@@ -86,23 +88,33 @@ export class DashboardComponent implements OnInit, AfterViewInit{
       case Constants.EDIT_TENANT_PROFILE:
         this.currentComponent = TenantEditProfileComponent;
         this.title = 'Edit Profile';
-        this.subTitle = 'Showing user profile'
+        this.subTitle = 'Edit user profile'
         break;
         case Constants.ADD_TENANT:
         this.currentComponent = AddTenantComponent;
-        this.title = 'Add User';
+        this.title = 'Add New Lease';
         this.subTitle = 'Adding new user'
         break;
         case Constants.FINANCIAL_HISTORY:
           this.currentComponent = FinancialHistoryComponent;
           this.title = 'Financial History';
           this.subTitle = 'Showing Financial History'
-          break;
-          case Constants.MAITNENACE_ROUTE:
-            this.currentComponent = MaintenanceComponent;
-            this.title = 'Maintenance';
-            this.subTitle = 'Showing Maintenance Requests'
-            break;
+        break;
+        case Constants.MAITNENACE_ROUTE:
+          this.currentComponent = MaintenanceComponent;
+          this.title = 'Maintenance';
+          this.subTitle = 'Showing Maintenance Requests'
+        break;
+        case Constants.OWNER_FINANCIAL_ROUTE:
+          this.currentComponent = OwnerFinanceComponent;
+          this.title = 'Transaction History';
+          this.subTitle = 'Showing Transaction History'
+        break;
+        case Constants.INVOICE_ROUTE:
+          this.currentComponent = GenerateInvoiceComponent;
+          this.title = 'Invoice';
+          this.subTitle = 'Showing Invoice details'
+        break;
       default:
         this.currentComponent = DashboardComponent;
         break;

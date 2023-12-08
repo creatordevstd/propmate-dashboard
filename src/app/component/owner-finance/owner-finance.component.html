@@ -1,0 +1,202 @@
+<div class="row mb-5">
+  <div class="col mb-3">
+    <div class="card h-100">
+      <div class="card-body">
+        <div class="card-title">
+          Building managed
+        </div>
+        <div class="card-details d-flex">
+          <div class="card-figure">
+            <span class="amount">16</span>
+            <span class="card-subtitle-description ms-2">Last 12 months</span>
+          </div>
+          <div class="card-graph">
+            <span class="badge badge-style border-0 p-2  badge-warning-bg ms-2"><i class="bi bi-graph-up"></i> +1.2%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col mb-3">
+    <div class="card h-100">
+      <div class="card-body">
+        <div class="card-title">
+          Total rental revenue
+        </div>
+        <div class="card-details d-flex">
+          <div class="card-figure">
+            <span class="amount">R114,5249</span>
+            <span class="card-subtitle-description ms-2">Last 30 days</span>
+          </div>
+          <div class="card-graph">
+            <span class="badge badge-style border-0 p-2 badge-success-bg ms-2"> <i class="bi bi-graph-up"></i> +36%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col mb-3">
+    <div class="card h-100">
+      <div class="card-body">
+        <div class="card-title">
+          Total rental income
+        </div>
+        <div class="card-details d-flex">
+          <div class="card-figure">
+            <span class="amount">R92,871</span>
+            <span class="card-subtitle-description ms-2">Last 30 days</span>
+          </div>
+          <div class="card-graph">
+            <span class="badge badge-style border-0 p-2  badge-warning-bg ms-2"><i class="bi bi-graph-up"></i> +3.4% </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col mb-3">
+    <div class="card h-100">
+      <div class="card-body">
+        <div class="card-title">
+          Total operation cost
+        </div>
+        <div class="card-details d-flex">
+          <div class="card-figure">
+            <span class="amount">16</span>
+            <span class="card-subtitle-description ms-2">Last 30 days</span>
+          </div>
+          <div class="card-graph">
+            <span class="badge badge-style border-0 p-2  badge-danger-bg ms-2"> <i class="bi bi-graph-down"></i> -2.6% </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row mb-3">
+  <div class="col d-flex col-filter">
+    <div class="filter-container">
+      <form [formGroup]="transactionFilterForm">
+        <div class="filter-wrapper">
+          <div class="col-filter-item mb-3">
+            <label for="transactionType">Type</label>
+            <select class="form-select" aria-label="Select" formControlName="transactionType" id="transactionType" >
+              <option value="rent-charges">Rent charges</option>
+              <option value="maintenant-payment">Maintenance payment</option>
+              <option value="security-deposit">Security deposit</option>
+            </select>
+          </div>
+          <div class="col-filter-item mb-3">
+            <label for="transactionStatus">Status</label>
+            <select class="form-select" aria-label="Select status" formControlName="transactionStatus" id="transactionStatus" >
+              <option value="new">Pending</option>
+              <option value="inProgress">Declined</option>
+              <option value="completed">Paid</option>
+            </select>
+          </div>
+          <div class="col-filter-item mb-3">
+            <label for="transactionDateFrom">From</label>
+            <div class="input-group">
+              <input
+                class="form-control custom-dp"
+                placeholder="yyyy-mm-dd"
+                name="dp"
+                ngbDatepicker
+                #dateFrom="ngbDatepicker"
+                formControlName="transactionDateFrom"
+                id="transactionDateFrom"
+              />
+              <button class="btn btn-outline-secondary bi bi-calendar3" (click)="dateFrom.toggle()" type="button"></button>
+            </div>
+          </div>
+          <div class="col-filter-item mb-3">
+            <label for="transactionDateTo">To</label>
+            <div class="input-group">
+              <input
+                class="form-control custom-dp"
+                placeholder="yyyy-mm-dd"
+                name="dp"
+                ngbDatepicker
+                #dateTo="ngbDatepicker"
+                formControlName="transactionDateTo"
+                id="transactionDateTo"
+              />
+              <button class="btn btn-outline-secondary bi bi-calendar3" (click)="dateTo.toggle()" type="button"></button>
+            </div>
+          </div>
+          <div class="col-filter-item mb-3">
+            <button class="btn btn-dark"><i class="bi bi-filter me-2"></i>Filter</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header  bg-transparent border-bottom-0 p-3">
+            <div class="d-flex justify-content-between">
+                <div class="card-heading">Transaction history</div>
+                <div class="export-button">
+                    <button class="btn btn-bordered"><i class="bi bi-download me-2"></i>Export</button>
+                    <button class="btn btn-dark ms-3"><i class="bi bi-arrow-up-right me-2"></i>Generate Invoice</button>
+
+                </div>
+            </div>
+          
+        </div>
+        <div class="card-body p-0">
+          <table class="table table-responsive table-borderless table-align-middle" id="transactionHistoryTable">
+            <thead class="thead-light">
+            <tr>
+              <th>Transaction ID</th>
+              <th>Tenant name</th>
+              <th>Property</th>
+              <th>transaction Date</th>
+              <th>Amount</th>
+              <th>Status</th>
+              <th class="view-link"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let transactionHistory of transactionHistoryList; index as i ">
+              <ng-container>
+                <td>
+                    <div>
+                        <span class="transaction-type d-none">{{transactionHistory.transactionType}}</span>
+                        <span class="separtor mx-1 d-none">&#8211;</span>
+                        <span class="transctionId">#{{transactionHistory.transactionId}}000{{i+12}}</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="tenant-profile-container d-flex">
+                        <div class="tenant-profile-cover">
+                            <div class="tenant-profile">{{transactionHistory.tenantFullName | slice:0:1}}</div>
+                        </div>
+                        <div class="tenant-name ms-2">{{transactionHistory.tenantFullName}}</div>
+                    </div>
+                </td>
+                <td>
+                    <div class="building-details">
+                        <div class="building-name">{{transactionHistory.buildingName}}</div>
+                        <div class="building-location">{{transactionHistory.buildingAddress}}</div>
+                    </div>
+                </td>
+                <td>{{transactionHistory.transactionDate}}</td>
+                <td>{{transactionHistory.amountPaid}}</td>
+                <td>
+                    <span class="transaction-status" [ngClass]="{'bg-success-color': transactionHistory.transactionStatus == 'Paid',
+                'bg-warning-color': transactionHistory.transactionStatus == 'Pending', 'bg-danger-color': 
+                transactionHistory.transactionStatus == 'Declined'}">{{transactionHistory.transactionStatus}}</span>
+                </td>
+                <td>
+                  <a class="btn btn-sm btn-bordered btn-view" type="button">View</a>
+                </td>
+              </ng-container>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>

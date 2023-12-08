@@ -3,6 +3,10 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Constants } from 'src/app/common/Constants';
 import flatpickr from "flatpickr";
 import { NgbDate, NgbCalendar, NgbDateParserFormatter, NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
+import { TableFilterService } from 'src/app/services/table-filter/table-filter.service';
+import { first } from 'rxjs';
+import { Helper } from 'src/app/common/helpers/Helper';
+import { HelperService } from 'src/app/services/helper/helper.service';
 
 @Component({
   selector: 'app-maintenance',
@@ -24,7 +28,8 @@ export class MaintenanceComponent implements OnInit{
     maintenanceStatus: new FormControl()
   });
   constructor(private calendar: NgbCalendar,
-		public formatter: NgbDateParserFormatter){
+		public formatter: NgbDateParserFormatter,
+		private tableFilterService: TableFilterService, public helperService: HelperService){
     this.MaintenanceRequestList = Constants.MAINTENANCE_REQUESTS;
     this.fromDate = calendar.getToday();
 		this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
@@ -36,7 +41,6 @@ export class MaintenanceComponent implements OnInit{
     });
     this.createCalendarInstances();
   }
-
   createCalendarInstances(){
     flatpickr("#dateFrom", {});
   }
@@ -74,4 +78,10 @@ export class MaintenanceComponent implements OnInit{
 		const parsed = this.formatter.parse(input);
 		return parsed && this.calendar.isValid(NgbDate.from(parsed)) ? NgbDate.from(parsed) : currentValue;
 	}
+	filterTable(tableId: any, inputId: any){
+		console.log(tableId)
+		this.tableFilterService.searchFilter(tableId.toString(), inputId.toString());
+	}
+
+	
 }

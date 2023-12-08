@@ -1,0 +1,55 @@
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <div class="card-header bg-transparent d-none">
+                <div class="card-heading">Uploaded documents</div>
+            </div>
+            <div class="card-body p-0">
+                <table class="table table-responsive table-borderless table-align-middle" id="transactionHistoryTable">
+                  <thead class="thead-light">
+                  <tr>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Assigned Tasks</th>
+                    <th>Completion</th>
+                    <th class="action-buttons"></th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let buildingDirectory of buildingDirectoryList">
+                    <ng-container >
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="{{buildingDirectory.img}}" alt="" class="img-fluid avatar-rounded">
+                                <div class="service-provider-name  ms-3">
+                                    <div class="service-provider-name">  {{buildingDirectory.name}}</div>
+                                    <div class="service-provider-contact">  {{buildingDirectory.contact.email}}</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="service-category">{{buildingDirectory.category}}</div>
+                        </td>
+                        <td>
+                            <span class="assigned-task"> {{buildingDirectory.assignedTask}}</span>
+                            <a class="completed-task ms-1" [ngClass]="{'bg-light-color': buildingDirectory.dailyCompletedTask != ''}"
+                            data-toggle="tooltip" data-placement="top" title="Daily completed tasks">{{buildingDirectory.dailyCompletedTask}}</a>
+                        </td>
+                        <td>
+                            <div class="progress-percentage d-inline-block ">{{buildingDirectory.completionStatus.concat('%')}}</div>
+                            <div class="progress" role="progressbar" aria-label="Success example" [attr.aria-valuenow]="buildingDirectory.completionStatus" aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar" [style.width]="buildingDirectory.completionStatus.concat('%')"
+                                [ngClass]="{'bg-success-color' : buildingDirectory.completionStatus == '100',
+                            'bg-dark-color': buildingDirectory.completionStatus != '100'}"></div>
+                              </div>
+                            
+                        </td>
+                    </ng-container>
+                    
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+        </div>
+    </div>
+</div>

@@ -1,4 +1,4 @@
-<div class="row mb-3">
+<div class="row mb-5">
   <div class="col mb-3">
     <div class="card h-100">
       <div class="card-body">
@@ -10,7 +10,7 @@
             <span class="amount">16</span>
             <span class="card-subtitle-description ms-2">Last 12 months</span>
           </div>
-          <div class="card-graph">
+          <div class="card-graph d-none">
             <span class="badge badge-style border-0 p-2  badge-warning-bg ms-2"><i class="bi bi-graph-up"></i> +1.2%</span>
           </div>
         </div>
@@ -28,7 +28,7 @@
             <span class="amount">R114,5249</span>
             <span class="card-subtitle-description ms-2">Last 30 days</span>
           </div>
-          <div class="card-graph">
+          <div class="card-graph d-none">
             <span class="badge badge-style border-0 p-2 badge-success-bg ms-2"> <i class="bi bi-graph-up"></i> +36%</span>
           </div>
         </div>
@@ -46,7 +46,7 @@
             <span class="amount">R92,871</span>
             <span class="card-subtitle-description ms-2">Last 30 days</span>
           </div>
-          <div class="card-graph">
+          <div class="card-graph d-none">
             <span class="badge badge-style border-0 p-2  badge-warning-bg ms-2"><i class="bi bi-graph-up"></i> +3.4% </span>
           </div>
         </div>
@@ -64,7 +64,7 @@
             <span class="amount">16</span>
             <span class="card-subtitle-description ms-2">Last 30 days</span>
           </div>
-          <div class="card-graph">
+          <div class="card-graph d-none">
             <span class="badge badge-style border-0 p-2  badge-danger-bg ms-2"> <i class="bi bi-graph-down"></i> -2.6% </span>
           </div>
         </div>
@@ -73,20 +73,35 @@
   </div>
 </div>
 <div class="row">
-  <div class="col">
-    <div class="card">
-      <div class="card-header bg-transparent border-bottom-0 p-3">
-        <div class="card-heading">Properties</div>
+  <div class="col-12 mb-3">
+    <div class="d-flex justify-content-between">
+      <div>
+        <div class="input-group">
+          <div class="input-group-prepend bg-white">
+           <span class="input-group-text bg-white" id="input-group-icon">
+           <i class="bi bi-search bi-gray"></i>
+           </span>
+          </div>
+          <input type="text" id="searchInputId" (keyup)="filterTable('buildingListTable', 'searchInputId')" class="form-control" placeholder="Search property">
+        </div>
       </div>
+      <div class="export-button">
+        <button class="btn btn-dark ms-3"><i class="bi bi-house-add me-2"></i>Add Property</button>
+    </div>
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="table-card">
       <div class="card-body p-0">
-        <table class="table table-responsive table-align-middle" id="buildingListTable">
+        <table class="table table-responsive table-borderless table-align-middle" id="buildingListTable">
           <thead class="thead-light">
           <tr>
-            <th>Property Name</th>
-            <th>Number of Units</th>
-            <th>Number of Tenants</th>
-            <th>Average Monthly Rent</th>
-            <th class="view-link"></th>
+            <th>Property </th>
+            <th>type</th>
+            <th> units</th>
+            <th> Tenants</th>
+            <th> Monthly Rent</th>
+            <!-- <th class="view-link"></th> -->
           </tr>
           </thead>
           <tbody>
@@ -98,7 +113,8 @@
                   <div>
                     <div>
                       <a
-                        [routerLink]="'/'.concat(Constants.DASHBOARD_ROUTE.concat('/'.concat(Constants.BUILDING_DETAILS_ROUTE)))"
+                        [routerLink]="'/'.concat(Constants.BUILDING_ROUTE.concat('/'.concat(Constants.BUILDING_OVERVIEW.concat('/'
+                        .concat(Constants.BUILDING_DETAILS_ROUTE)))))"
                         [queryParams]="{id: building.id}"
                         class="building-name-link">{{building.name}}</a>
                     </div>
@@ -106,6 +122,7 @@
                   </div>
                 </div>
               </td>
+              <td class="property-type">{{building.type}}</td>
               <td class="numberOfUnits">{{building.number_of_units}}</td>
               <td class="numberOfTenants">{{building.number_of_tenants}}</td>
               <td class="averageMonthlyRate">
@@ -113,11 +130,11 @@
                 {{building.average_monthly_rental_rate}}
                 <span class="amount"></span>
               </td>
-              <td>
+              <!-- <td>
                 <a class="btn btn-sm btn-bordered btn-view" type="button"
                    [routerLink]="'/'.concat(Constants.DASHBOARD_ROUTE.concat('/'.concat(Constants.BUILDING_DETAILS_ROUTE)))"
                    [queryParams]="{id: building.id}">View</a>
-              </td>
+              </td> -->
             </ng-container>
           </tr>
           </tbody>
