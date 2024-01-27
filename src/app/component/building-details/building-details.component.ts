@@ -15,6 +15,7 @@ import { BuildingMaintenanceComponent } from '../building-maintenance/building-m
 import { BuildingEditComponent } from '../building-edit/building-edit.component';
 import { BuildingLeaseComponent } from '../building-lease/building-lease.component';
 import { BuildingTenantComponent } from '../building-tenant/building-tenant.component';
+import { BuildingStatementComponent } from '../building-statement/building-statement.component';
 
 
 @Component({
@@ -198,6 +199,9 @@ export class BuildingDetailsComponent implements OnInit {
           break;
       case Constants.BUILDING_TENANT:
             this.currentComponent = BuildingTenantComponent;
+            break;
+      case Constants.BUILDING_STATEMENT:
+            this.currentComponent = BuildingStatementComponent;
             break;
         default:
           this.currentComponent = BuildingOverviewComponent;

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {ActivatedRoute} from "@angular/router";
 import {Constants} from "../../common/Constants";
+import { HelperService } from 'src/app/services/helper/helper.service';
 
 @Component({
   selector: 'app-tenant-profile',
@@ -14,7 +15,7 @@ export class TenantProfileComponent implements OnInit{
   filterTenant: any;
   maintenance: any = []
 Constants: any;
-  constructor(private activatedRoute: ActivatedRoute) {
+  constructor(private activatedRoute: ActivatedRoute, public helperService: HelperService) {
     this.tenantList = Constants.TENANTS_LIST;
     this.maintenance = Constants.MAINTENANCE_REQUEST_LISTING
   }

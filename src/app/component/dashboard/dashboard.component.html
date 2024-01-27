@@ -10,7 +10,49 @@
       <input class=" d-none form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
       <div class="navbar-nav">
         <div class="nav-item navbar-right-profile d-flex flex-row align-items-center justify-content-end">
-          <i class="bi bi-chat-left bi-gray"></i>
+          <i class="bi  bi-bell bi-gray" (click)="toggleChatHeader()"></i>
+          <div *ngIf="showChatDropdown" class="card card-chat-header">
+            <div class="card-header bg-transparent">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="card-heading">Notification</div>
+                <div class="mark-as-read">
+                  <i class="bi bi-three-dots-vertical"></i>
+                </div>
+              </div>
+            </div>
+            <div class="card-body p-0 notification-card-body">
+              <ng-container *ngFor="let notfication of notificationList, index as i">
+                <ng-container *ngIf="i <5">
+                <div class="notification-container d-flex align-items-start p-3" [ngClass]="{'notification-unread': !notfication.isRead, 'notification-read': notfication.isRead}">
+                  <div class="profile-image d-flex align-items-center">
+                    <span class="notification-indicator"><i class="bi bi-dot" [ngClass]="{'notification-unread': !notfication.isRead, 'notification-read': notfication.isRead}"></i></span>
+                    <img src="{{notfication.img}}" alt="" class="avatar-rounded">
+                  </div>
+                  <div class="notification-content ms-2 ">
+                    <div class="notification-tenant-name mb-1">
+                      <span class="tenant-name">  {{notfication.tenant}}</span>
+                      <span class="notification-time ms-2">{{notfication.timestamp}}</span>
+                    </div>
+                    <div class="notification-message mb-3">
+                      {{notfication.message}}
+                    </div>
+                    <div class="notification-message-action">
+                      <div *ngIf="notfication.isApprovalRequired">
+                        <button class="btn btn-bordered btn-sm">Review</button>
+                        <button class="btn btn-primary btn-sm ms-3">Approve</button>
+                      </div>
+                    </div>
+                  </div>
+                 
+                </div>
+                <hr size="1" class="hr-notification" *ngIf="i<=3"/>
+                </ng-container>
+              </ng-container>
+            </div>
+            <div class="card-footer bg-transparent  text-center">
+              <button class="btn bg-transparent btn-notification">View all notifications<i class="bi bi-chevron-right ms-2"></i></button>
+            </div>
+          </div>
           <i class="bi bi-bell mx-4 bi-gray"></i>
           <img src="../../../assets/images/avatar-6.png" alt="" class="avatar d-none">
           <div class="dropdown">
@@ -67,9 +109,8 @@
               </a>
               <div class="collapse" id="collapseUserMenu">
                 <a class="nav-link" href="">Overview</a>
+                <a class="nav-link" href="" [routerLink]="['/'.concat(Constants.TENANT_ROUTE.concat('/'.concat(Constants.TENANT_ADD)))]">Add new tenant</a>
                 <a class="nav-link" href="" [routerLink]="['/'.concat(Constants.TENANT_ROUTE.concat('/'.concat(Constants.TENANT_LEASE)))]">Add new lease</a>
-               
-                
               </div>
             </div>
           </li>
@@ -85,7 +126,7 @@
                 <a class="nav-link" href="#" [routerLink]="['/'.concat(Constants.DASHBOARD_ROUTE.concat('/'.concat(Constants.EDIT_TENANT_PROFILE)))]">Settings</a>
                 <a class="nav-link" href="" [routerLink]="['/'.concat(Constants.DASHBOARD_ROUTE.concat('/'.concat(Constants.OWNER_FINANCIAL_ROUTE)))]">Billing</a>
                 <a class="nav-link" href="" [routerLink]="['/'.concat(Constants.DASHBOARD_ROUTE.concat('/'.concat(Constants.INVOICE_ROUTE)))]">Invoice</a>
-                <a class="nav-link" href="">Statement</a>
+                <a class="nav-link" href=""[routerLink]="['/'.concat(Constants.DASHBOARD_ROUTE.concat('/'.concat(Constants.BUILDING_STATEMENT)))]">Statement</a>
               </div>
             </div>
           </li>

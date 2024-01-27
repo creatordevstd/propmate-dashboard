@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { TenantLeaseComponent } from '../tenant-lease/tenant-lease.component';
 import { TenantOverviewComponent } from '../tenant-overview/tenant-overview.component';
 import { Constants } from 'src/app/common/Constants';
+import { TenantAddComponent } from '../tenant-add/tenant-add.component';
+import { HelperService } from 'src/app/services/helper/helper.service';
 
 @Component({
   selector: 'app-tenant',
@@ -18,7 +20,7 @@ export class TenantComponent implements OnInit {
   componentName: any;
   tenantId: any;
   userList:any =[]
-  constructor(public activatedRoute: ActivatedRoute){
+  constructor(public activatedRoute: ActivatedRoute, public helperService: HelperService){
     this.userList = Constants.TENANTS_LIST[0]
   }
   ngOnInit(): void {
@@ -44,6 +46,11 @@ export class TenantComponent implements OnInit {
           this.title = 'Overview';
           this.subTitle = 'Tenants'
           break;
+          case 'add':
+            this.currentComponent = TenantAddComponent;
+            this.title = 'Add new tenant';
+            this.subTitle = 'Tenants'
+            break;
         default:
           this.currentComponent = TenantOverviewComponent;
     }

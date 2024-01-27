@@ -18,7 +18,6 @@ export class BuildingTenantComponent implements OnInit {
     
   }
   filterTable(tableId: any, inputId: any){
-    console.log(tableId)
     this.tableFilterService.searchFilter(tableId.toString(), inputId.toString());
   }
 }

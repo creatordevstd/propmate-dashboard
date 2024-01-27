@@ -1,3 +1,25 @@
+.profile-background-cover{
+    background-color: aliceblue;
+    height: 64px;
+    width: 64px;
+    color: #377DFF;
+    text-align: center;
+    font-size: large;
+    font-weight: 500;
+    text-transform: uppercase;
+    border-radius: 50%;
+    position: relative;
+}
+.profile-image{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: small;
+}
+.profile-image-container{
+    align-items: center;
+}
 
 // .user-id, .joined-date{
 //   font-size: 14px;

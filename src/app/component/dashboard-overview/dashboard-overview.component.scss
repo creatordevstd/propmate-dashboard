@@ -2,10 +2,10 @@
   flex-direction: column;
   align-self: center;
 }
-.building-image img{
-  width: 45px;
-  border-radius: 4px;
-}
+// .building-image img{
+//   width: 45px;
+//   border-radius: 4px;
+// }
 .building-name{
   font-size: var(--md-font-size);
   font-weight: var(--semi-bold-weight);
@@ -67,4 +67,109 @@ table tbody tr td.issue{
 }
 .chart-value{
   text-align: center;
+}
+
+//Notification header
+.notification-content{
+  font-size: 14px;
+  color: var(--text-color-secondary);
+}
+.notification-card-body{
+  height: 440px;
+  overflow: scroll;
+  
+}
+.notification-tenant-name .tenant-name{
+  font-weight: 500;
+  color: var(--bs-black);
+}
+.notification-message,
+.notification-time{
+  font-size: small;
+  
+}
+.btn-notification{
+  color: var(--text-color-secondary);
+  font-size: small;
+}
+.notification-container.notification-unread{
+  background: #F8FBFF;
+}
+.notification-container.notification-read:hover{
+  background: #fafafa;
+}
+hr.hr-notification{
+  margin: 0;
+}
+.notification-indicator i{
+  font-size: 32px;
+}
+.notification-indicator i.notification-unread{
+  color: var(--primary-darker-color);
+}
+.notification-indicator i.notification-read{
+  color: #8c98a4;
+}
+.navbar-nav > .nav-item .nav-icon i:hover{
+  cursor: pointer;
+}
+.navbar-nav > .nav-item .nav-icon i{
+  font-size: 18px;
+  color: #71869d;
+}
+
+// Navigation
+.navigation ul li a{
+  font-size: 14px;
+  color: var(--text-color-secondary);
+}
+.navigation ul li a.active{
+  font-weight: 400;
+  color: var(--bs-black);
+}
+.navigation ul li a:hover{
+  color: var(--bs-black);
+}
+.navigation ul li{
+  padding-right: 15px;
+}
+.navigation ul{
+  border-bottom: 1px solid var(--border-color);
+}
+
+//Invoice Tab
+.invoice-history-status span{
+  padding: 6px 21px;
+  font-size: smaller;
+}
+.invoice-history-status > span{
+  padding: 6px 21px;
+  border-radius: var(--bs-border-radius);
+  font-size: smaller;
+}
+.invoice-history-status > span.bg-success-color{
+  background: var(--bg-success-color);
+  color: var(--success-color);
+  border-color: var(--success-color);
+}
+.invoice-history-status > span.bg-warning-color{
+  background: var(--bg-warning-color);
+  color: var(--warning-color);
+  border-color: var(--warning-color);
+}
+.invoice-history-status > span.bg-danger-color{
+  background: var(--bg-danger-color);
+  color: var(--danger-color);
+  border-color:var(--danger-color);
+}
+.list-group > li{
+  font-size: 14px;
+}
+.invoice-history-recepient-name,
+.invoice-history-number{
+  font-weight: 500;
+}
+.invoice-history-type{
+  color: var(--text-color-secondary);
+  font-size: small;
 }

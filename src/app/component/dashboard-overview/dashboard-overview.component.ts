@@ -3,6 +3,7 @@ import {EChartsOption} from "echarts";
 import * as moment from "moment/moment";
 import {Constants} from "../../common/Constants";
 
+
 @Component({
   selector: 'app-dashboard-overview',
   templateUrl: './dashboard-overview.component.html',
@@ -18,9 +19,15 @@ export class DashboardOverviewComponent implements OnInit{
 
   buildingList: any = [];
   maintenanceRequestListing: any = []
+  notificationList : any = [];
+  invoiceList:any=[];
+
+  today: any;
   constructor() {
     this.buildingList = Constants.BUILDING_LISTING;
     this.maintenanceRequestListing = Constants.MAINTENANCE_REQUEST_LISTING;
+    this.notificationList = Constants.NOTIFICATION_LIST;
+    this.invoiceList = Constants.INVOICE_HISTORY_LIST;
   }
 
   ngOnInit() {
@@ -29,7 +36,7 @@ export class DashboardOverviewComponent implements OnInit{
     this.setExpiringLeaseChart();
     this.setTotalLandlordsChart();
     this.setUnitInspectionChart();
-    console.log(this.buildingList)
+    this.today = moment().format('LL');
   }
   setRevenueChart(){
     this.chartOptionRevenue = {

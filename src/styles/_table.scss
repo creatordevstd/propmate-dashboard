@@ -12,10 +12,10 @@ table tbody tr td{
   border-top-right-radius: var(--bs-border-radius);
   border-bottom-right-radius: var(--bs-border-radius);
   // border-bottom: 1px solid var(--border-color);
-  color: #677788;
-  font-weight: 400;
-  text-transform: uppercase;
-  font-size: var(--sm-font-size);
+  color: #000;
+  font-weight: 500;
+  text-transform: capitalize;
+  font-size: var(--md-font-size);
   padding: 12px 21px;
 }
 table.dataTable{

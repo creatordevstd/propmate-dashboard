@@ -45,6 +45,9 @@ import { TenantLeaseComponent } from './component/tenant-lease/tenant-lease.comp
 import { TenantComponent } from './component/tenant/tenant.component';
 import { TenantOverviewComponent } from './component/tenant-overview/tenant-overview.component';
 import { TenantListComponent } from './component/tenant-list/tenant-list.component';
+import { BuildingStatementComponent } from './component/building-statement/building-statement.component';
+import { ObjectnamePipe } from './common/pipes/objectname.pipe';
+import { TenantAddComponent } from './component/tenant-add/tenant-add.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -78,6 +81,9 @@ import { TenantListComponent } from './component/tenant-list/tenant-list.compone
     TenantComponent,
     TenantOverviewComponent,
     TenantListComponent,
+    BuildingStatementComponent,
+    ObjectnamePipe,
+    TenantAddComponent,
   ],
     imports: [
         BrowserModule,

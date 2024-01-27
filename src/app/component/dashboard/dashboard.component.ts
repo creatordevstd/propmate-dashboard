@@ -15,6 +15,7 @@ import { FinancialHistoryComponent } from '../financial-history/financial-histor
 import { MaintenanceComponent } from '../maintenance/maintenance.component';
 import { OwnerFinanceComponent } from '../owner-finance/owner-finance.component';
 import { GenerateInvoiceComponent } from '../generate-invoice/generate-invoice.component';
+import { BuildingStatementComponent } from '../building-statement/building-statement.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -33,9 +34,15 @@ export class DashboardComponent implements OnInit, AfterViewInit{
   filteredBuildingList: any;
   propertyName: any = ''
   userList: any = {};
+  showChatDropdown = false;
+  showNotificationDropdown = false;
+  showImageDropdown = false;
+  notificationList : any = [];
+
   constructor(public router: Router, private route: ActivatedRoute) {
     this.buildingList = Constants.BUILDING_LISTING;
-    this.userList = Constants.TENANTS_LIST[0]
+    this.userList = Constants.TENANTS_LIST[0];
+    this.notificationList = Constants.NOTIFICATION_LIST;
   }
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
@@ -115,6 +122,16 @@ export class DashboardComponent implements OnInit, AfterViewInit{
           this.title = 'Invoice';
           this.subTitle = 'Showing Invoice details'
         break;
+        case Constants.BUILDING_STATEMENT:
+          this.currentComponent = BuildingStatementComponent;
+          this.title = 'Owner\'s Statement';
+          this.subTitle = 'Showing Owner statement'
+        break;
+        case Constants.BUILDING_STATEMENT:
+          this.currentComponent = BuildingStatementComponent;
+          this.title = 'Owner\'s Statement';
+          this.subTitle = 'Showing Owner statement'
+        break;
       default:
         this.currentComponent = DashboardComponent;
         break;
@@ -122,7 +139,16 @@ export class DashboardComponent implements OnInit, AfterViewInit{
   }
 
   // Assuming you have included the Font Awesome library
+  toggleChatHeader() {
 
+    this.showChatDropdown = !this.showChatDropdown;
+  }
+  toggleNotificationHeader(){
+    this.showNotificationDropdown = !this.showNotificationDropdown;
+  }
 
+  toggleNotificationHedaer(){
+    this.showNotificationDropdown = !this.showNotificationDropdown;
+  }
 
 }

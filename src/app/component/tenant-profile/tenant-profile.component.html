@@ -1,3 +1,132 @@
+<ng-container *ngFor="let tenant of filterTenant">
+  <div class="row mb-5">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="d-flex justify-content-between  mb-3">
+            <div class="tenant-details card-border-left d-flex  align-items-center">
+              <div class="tenant-profile">
+                <div class="profile-background-cover">
+                  <div class="profile-image"> {{helperService.getFirstCharacters(tenant.name)}}</div>
+                </div>
+              </div>
+              <div class="ms-3 tenant-name-wrapper">
+                  <span class="tenant-name"> {{tenant.name}}</span>
+                  <span class="verification-status ms-1" *ngIf="tenant.isVerified == 'false'"><i class="bi bi-patch-check-fill bi-not-verified me-1"></i>Not verified</span>
+                  <span *ngIf="tenant.isVerified == 'true'" class="verification-status ms-1">
+                    <i class="bi bi-patch-check-fill me-1 bi-verified"></i> verified
+                  </span>
+                  <div class="occupation">{{tenant.occupation}}</div>
+              </div>
+            </div>
+            <div class="d-block">
+              <button class="btn btn-bordered"><i class="bi bi-person-add me-2"></i>Edit profile</button>
+            </div>
+          </div>
+          <div class="joined-date mb-3">
+            <i class="bi bi-calendar2-event me-2"></i>Joined {{tenant.joinedDate}}
+          </div>
+          <div class="contact-information d-flex">
+            <button class="btn btn-bordered"><i class="bi bi-envelope me-2"></i>{{tenant.email}}</button>
+            <button class="btn btn-bordered ms-3"><i class="bi bi-telephone me-2"></i>{{tenant.email}}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <div class="card">
+        <div class="card-body">
+          <div class="d-flex justify-content-between mb-3">
+            <div class="card-heading">
+              Profile
+            </div>
+          </div>
+          <div class="profile-details">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+     <div class="col-8">
+      <div class="card mb-3">
+        <div class="card-body">
+          <div class="d-flex justify-content-between mb-3">
+            <div class="card-heading">
+              Lease details
+            </div>
+          </div>
+          <div class="empty-message-container text-center">
+            <div>
+              <span><i class="bi bi-inbox-fill"></i></span>
+              <span class="empty-message-container ms-2 card-title">There is currently no lease</span>
+            </div>
+            <button class="btn"><i class="bi bi-plus-lg me-2"></i>Add lease</button>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-3 d-none">
+        <div class="card-body">
+          <div class="d-flex justify-content-between mb-3">
+            <div class="card-heading">
+              Lease details
+            </div>
+          </div>
+          <div class="empty-message-container text-center">
+            <span><i class="bi bi-inbox-fill"></i></span>
+            <span class="empty-message-container ms-2 card-title">There is currently no lease</span>
+            <button class="btn"><i class="bi bi-plus-lg me-2"></i>Add lease</button>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-3">
+       
+        <div class="card-body">
+          <table class="table table-responsive table-borderless table-align-middle">
+            <thead>
+            <tr>
+              <th>Accounting</th>
+              <th class="text-end">
+                <button class="btn btn-sm btn-bordered" >Add invoice</button>
+              </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td class="balance-name">Opening Balance</td>
+              <td class="balance-amount">
+                0.00
+              </td>
+            </tr>
+            <tr>
+              <td class="balance-name">Invoiced (Invoices, debit & credit notes)</td>
+              <td class="balance-amount">
+                32,384.00
+              </td>
+            </tr>
+            <tr>
+              <td class="balance-name">Amount paid</td>
+              <td class="balance-amount">
+                11,500.00
+              </td>
+            </tr>
+            </tbody>
+            <tfoot class="table-light">
+            <tr>
+              <td class="balance-name">Closing Balance (due)</td>
+              <td class="balance-amount">
+                -20,884.00
+              </td>
+            </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
 
 <!-- 
 <ng-container *ngFor="let tenant of filterTenant">

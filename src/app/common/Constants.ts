@@ -23,10 +23,12 @@ export class Constants{
   static BUILDING_EDIT = 'edit';
   static BUILDING_LEASE = 'lease'
   static BUILDING_TENANT = 'tenant';
+  static BUILDING_STATEMENT = 'statement';
 
   static TENANT_LEASE = 'lease';
   static TENANT_ROUTE = 'tenant'
   static TENANT_LIST= 'overview'
+  static TENANT_ADD = 'add';
 
 
   static CHART_PRIMARY_COLOR_LINE = '#3675fe';
@@ -905,5 +907,227 @@ static DIRECTORY_LIST =
     },
   ];
   
+  static OWNER_STATEMENT = 
+  [
+    {
+      property_name:' Cozy Apartment',
+      location: '123 Main Street, Cityville',
+      lease_start_date: '2023-01-01',
+      lease_end_date: '2024-01-01',
+      current_rent_cost_zar: 'R12,000',
+      rent_rate: 'monthly',
+      rent_charges_include: [
+        'refuse',
+        'rates and taxes',
+        'sanitation and effluent',
+        'water'
+      ],
+      charges_amount: {
+        refuse: 'R200',
+        rates_and_taxes: 'R500',
+        sanitation_and_effluent: 'R300',
+        water: 'R150'
+      },
+      tenant_deposit: 'R15,000',
+      gross_income: 'R14,850',
+      rent_esc_percent: '5'
+    },
+    {
+      property_name:' Spacious House',
+      location: '456 Oak Avenue, Suburbia',
+      lease_start_date: '2023-02-01',
+      lease_end_date: '2024-02-01',
+      current_rent_cost_zar: 'R18,000',
+      rent_rate: 'monthly',
+      rent_charges_include: [
+        'refuse',
+        'rates and taxes',
+        'sanitation and effluent',
+        'water'
+      ],
+      charges_amount: {
+        refuse: 'R250',
+        rates_and_taxes: 'R600',
+        sanitation_and_effluent: 'R350',
+        water: 'R200'
+      },
+      tenant_deposit: 'R20,000',
+      gross_income: 'R20,150',
+      rent_esc_percent: '5'
+    },
+    {
+      property_name:' Modern Condo',
+      location: '789 Highrise Street, Urbanville',
+      lease_start_date: '2023-03-01',
+      lease_end_date: '2024-03-01',
+      current_rent_cost_zar: 'R15,000',
+      rent_rate: 'monthly',
+      rent_charges_include: [
+        'refuse',
+        'rates and taxes',
+      '  sanitation and effluent',
+        'water'
+      ],
+      charges_amount: {
+        refuse: 'R180',
+        rates_and_taxes: 'R550',
+        sanitation_and_effluent: 'R280',
+        water: 'R120'
+      },
+      tenant_deposit: 'R17,000',
+      gross_income: 'R17,030',
+      rent_esc_percent: '4'
+    },
+    {
+      property_name: 'Rural Cottage',
+      location: '101 Countryside Lane, Villagetown',
+      lease_start_date: '2023-04-01',
+      lease_end_date: '2024-04-01',
+      current_rent_cost_zar: '10000',
+      rent_rate: 'monthly',
+      rent_charges_include: [
+        'refuse',
+        'rates and taxes',
+       ' sanitation and effluent',
+        'water'
+      ],
+      charges_amount: {
+        refuse: '150',
+        rates_and_taxes: '400',
+        sanitation_and_effluent: '200',
+        water: '100'
+      },
+      tenant_deposit: '12000',
+      gross_income: '12650',
+      rent_esc_percent: '3.5'
+    },
+    {
+      property_name: 'Beachfront Villa',
+      location: '222 Seaside Drive, Coastal City',
+      lease_start_date: '2023-05-01',
+      lease_end_date: '2024-05-01',
+      current_rent_cost_zar: 'R25,000',
+      rent_rate: 'monthly',
+      rent_charges_include: [
+        'refuse',
+       ' rates and taxes',
+        'sanitation and effluent',
+        'water'
+      ],
+      charges_amount: {
+        refuse: 'R300',
+        rates_and_taxes: 'R700',
+        sanitation_and_effluent: 'R400',
+        water: 'R180'
+      },
+      tenant_deposit: 'R30,000',
+      gross_income: 'R29,980',
+      rent_esc_percent: '6'
+    },
+    {
+      property_name:' Downtown Loft',
+      location: '333 Urban Street, Metropolis',
+      lease_start_date: '2023-06-01',
+      lease_end_date: '2024-06-01',
+      current_rent_cost_zar: 'R20,000',
+      rent_rate: 'monthly',
+      rent_charges_include: [
+        'refuse',
+        'rates and taxes',
+        'sanitation and effluent',
+        'water'
+      ],
+      charges_amount: {
+        refuse: 'R250',
+        rates_and_taxes: 'R600',
+        sanitation_and_effluent: 'R320',
+        water: 'R150'
+      },
+      tenant_deposit: 'R25,000',
+      gross_income: 'R25,020',
+      rent_esc_percent: '5.5'
+    },
+    {
+      property_name: 'Mountain Retreat',
+      location: '444 Scenic Road, Mountain Village',
+      lease_start_date: '2023-07-01',
+      lease_end_date: '2024-07-01',
+      current_rent_cost_zar: 'R18,000',
+      rent_rate: 'monthly',
+      rent_charges_include: [
+        'refuse',
+        'rates and taxes',
+       ' sanitation and effluent',
+        'water'
+      ],
+      charges_amount: {
+        refuse: 'R200',
+        rates_and_taxes: 'R550',
+        sanitation_and_effluent: 'R300',
+        water: 'R120'
+      },
+      tenant_deposit: 'R20,000',
+      gross_income: 'R20,170',
+      rent_esc_percent:'4.5'
+    },
+    {
+      property_name: 'Suburban Townhouse',
+      location: '555 Green Lane, Suburbville',
+      lease_start_date: '2023-08-01',
+      lease_end_date: '2024-08-01',
+      current_rent_cost_zar: 'R16,000',
+      rent_rate: 'monthly',
+      rent_charges_include: [
+        'refuse',
+       ' rates and taxes',
+       ' sanitation and effluent',
+        'water'
+      ],
+      charges_amount: {
+        refuse: 'R220',
+        rates_and_taxes: 'R500',
+        sanitation_and_effluent: 'R280',
+        water: 'R130'
+      },
+      tenant_deposit: 'R18,000',
+      gross_income: 'R18,130',
+      rent_esc_percent: '4.2',
+    }
+  ];
+
+  static JOB_OCCUPATION = {
+    job_occupations: [
+    "Software Developer",
+    "Accountant",
+    "Marketing Manager",
+    "Nurse",
+    "Teacher",
+    "Electrician",
+    "Chef",
+    "Graphic Designer",
+    "Project Manager",
+    "Customer Service Representative",
+    "Civil Engineer",
+    "Pharmacist",
+    "Sales Representative",
+    "Data Scientist",
+    "Human Resources Manager",
+    "Financial Analyst",
+    "Web Designer",
+    "Physician",
+    "Police Officer",
+    "Mechanical Engineer",
+    "Social Worker",
+    "Architect",
+    "Dental Hygienist",
+    "Journalist",
+    "Event Planner",
+    "Psychologist",
+    "Librarian",
+    "IT Support Specialist",
+    "Welder",
+    "Physical Therapist"
+  ]
+}
 }
 
