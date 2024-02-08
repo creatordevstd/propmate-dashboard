@@ -1,0 +1,53 @@
+.tenant-profile-cover{
+    background-color: aliceblue;
+    height: 42px;
+    width: 42px;
+    color: #377DFF;
+    text-align: center;
+    font-size: large;
+    font-weight: 500;
+    text-transform: uppercase;
+    border-radius: 50%;
+    position: relative;
+}
+.tenant-profile{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: small;
+}
+.tenant-profile-container{
+    align-items: center;
+}
+table tbody tr td{
+    color: var( --text-color-secondary);
+}
+.transaction-status{
+    padding: 6px 21px;
+    border-radius: var(--bs-border-radius);
+    font-size: smaller;
+}
+.transaction-status.bg-success-color{
+    background: var(--bg-success-color);
+    color: var(--success-color);
+    border-color: var(--success-color);
+}
+.transaction-status.bg-warning-color{
+    background: var(--bg-warning-color);
+    color: var(--warning-color);
+    border-color: var(--warning-color);
+}
+.transaction-status.bg-danger-color{
+    background: var(--bg-danger-color);
+    color: var(--danger-color);
+    border-color:var(--bg-danger-color);
+}
+.building-name,
+.tenant-name{
+    font-weight: 500;
+    color: var(--bs-black);
+}
+.transaction-type{
+    font-size: smaller;
+}

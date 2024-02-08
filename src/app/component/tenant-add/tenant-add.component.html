@@ -1,0 +1,574 @@
+<div class="row mb-3">
+    <div class="col-12 col-stepper">
+        <nav class="stepper">
+            <div class="stepper-nav" *ngFor="let item of stepMenuItems; index as i" [ngClass]="{'active': currentStep == i + 1}">
+              <div class="stepper-item-container">
+                <div class="stepper-index" >{{i+1}}</div>
+              </div>
+              <div class="stepper-item"><a href="">{{item}}</a></div>
+            </div>
+        </nav>
+    </div>
+</div>
+<div class="row">
+    <div class="col-10 mx-auto">
+        <div class="card" *ngIf="currentStep ==1">
+            <div class="card-header bg-transparent">
+                <div class="card-heading">Applicant information</div>
+            </div>
+            <div class="card-body card-padding">
+               <form [formGroup]="applicantForm">
+                <div class="mb-3">
+                    <div class="row">
+                        <div class="col-3 d-flex align-items-center">
+                            <label for="">Full name</label>
+                        </div>
+                        <div class="col-9">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="" id="" formControlName="applicantFullName">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="row">
+                        <div class="col-3 d-flex align-items-center">
+                            <label for="">Date of birth</label>
+                        </div>
+                        <div class="col-9">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input
+                                      class="form-control custom-dp"
+                                      placeholder="yyyy-mm-dd"
+                                      name="dp"
+                                      ngbDatepicker
+                                      #dob="ngbDatepicker"
+                                      formControlName="dateOfBirth"
+                                      id="dateOfBirth"
+                                    />
+                                    <button class="btn btn-outline-secondary bi bi-calendar3" (click)="dob.toggle()" type="button"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="row">
+                        <div class="col-3 d-flex align-items-center">
+                            <label for="">ID number</label>
+                        </div>
+                        <div class="col-9">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="" id="" formControlName="idNumber">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="row">
+                        <div class="col-3 d-flex align-items-center">
+                            <label for="">Phone number</label>
+                        </div>
+                        <div class="col-9">
+                            <div class="form-group">
+                                <input type="text" class="form-control"  id="phoneNumber" formControlName="phoneNumber">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="row">
+                        <div class="col-3 d-flex align-items-center">
+                            <label for="">Email</label>
+                        </div>
+                        <div class="col-9">
+                            <div class="form-group">
+                                <input type="text" class="form-control"  id="phoneNumber" formControlName="email">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="row">
+                        <div class="col-3 d-flex align-items-center">
+                            <label for="">Have you or any listed Occupant ever filed for Bankruptcy?</label>
+                        </div>
+                        <div class="col-9">
+                            <div class="form-group d-flex">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="bankruptcy" id="bankruptcyYes" formControlName="bankruptcy" value="yes">
+                                    <label class="form-check-label" for="bankruptcyYes">
+                                    Yes
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="bankruptcy" id="bankruptcyNo" formControlName="bankruptcy" value="no">
+                                    <label class="form-check-label" for="bankruptcyNo">
+                                     No
+                                    </label>
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="row">
+                        <div class="col-3 d-flex align-items-center">
+                            <label for="">Have you or any listed Occupant ever been convicted of a crime?</label>
+                        </div>
+                        <div class="col-9">
+                            <div class="form-group d-flex">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="criminalConviction" id="criminalConvictionYes" formControlName="criminalConviction" value="yes">
+                                    <label class="form-check-label" for="criminalConvictionYes">
+                                    Yes
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="criminalConviction" id="criminalConvictionNo" formControlName="criminalConviction" value="no">
+                                    <label class="form-check-label" for="criminalConvictionNo">
+                                     No
+                                    </label>
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="row">
+                        <div class="col-3 d-flex align-items-center">
+                            <label for=""> 
+                                Have you or any listed Occupant ever broken a lease?
+                            </label>
+                        </div>
+                        <div class="col-9">
+                            <div class="form-group d-flex">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="criminalConviction" id="criminalConvictionYes" formControlName="criminalConviction" value="yes">
+                                    <label class="form-check-label" for="criminalConvictionYes">
+                                    Yes
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="criminalConviction" id="criminalConvictionNo" formControlName="criminalConviction" value="no">
+                                    <label class="form-check-label" for="criminalConvictionNo">
+                                     No
+                                    </label>
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               </form>
+               
+            </div>
+            <div class="card-footer bg-transparent d-flex justify-content-end mb-3">
+                <button class="btn btn-ordered" (click)="prevStep()" [disabled]="isPreviousStepDisabled" *ngIf="currentStep != startStepperIndex"><i class="bi bi-chevron-left me-2"></i>Previous step</button>
+                <button class="btn btn-dark ms-3" (click)="nextStep()">Next <i class="bi bi-chevron-right ms-2"></i> </button>
+           </div>
+        </div>
+        <div class="card" *ngIf="currentStep ==2">
+            <div class="card-header bg-transparent">
+                <div class="card-heading">Residency history</div>
+            </div>
+            <div class="card-body card-padding">
+               <form [formGroup]="addressForm">
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-3 d-flex align-items-center">
+                                <label for="">Current address</label>
+                            </div>
+                            <div class="col-9">
+                                <div class="form-group">
+                                    <input type="text" class="form-control"  id="currentAddress" formControlName="currentAddress">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-3 d-flex align-items-center">
+                                <label for=""> 
+                                    How Long Have You Stayed at Your Current Address?
+                                </label>
+                            </div>
+                            <div class="col-9">
+                                <div class="form-group d-flex">
+                                    <input type="text" class="form-control"  id="currentAddressDuration" formControlName="currentAddressDuration">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-3 d-flex align-items-center">
+                                <label for=""> 
+                                    Do You currently Rent or own?
+                                </label>
+                            </div>
+                            <div class="col-9">
+                                <div class="form-group d-flex">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="currentOwnershipStatus" id="currentOwnershipStatusYes" formControlName="currentOwnershipStatus" value="yes">
+                                        <label class="form-check-label" for="currentOwnershipStatusYes">
+                                        Yes
+                                        </label>
+                                      </div>
+                                      <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="currentOwnershipStatus" id="currentOwnershipStatusNo" formControlName="currentOwnershipStatus" value="no">
+                                        <label class="form-check-label" for="currentOwnershipStatusNo">
+                                         No
+                                        </label>
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-3 d-flex align-items-center">
+                                <label for=""> 
+                                    Reason for Moving
+                                </label>
+                            </div>
+                            <div class="col-9">
+                                <div class="form-group d-flex">
+                                    <input type="text" class="form-control"  id="reasonForMoving" formControlName="reasonForMoving">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-3 d-flex align-items-center">
+                                <label for=""> 
+                                   is the current residency rented?
+                                </label>
+                            </div>
+                            <div class="col-9">
+                                <div class="form-group d-flex">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="isCurrentResidencyRented" id="isCurrentResidencyRentedYes" formControlName="isCurrentResidencyRented" value="yes">
+                                        <label class="form-check-label" for="isCurrentResidencyRentedYes">
+                                        Yes
+                                        </label>
+                                      </div>
+                                      <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="isCurrentResidencyRented" id="isCurrentResidencyRentedNo" formControlName="isCurrentResidencyRented" value="no">
+                                        <label class="form-check-label" for="isCurrentResidencyRentedNo">
+                                         No
+                                        </label>
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                    </div>
+                    <ng-container *ngIf="isShowLandlordDetails">
+                        <div class="mb-3">
+                            <div class="row">
+                                <div class="col-3 d-flex align-items-center">
+                                    <label for=""> 
+                                       Landlord's full name
+                                    </label>
+                                </div>
+                                <div class="col-9">
+                                    <div class="form-group d-flex">
+                                        <input type="text" class="form-control"  id="landlordName" formControlName="landlordName">
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        </div>
+                        <div class="mb-3">
+                            <div class="row">
+                                <div class="col-3 d-flex align-items-center">
+                                    <label for=""> 
+                                       Landlord's phone number
+                                    </label>
+                                </div>
+                                <div class="col-9">
+                                    <div class="form-group d-flex">
+                                        <input type="text" class="form-control"  id="landlordPhoneNumber" formControlName="landlordPhoneNumber">
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        </div>
+                    </ng-container>
+                </form>
+               
+            </div>
+            <div class="card-footer bg-transparent d-flex justify-content-between mb-3">
+                <button class="btn btn-ordered" (click)="prevStep()" [disabled]="isPreviousStepDisabled" ><i class="bi bi-chevron-left me-2"></i>Previous step</button>
+                <button class="btn btn-dark ms-3" (click)="nextStep()">Next <i class="bi bi-chevron-right ms-2"></i> </button>
+           </div>
+        </div>
+        <div class="card" *ngIf="currentStep ==3">
+            <div class="card-header bg-transparent">
+                <div class="card-heading">Employment</div>
+            </div>
+            <div class="card-body card-padding">
+                <form [formGroup]="employmentForm">
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-3 d-flex align-items-center">
+                                <label for=""> 
+                                  Current employer
+                                </label>
+                            </div>
+                            <div class="col-9">
+                                <div class="form-group d-flex">
+                                    <input type="text" class="form-control"  id="currentEmployer" formControlName="currentEmployer">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-3 d-flex align-items-center">
+                                <label for=""> 
+                                  Current occupation
+                                </label>
+                            </div>
+                            <div class="col-9">
+                                <div class="form-group d-flex">
+                                    <select class="form-select form-select-lg" aria-label="Select" formControlName="occupation" id="occupation">
+                                        <option [value]="item" *ngFor="let item of jobOccupationList.job_occupations">{{item}}</option>
+                                      </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-3 d-flex align-items-center">
+                                <label for=""> 
+                                  Current employment length
+                                </label>
+                            </div>
+                            <div class="col-9">
+                                <div class="form-group d-flex">
+                                    <input type="text" class="form-control"  id="employmentLength" formControlName="employmentLength">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-3 d-flex align-items-center">
+                                <label for=""> 
+                                 Monthly Income
+                                </label>
+                            </div>
+                            <div class="col-9">
+                                <div class="form-group d-flex">
+                                    <input type="text" class="form-control"  id="monthlyIncome" formControlName="monthlyIncome">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-3 d-flex align-items-center">
+                                <label for=""> 
+                                Employer phone number
+                                </label>
+                            </div>
+                            <div class="col-9">
+                                <div class="form-group d-flex">
+                                    <input type="text" class="form-control"  id="employerPhoneNumber" formControlName="employerPhoneNumber">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-3 d-flex align-items-center">
+                                <label for=""> 
+                                    Employer address
+                                </label>
+                            </div>
+                            <div class="col-9">
+                                <div class="form-group d-flex">
+                                    <input type="text" class="form-control"  id="employerAddress" formControlName="employerAddress">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="my-5">
+                        <div class="card-heading">Bank details</div>
+                        <hr>
+                    </div>
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-3 d-flex align-items-center">
+                                <label for=""> 
+                                    Bank name
+                                </label>
+                            </div>
+                            <div class="col-9">
+                                <div class="form-group d-flex">
+                                    <input type="text" class="form-control"  id="bankName" formControlName="bankName">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-3 d-flex align-items-center">
+                                <label for=""> 
+                                    Account number
+                                </label>
+                            </div>
+                            <div class="col-9">
+                                <div class="form-group d-flex">
+                                    <input type="text" class="form-control"  id="accountNumber" formControlName="accountNumber">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-3 d-flex align-items-center">
+                                <label for=""> 
+                                    Branch name
+                                </label>
+                            </div>
+                            <div class="col-9">
+                                <div class="form-group d-flex">
+                                    <input type="text" class="form-control"  id="branchName" formControlName="branchName">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-3 d-flex align-items-center">
+                                <label for=""> 
+                                    Branch code
+                                </label>
+                            </div>
+                            <div class="col-9">
+                                <div class="form-group d-flex">
+                                    <input type="text" class="form-control"  id="branchCode" formControlName="branchCode">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer bg-transparent d-flex justify-content-between mb-3">
+                <button class="btn btn-ordered" (click)="prevStep()" [disabled]="isPreviousStepDisabled" ><i class="bi bi-chevron-left me-2"></i>Previous step</button>
+                <button class="btn btn-dark ms-3" (click)="nextStep()">Next <i class="bi bi-chevron-right ms-2"></i> </button>
+           </div>
+        </div>
+        <div class="card" *ngIf="currentStep ==4">
+            <div class="card-body card-padding">
+                <form [formGroup]="documentForm">
+                    <div class="document-upload mb-3" id="documentUploadSection">
+                        <div class="card">
+                          <div class="card-header bg-transparent">
+                            Document Upload
+                          </div>
+                          <div class="card-body">
+                            <div class="alert alert-bg mb-3" role="alert">
+                              <div class="alert-requirement-title mb-1">Upload requirements:</div>
+                              <ul>
+                                <li>Must be of the following formats: PDF, JPG, JPEG or PNG.</li>
+                                <li>Must not be empty, password protected or encrypted.</li>
+                                <li>May not be more than 2MB per upload.</li>
+                                <li>Document name should not include special characters other than '-'.</li>
+                              </ul>
+                            </div>
+                            <div class="mb-3">
+                              <div class="accordion" id="accordionProofOfAddress">
+                                <div class="accordion-item">
+                                  <h2 class="accordion-header">
+                                    <button class="accordion-button bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#proofOfAddress" aria-expanded="true" aria-controls="proofOfAddress">
+                                      Proof of Address
+                                    </button>
+                                  </h2>
+                                  <div id="proofOfAddress" class="accordion-collapse collapse show" data-bs-parent="#accordionProofOfAddress">
+                                    <div class="accordion-body">
+                                      <div class="row mb-3">
+                                        <label for="bankStatementId" class="col-form-label col-sm-2 ">Bank statement</label>
+                                        <div class="col-sm-10">
+                                          <input class="form-control form-control-lg" type="file" id="bankStatementId">
+                                          <small>Bank statements must not be older than 3 months.</small>
+                                        </div>
+                                      </div>
+                                      <div class="row mb-3">
+                                        <label for="utilityBillId" class="col-form-label col-sm-2">Utility Bill (Water or electricity) </label>
+                                        <div class="col-sm-10">
+                                          <input class="form-control form-control-lg" type="file" id="utilityBillId">
+                                        </div>
+                                      </div>
+                                      <div class="mb-3">
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="mb-3">
+                              <div class="accordion" id="accordionPaySlip">
+                                <div class="accordion-item">
+                                  <h2 class="accordion-header">
+                                    <button class="accordion-button bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#paySlip" aria-expanded="true" aria-controls="paySlip">
+                                      Payslip
+                                    </button>
+                                  </h2>
+                                  <div id="paySlip" class="accordion-collapse collapse show" data-bs-parent="#accordionPaySlip">
+                                    <div class="accordion-body">
+                                      <div class="row mb-3">
+                                        <label for="accordionPaySlip" class="col-form-label col-sm-2">Payslip</label>
+                                        <div class="col-sm-10">
+                                          <input class="form-control form-control-lg" type="file" id="accordionPaySlip">
+                                          <small>Payslip must not be older than 3 months</small>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="mb-3">
+                              <div class="accordion" id="accordionLeaseAgreement">
+                                <div class="accordion-item">
+                                  <h2 class="accordion-header">
+                                    <button class="accordion-button bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#leaseAgreement" aria-expanded="true" aria-controls="leaseAgreement">
+                                      Lease Agreement
+                                    </button>
+                                  </h2>
+                                  <div id="leaseAgreement" class="accordion-collapse collapse show" data-bs-parent="#accordionLeaseAgreement">
+                                    <div class="accordion-body">
+                                      <div class="row">
+                                        <label for="leaseAgreement" class="col-form-label col-sm-2">Upload Lease Agreement</label>
+                                        <div class="col-sm-10">
+                                          <input class="form-control form-control-lg" type="file" id="leaseAgreement">
+                                          <small>Complete and sign the lease agreement. <a href="#" class="lease-agreement-link">Click here to download</a>.</small>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="d-flex  justify-content-end">
+                              <button class="btn btn-lg btn-primary">Upload documents</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </form>
+               
+            </div>
+            <div class="card-footer bg-transparent d-flex justify-content-between mb-3">
+                <button class="btn btn-ordered" (click)="prevStep()" [disabled]="isPreviousStepDisabled"><i class="bi bi-chevron-left me-2"></i>Previous step</button>
+                <button class="btn btn-dark ms-3" (click)="nextStep()" >Add tenant </button>
+           </div>
+        </div>
+    </div>
+</div>

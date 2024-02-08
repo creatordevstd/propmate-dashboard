@@ -1,9 +1,28 @@
 .wrapper{
-  height: 100vh;
+ padding: 5% 0;
   display: flex;
   align-items: center;
 }
-.resend-otp-link{
-  font-weight: 300;
-  font-size: 16px;
+//.resend-otp-link,
+//.time-remaining{
+//  font-weight: 400;
+//  font-size: 14px;
+//}
+countdown{
+  font-weight: bold;
 }
+.otp-input-wrapper{
+  gap: 5%;
+}
+.otp-input-wrapper .otp-code-input input{
+  padding: 16px 12px;
+  text-align: center;
+  font-size: 24px;
+}
+
+.resend-otp-link a{
+  font-size: var(--md-font-size);
+  font-weight: var(--semi-bold-weight);
+  color: var(--primary-darker-color);
+}
+

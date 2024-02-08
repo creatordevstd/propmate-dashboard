@@ -1,0 +1,124 @@
+<div class="row">
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center mb-5">
+            <form [formGroup]="statementForm">
+                <div class="d-flex align-items-end" >
+                    <div class="form-group">
+                        <label for="dateFrom">From</label>
+                        <div class="input-group">
+                          <input
+                            class="form-control custom-dp"
+                            placeholder="yyyy-mm-dd"
+                            name="dp"
+                            ngbDatepicker
+                            #dateFrom="ngbDatepicker"
+                            formControlName="dateFrom"
+                            id="dateFrom"
+                            (dateSelect)="onDateSelection($event)"
+                          />
+                          <button class="btn btn-outline-secondary bi bi-calendar3" (click)="dateFrom.toggle()" type="button"></button>
+                        </div>
+                    </div>
+                    <div class="form-group ms-3">
+                        <label for="dateFrom">From</label>
+                        <div class="input-group">
+                          <input
+                            class="form-control custom-dp"
+                            placeholder="yyyy-mm-dd"
+                            name="dp"
+                            ngbDatepicker
+                            #dateFrom="ngbDatepicker"
+                            formControlName="dateFrom"
+                            id="dateFrom"
+                            (dateSelect)="onDateSelection($event)"
+                          />
+                          <button class="btn btn-outline-secondary bi bi-calendar3" (click)="dateFrom.toggle()" type="button"></button>
+                        </div>
+                    </div>
+                    <div class="ms-3">
+                        <button class="btn btn-dark">Filter</button>
+                    </div>
+                </div>
+            </form>
+            <div>
+                <button class="btn btn-bordered"><i class="bi bi-download me-2"></i>Export</button>
+            </div>
+        </div>
+        <div class="table-card">
+            <div class="card-body p-0">
+              <table class="table table-responsive table-border table-align-middle" id="ownerStatmentTable">
+                <thead class="thead-light">
+                <tr>
+                <th></th>
+                  <th>Tenant</th>
+                  <th> Starts</th>
+                  <th> Exprires</th>
+                  <th> Current Rent</th>
+                  <th> Rent Esc %</th>
+                  <th> Other Chargings</th>
+                  <th>Description</th>
+                  <th>Amount</th>
+                  <th>Rate</th>
+                  <th>Gross Income</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let statement of ownerStatement; index as i">
+                 <ng-container>
+                    <td>{{i+1}}</td>
+                    <td>
+                        <div class="property-name">{{statement.property_name}}</div>
+                        <div class="property-address">{{statement.location}}</div>
+                    </td>
+                    <td>
+                        <div class="lease-start-date">{{statement.lease_start_date}}</div>
+                    </td>
+                    <td>
+                        <div class="lease-end-date">{{statement.lease_end_date}}</div>
+                    </td>
+                    <td>
+                        <div class="current-rent">{{statement.current_rent_cost_zar}}</div>
+                    </td>
+                    <td>
+                        <div class="rent-esc">{{statement.rent_esc_percent}}</div>
+                    </td>
+                    <td>
+                        <div class="charge-items">
+                            <div class="mb-3">Refuse</div>
+                            <div class="mb-1">rates & taxes</div>
+                            <div class="mb-1">sanitation & effluent</div>
+                            <div class="mb-1">water</div>
+                            <div class="mb-1">Tenant deposit</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="charge-items-description">
+                            <div class="mb-3">Fixed @ 0.00%</div>
+                            <div class="mb-1">Fixed @ 0.00%</div>
+                            <div class="mb-1">Fixed @ 0.00%</div>
+                            <div class="mb-1">Fixed @ 0.00%</div>
+                            <div class="mb-1">Fixed @ 0.00%</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="charge-amount">
+                            <div class="mb-3">{{statement.charges_amount.refuse}}</div>
+                            <div class="mb-1">{{statement.charges_amount. rates_and_taxes}}</div>
+                            <div class="mb-1">{{statement.charges_amount.sanitation_and_effluent}}</div>
+                            <div class="mb-1">{{statement.charges_amount.water}}</div>
+                            <div class="mb-1">{{statement.tenant_deposit}}</div>
+                        </div>
+                    </td>
+                    <td></td>
+                    <td>
+                        <div class="gross-income">{{ statement.gross_income}}</div>
+                    </td>
+                 
+                 </ng-container>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+    </div>
+</div>

@@ -1,3 +1,23 @@
 label{
-  font-size: 14px;
+ font-size: 14px;
+}
+.col-label{
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+}
+.label-title{
+    font-size: var(--md-font-size);
+}
+.form-check-label{
+    font-size: var(--md-font-size);
+    color: var(--bs-gray-600);
+}
+.form-control,
+.form-select{
+    font-size: 14px;
+}
+.form-control::placeholder{
+    font-size: 14px;
+    color: var(--text-color-secondary);
 }

@@ -1,0 +1,67 @@
+<div class="row mb-3">
+  <div class="col">
+    <div class="alert-container">
+      <div class="alert alert-danger d-flex align-items-start justify-content-between" role="alert">
+        <div class="alert-message-container d-flex">
+          <i class="bi bi-exclamation-triangle-fill me-3"></i>
+          <div class="alert-message">
+            Some required documents are missing from your account. Please upload:
+            <ul class="required-documents">
+              <li>Municipal documents</li>
+             </ul>
+           </div>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <div class="card-header bg-transparent d-none">
+                <div class="card-heading">Uploaded documents</div>
+            </div>
+            <div class="card-body p-0">
+                <table class="table table-responsive table-borderless table-align-middle" id="transactionHistoryTable">
+                  <thead class="thead-light">
+                  <tr>
+                    <th>Document name</th>
+                    <th>Category</th>
+                    <th>Date modified</th>
+                    <th>Status</th>
+                    <th class="action-buttons"></th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let document of documentList">
+                    <ng-container >
+                     <td>
+                        <div class="d-flex align-items-center">
+                            <div class="document-icon">
+                                <i class="bi bi-file-earmark-pdf-fill" [ngClass]="{'bi-file-earmark-pdf-fill bg-pdf' : document.type == 'pdf',
+                            'bi-file-earmark-word-fill bg-doc': document.type == 'doc'}"></i>
+                            </div>
+                            <div class="ms-2">
+                                <div class="document-name"> {{document.documentName}}</div>
+                                <div class="document-size">{{document.documentSize}}</div>
+                            </div>
+                        </div>
+                     </td>
+                     <td class="document-category">{{document.category}}</td>
+                     <td class="date_modified">{{document.dateModified}}</td>
+                     <td class="document-status">
+                        <span class="document-status-bg"><i class="bi " [ngClass]="{'bi-exclamation-circle-fill bg-danger-color' : document.isDocumentUploaded == false , 'bi-check-circle-fill bg-success-color' : document.isDocumentUploaded == true}"></i></span> 
+                     </td>
+                     <td>
+                      <button class="btn btn-bordered"><i class="bi bi-download me-2"></i>Export</button>
+                      <button class="btn btn-dark ms-2"><i class="bi bi-file-earmark-arrow-up me-2"></i>Upload</button>
+                     </td>
+                    </ng-container>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+        </div>
+    </div>
+</div>

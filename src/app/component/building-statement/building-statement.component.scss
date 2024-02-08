@@ -1,0 +1,15 @@
+.property-address,
+.lease-start-date,
+.lease-end-date,
+.current-rent,
+.rent-esc,
+.charge-items,
+.charge-items-description,
+.charge-amount,
+.gross-income{
+    font-size: smaller;
+    text-transform: capitalize;
+}
+table tbody tr td {
+    vertical-align: text-top;
+}

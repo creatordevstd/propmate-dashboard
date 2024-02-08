@@ -14,5 +14,36 @@ img{
   align-items: center;
 }
 .form-check-label{
-  font-size: 13px;
+  font-size: var(--sm-font-size);
+}
+.form-check-label a{
+  color: var(--primary-darker-color);
+}
+.login-link{
+  font-size: var(--md-font-size);
+  font-weight: var(--semi-bold-weight);
+  color: var(--primary-darker-color);
+}
+
+
+.forgot-password a,
+.create-account-link{
+  font-size: var(--md-font-size);
+  //font-weight: var(--regular-weight);
+  font-weight: var(--semi-bold-weight);
+  color: var(--primary-darker-color);
+}
+
+.create-account-link{
+  font-weight: var(--semi-bold-weight);
+  color: var(--primary-darker-color);
+}
+i:hover{
+  color: var(--secondary-color);
+}
+i.icon-input{
+  position: absolute;
+  right: 28px;
+  bottom: 5px;
+  z-index: 99;
 }

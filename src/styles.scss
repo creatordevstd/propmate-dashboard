@@ -2,8 +2,15 @@
 
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
+@import "styles/root";
 @import "styles/global";
 @import "styles/typography";
 @import "styles/button";
 @import "styles/form";
 @import "styles/table";
+@import "styles/card";
+@import "styles/badge";
+@import "styles/input";
+@import "styles/accordion";
+@import "styles/select";
+@import "styles/stepper"

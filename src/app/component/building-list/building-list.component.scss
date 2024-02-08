@@ -1,0 +1,38 @@
+table tbody tr td.numberOfTenants,
+table tbody tr td.numberOfUnits,
+table tbody tr td.averageMonthlyRate,
+.property-type{
+  color: var(--text-color-secondary);
+}
+
+.building-name-link{
+  font-weight: 500;
+}
+.building-address{
+  color: var(--text-color-secondary);
+  // font-size: smaller;
+}
+.btn-view{
+  font-size: var(--sm-font-size);
+}
+.building-image{
+  border-radius: 50%;
+  height: 42px;
+  width: 42px;
+}
+#searchInputId, #input-group-icon{
+  border: 1px solid var(--border-color);
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-radius: 0;
+}
+#searchInputId:focus{
+  box-shadow: none;
+  outline: none;
+}
+
+input#searchInputId::placeholder{
+  font-size: 14px;
+  color: #8c98a4;
+}

@@ -1,0 +1,257 @@
+<!-- <div class="container-fluid"> -->
+  <header class="navbar navbar-light sticky-top bg-white flex-md-nowrap py-2 container-fluid ">
+    <div class="container-fluid">
+      <a class="navbar-brand col-md-3 col-lg-2 me-0 " href="#">
+        <img src="../../../assets/icons/logo-brand.png" alt="propmate-logo">
+      </a>
+      <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <input class=" d-none form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+      <div class="navbar-nav">
+        <div class="nav-item navbar-right-profile d-flex flex-row align-items-center justify-content-end">
+          <div class="nav-icon">
+            <i class="bi  bi-bell bi-gray" (click)="toggleChatHeader()"></i>
+            <div *ngIf="showChatDropdown" class="card card-chat-header">
+              <div class="card-header bg-transparent">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="card-heading">Notification</div>
+                  <div class="mark-as-read">
+                    <i class="bi bi-three-dots-vertical"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body p-0 notification-card-body">
+                <ng-container *ngFor="let notfication of notificationList, index as i">
+                  <ng-container *ngIf="i <5">
+                  <div class="notification-container d-flex align-items-start p-3" [ngClass]="{'notification-unread': !notfication.isRead, 'notification-read': notfication.isRead}">
+                    <div class="profile-image d-flex align-items-center">
+                      <span class="notification-indicator"><i class="bi bi-dot" [ngClass]="{'notification-unread': !notfication.isRead, 'notification-read': notfication.isRead}"></i></span>
+                      <img src="{{notfication.img}}" alt="" class="avatar-rounded">
+                    </div>
+                    <div class="notification-content ms-2 ">
+                      <div class="notification-tenant-name mb-1">
+                        <span class="tenant-name">  {{notfication.tenant}}</span>
+                        <span class="notification-time ms-2">{{notfication.timestamp}}</span>
+                      </div>
+                      <div class="notification-message mb-3">
+                        {{notfication.message}}
+                      </div>
+                      <div class="notification-message-action">
+                        <div *ngIf="notfication.isApprovalRequired">
+                          <button class="btn btn-bordered btn-sm">Review</button>
+                          <button class="btn btn-primary btn-sm ms-3">Approve</button>
+                        </div>
+                      </div>
+                    </div>
+                   
+                  </div>
+                  <hr size="1" class="hr-notification" *ngIf="i<=3"/>
+                  </ng-container>
+                </ng-container>
+              </div>
+              <div class="card-footer bg-transparent  text-center">
+                <button class="btn bg-transparent btn-notification">View all notifications<i class="bi bi-chevron-right ms-2"></i></button>
+              </div>
+            </div>
+          </div>
+          <div class="nav-icon px-4">
+            <i class="bi bi-chat-left   bi-gray"></i>
+          </div>
+         
+          <img src="../../../assets/images/avatar-6.png" alt="" class="avatar d-none">
+          <div class="dropdown">
+            <!-- Dropdown Toggle Image -->
+            <img src="{{userList.img}}" alt="Dropdown" class="dropdown-toggle-img" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="dropdown-menu p-2" aria-labelledby="dropdownMenuButton">
+              <div class="dropdown-item d-flex flex-row">
+                <img src="{{userList.img}}" class="dropdown-toggle-img me-2">
+                <div class="user-details">
+                  <div class="username">{{userList.name}}</div>
+                  <div class="user-email">{{userList.email}}</div>
+                </div>
+              </div>
+              <div class="dropdown-divider"></div>
+              <div class="dropdown-item" >
+                <a href="#" class="dropdown-item-link">Account</a>
+                <a href="##" class="dropdown-item-link">Settings</a>
+                <a href="##" class="dropdown-item-link">Sign out</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+<!-- </div> -->
+
+<div class="container-fluid">
+  <div class="row">
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-white sidebar collapse">
+      <div class="position-sticky pt-5">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" [routerLink]="['/'.concat(Constants.DASHBOARD_ROUTE.concat('/'.concat(Constants.DASHBOARD_OVERVIEW_ROUTE)))]">
+              <i class="bi bi-house me-2 bi-gray"></i>
+              Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/'.concat(Constants.DASHBOARD_ROUTE.concat('/'.concat(Constants.BUILDING_LIST_ROUTE)))]">
+              <i class="bi bi-houses me-2 bi-gray"></i>
+              Properties
+            </a>
+          </li>
+          <li class="nav-item">
+          </li>
+          <li class="nav-item">
+            <div class="dropdown">
+              <a class="dropdown-toggle nav-link d-flex justify-content-between" data-bs-toggle="collapse" data-bs-target="#collapseUserMenu" aria-expanded="false" aria-controls="collapseUserMenu">
+                <span>
+                  <i class="bi bi-people me-2 bi-gray"></i>Tenants
+                </span>
+                <i class="toggle-icon bi bi-chevron-down bi-gray"></i>
+              </a>
+              <div class="collapse" id="collapseUserMenu">
+                <a class="nav-link" href="">Overview</a>
+                <a class="nav-link" href="" [routerLink]="['/'.concat(Constants.TENANT_ROUTE.concat('/'.concat(Constants.TENANT_ADD)))]">Add new tenant</a>
+                <a class="nav-link" href="" [routerLink]="['/'.concat(Constants.TENANT_ROUTE.concat('/'.concat(Constants.TENANT_LEASE)))]">Add new lease</a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="dropdown">
+              <a class="dropdown-toggle nav-link d-flex justify-content-between" data-bs-toggle="collapse" data-bs-target="#collapseUserProfileMenu" aria-expanded="false" aria-controls="collapseUserProfileMenu">
+                <span>
+                  <i class="bi bi-person me-2 bi-gray"></i>Account
+                </span>
+                <i class="toggle-icon bi bi-chevron-down bi-gray"></i>
+              </a>
+              <div class="collapse" id="collapseUserProfileMenu">
+                <a class="nav-link" href="#" [routerLink]="['/'.concat(Constants.DASHBOARD_ROUTE.concat('/'.concat(Constants.EDIT_TENANT_PROFILE)))]">Settings</a>
+                <a class="nav-link" href="" [routerLink]="['/'.concat(Constants.DASHBOARD_ROUTE.concat('/'.concat(Constants.OWNER_FINANCIAL_ROUTE)))]">Billing</a>
+                <a class="nav-link" href="" [routerLink]="['/'.concat(Constants.DASHBOARD_ROUTE.concat('/'.concat(Constants.INVOICE_ROUTE)))]">Invoice</a>
+                <a class="nav-link" href="" [routerLink]="['/'.concat(Constants.DASHBOARD_ROUTE.concat('/'.concat(Constants.BUILDING_STATEMENT)))]">Statement</a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" [routerLink]="['/'.concat(Constants.DASHBOARD_ROUTE.concat('/'.concat(Constants.REPORT_ROUTE)))]">
+              <i class="bi bi-stickies me-2 bi-gray"></i>
+              Reports
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" [routerLink]="['/'.concat(Constants.DASHBOARD_ROUTE.concat('/'.concat(Constants.MAITNENACE_ROUTE)))]">
+              <i class="bi bi-flag me-2 bi-gray"></i>
+              Maintenance
+            </a>
+          </li>
+        </ul>
+
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+          <span>More</span>
+        </h6>
+        <ul class="nav flex-column mb-2">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="bi bi-list-task me-2 bi-gray"></i>
+              Task
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="bi bi-envelope me-2 bi-gray"></i>
+              Communication
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"
+               [routerLink]="['/'.concat(Constants.DASHBOARD_ROUTE.concat('/'.concat(Constants.EDIT_TENANT_PROFILE)))]">
+              <i class="bi bi-gear me-2 bi-gray"></i>
+              Settings
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="main-content-wrapper">
+      <div class="container-fluid">
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+          <div class="row mt-3 mb-3">
+            <div class="col">
+              <div class="card">
+                <div class="card-body pb-0">
+                  <div class="d-flex justify-content-between mb-3">
+                    <div class="property-details card-border-left">
+                      <ng-container *ngFor="let building of filteredBuildingList">
+                        <div class="property-name-card">{{building.name}}</div>
+                        <div class="property-location-card">
+                          <span><i class="bi bi-geo-alt me-1"></i>{{building.address}}</span>
+                          <!-- <span class="separator mx-2">&#124;</span>
+                          <span class="operation-cost"><i class="bi bi-bank m-1"></i>Total Operation Cost: R128,279.00</span> -->
+                        </div>
+                      </ng-container>
+                    </div>
+                    <div class="d-none">
+                      <button class="btn btn-dark"><i class="bi bi-person-add me-2"></i>Add User</button>
+                    </div>
+                  </div>
+                  <div class="navigation">
+                    <ul class="nav nav-underline">
+                      <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#"
+                        [routerLink]="'/'.concat(Constants.BUILDING_ROUTE.concat('/'.concat(Constants.BUILDING_OVERVIEW
+                        .concat('/'.concat(Constants.BUILDING_DETAILS_ROUTE)))))"
+                        [queryParams]="{id: buildingId}" [ngClass]="{'active' : componentName == 'details'} ">Overview</a>
+                      </li>
+                      
+                      <li class="nav-item">
+                        <a class="nav-link" href="#" [routerLink]="'/'.concat(Constants.BUILDING_ROUTE.concat('/'.concat(Constants.BUILDING_ACCOUNTING_ROUTE
+                        .concat('/'.concat(Constants.BUILDING_DETAILS_ROUTE)))))"
+                        [queryParams]="{id: buildingId}" [ngClass]="{'active' : componentName == 'accounting'} ">Transactions</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#" [routerLink]="'/'.concat(Constants.BUILDING_ROUTE.concat('/'.concat(Constants.BUILDING_TENANT
+                        .concat('/'.concat(Constants.BUILDING_DETAILS_ROUTE)))))"
+                        [queryParams]="{id: buildingId}" [ngClass]="{'active' : componentName == 'tenant'} ">Leasing</a>
+                      </li>
+                      
+                      <li class="nav-item">
+                        <a class="nav-link" href="#" href="" [routerLink]="'/'.concat(Constants.BUILDING_ROUTE.concat('/'.concat(Constants.BUILDING_MAINTENANCE
+                        .concat('/'.concat(Constants.BUILDING_DETAILS_ROUTE)))))"
+                        [queryParams]="{id: buildingId}" [ngClass]="{'active' : componentName == 'maintenance'} ">Maintenance</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="" [routerLink]="'/'.concat(Constants.BUILDING_ROUTE.concat('/'.concat(Constants.BUILDING_DIRECTORY
+                        .concat('/'.concat(Constants.BUILDING_DETAILS_ROUTE)))))"
+                        [queryParams]="{id: buildingId}" [ngClass]="{'active' : componentName == Constants.BUILDING_DIRECTORY} ">Directory</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="" [routerLink]="'/'.concat(Constants.BUILDING_ROUTE.concat('/'.concat(Constants.BUILDING_DOCUMENTS
+                        .concat('/'.concat(Constants.BUILDING_DETAILS_ROUTE)))))"
+                        [queryParams]="{id: buildingId}" [ngClass]="{'active' : componentName == 'document'} ">Files</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="" [routerLink]="'/'.concat(Constants.BUILDING_ROUTE.concat('/'.concat(Constants.BUILDING_EDIT
+                        .concat('/'.concat(Constants.BUILDING_DETAILS_ROUTE)))))"
+                        [queryParams]="{id: buildingId}" [ngClass]="{'active' : componentName == 'edit'} ">Settings</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="load-component py-3">
+            <div>
+              <ng-container *ngComponentOutlet="currentComponent"></ng-container>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+</div>
+
+ 

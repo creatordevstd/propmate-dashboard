@@ -1,0 +1,263 @@
+<div class="row mb-5">
+    <div class="col mb-3">
+      <div class="card h-100">
+        <div class="card-body">
+          <div class="card-title">
+            All invoices
+          </div>
+          <div class="card-details d-flex">
+            <div class="card-figure">
+              <span class="amount">16</span>
+              <span class="card-subtitle-description ms-2">Last 30 days</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col mb-3">
+      <div class="card h-100">
+        <div class="card-body">
+          <div class="card-title">
+            Paid invoices
+          </div>
+          <div class="card-details d-flex">
+            <div class="card-figure">
+              <span class="amount">4</span>
+              <span class="card-subtitle-description ms-2">Last 30 days</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col mb-3">
+      <div class="card h-100">
+        <div class="card-body">
+          <div class="card-title">
+            Pending invoices
+          </div>
+          <div class="card-details d-flex">
+            <div class="card-figure">
+              <span class="amount">6</span>
+              <span class="card-subtitle-description ms-2">Last 30 days</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col mb-3">
+      <div class="card h-100">
+        <div class="card-body">
+          <div class="card-title">
+            Total amount paid
+          </div>
+          <div class="card-details d-flex">
+            <div class="card-figure">
+              <span class="amount">R125,324.00</span>
+              <span class="card-subtitle-description ms-2">Last 30 days</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="row">
+    <div class="col-8">
+        <form [formGroup]="invoiceForm">
+          <div class="d-block mb-3">
+            <label for="recipientsSelect">Recipient(s)</label>
+            <ng-multiselect-dropdown #multiSelect id="recipientsSelect"
+            [settings]="settings"
+            [data]="tenantList" 
+            [formControl]="invoiceForm.controls.recipientLists" 
+            [disabled]="false"
+            (onSelect)="onMultiSelect($event)"
+            (onDeSelect)="onDeSelect($event)"
+      (onSelectAll)="onSelectAll($event)"
+      (onDeSelectAll)="onDeSelectAll($event)">
+          </ng-multiselect-dropdown>
+          </div>
+            <div class="col-filter d-flex mb-3">
+                <div class="filter-wrapper">
+                    <div class="col-filter-item mb-3 me-3">
+                      <label for="recipientName">Frequency</label>
+                      <select class="form-select" placeholder="'Select people'"   aria-label="Select recipient" formControlName="recipientName" id="recipientName" (change)="setRecipientDetails($event)">
+                        <option value="recurring">Recurring </option>
+                        <option value="once-off">Once-ff</option>
+                      </select>
+                    </div>
+                    <div class="col-filter-item mb-3 me-3">
+                      <label for="invoicePropertyName">Property</label>
+                      <select class="form-select" aria-label="Select property" formControlName="invoicePropertyName" id="invoicePropertyName" (change)="setPropertyDetails($event)">
+                        <option [value]="property.name" *ngFor="let property of propertyList">{{property.name}}</option>
+                        
+                      </select>
+                    </div>
+                    <div class="col-filter-item mb-3 me-3">
+                      <label for="invoiceDueDate">Due date</label>
+                      <div class="input-group">
+                        <input
+                          class="form-control custom-dp"
+                          placeholder="yyyy-mm-dd"
+                          name="dp"
+                          ngbDatepicker
+                          #dateFrom="ngbDatepicker"
+                          formControlName="invoiceDueDate"
+                          id="invoiceDueDate"
+                          (dateSelect)="onDateSelection($event)"
+                        />
+                        <button class="btn btn-outline-secondary bi bi-calendar3" (click)="dateFrom.toggle()" type="button"></button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="select-recipient mb-3">
+                    <button class="btn btn-dark"><i class="bi bi-person-add me-2"></i>Select Recipient</button>
+                  </div>
+            </div>
+           <div class="col-invoice">
+            <div class="card">
+                <div class="card-body">
+                    <div class="invoice-property-container mb-5 d-flex">
+                        <div class="invoice-property-profile-image">
+                            <div class="invoice-property-profile-cover">
+                                <div class="invoice-property-cover-name">{{propertyName | slice:0:1}}</div>
+                            </div>
+                        </div>
+                        <div class="invoice-property-details">
+                            <div class="invoice-heading">Invoice</div>
+                            <div class="invoice-property-name">{{propertyName}}</div>
+                            <div class="invoice-property-location">{{propertyAddress}}</div>
+                        </div>
+                    </div>
+                    <div class="invoice-recipient-container d-flex mb-5">
+                        <div class="invoice-recipient-details">
+                          <div class="recipient-heading">
+                            Bill To:
+                          </div>
+                            <div class="recipient-name">Selected Recipient(s)</div>
+                            <div class="recipient-email d-none">{{recipientEmail}}</div>
+                        </div>
+                        <div class="invoice-dates">
+                            <div class="date-create text-end mb-3">
+                              <div class="date-created-heading">Invoice date</div>
+                              <div class="date-create-value">{{todayDate}}</div>
+                            </div>
+                            <div class="due-date text-end">
+                              <div class="due-date-heading">Due date</div>
+                              <div class="due-date-value">{{invoiceDueDate}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="invoice-table-container">
+                        <div class="table-card">
+                            <table class="table table-responsive table-borderless table-align-middle" id="invoiceTable">
+                                <thead class="thead-light">
+                                <tr>
+                                  <th></th>
+                                  <th>Item</th>
+                                  <th>Decription</th>
+                                  <th>Amount</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                  <ng-container formArrayName="invoiceItemArray">
+                                    <ng-container *ngFor="let invoiceItemArrayForm of InvoiceItemsArray.controls; let index = index">
+                                      <ng-container [formGroupName]="index">
+                                        <tr>
+                                          <td class="remove">
+                                            <button class="btn border-0" (click)="deleteInvoiceItem(index)" [disabled]="index  === 0"><i class="bi bi-x-lg"></i></button>
+                                          </td>
+                                          <td class="item">
+                                            <select class="form-select" aria-label="Select" formControlName="itemName" id="itemName" >
+                                              <option value="rent charge">Rent charge</option>
+                                              <option value="maintenance payment">Maintenance payment</option>
+                                              <option value="security deposit">Security deposit</option>
+                                            </select>
+                                          </td>
+                                          <td class="description">
+                                            <input type="text" formControlName="itemDescription" class="form-control" placeholder="Description (optional)">
+                                          </td>
+                                          <td class="amount">
+                                            <input type="text" formControlName="itemDescription" class="form-control" placeholder="R0.00">
+                                          </td>
+                                        </tr>
+                                      </ng-container>
+                                    </ng-container>
+                                  </ng-container>
+                                </tbody>
+                                <tfoot>
+                                  <tr class="">
+                                    <td class="add-invoice-item-btn">
+                                      <button class="bg-transparent border-0 p-0 btn-add-item" (click)="addInvoiceItem()"><i class="bi bi-plus me-1"></i>Add Item</button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="total-amount">
+                                      <hr>
+                                      <div class="d-flex justify-content-between">
+                                        <div class="amount-heading">Total:</div>
+                                        <div class="amount-value">R{{totalAmount | number: '1.2-2'}}</div>
+                                    </div>
+                                    </td>
+                                  </tr>
+                                </tfoot>
+                              </table>
+                              <div class="invoice-btn-actions d-flex justify-content-end p-2">
+                                <button class="btn btn-bordered"><i class="bi bi-download me-2"></i>Download</button>
+                                <button class="btn btn-dark ms-3"><i class="bi bi-send me-2"></i>Send invoice</button>
+
+                              </div>
+                              <div class="form-group p-2">
+                                <label for="invoiceNoteInput">Notes &amp; Terms (optional)</label>
+                                <textarea  formControlName="invoiceNote" id="invoiceNoteInput" class="form-control" placeholder="Enter recipient's note" rows="4"></textarea>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           </div>
+        </form>
+    </div>
+    <div class="col-4">
+        <div class="card">
+            <div class="card-header bg-transparent">
+                <div class="card-heading">History</div>
+            </div>
+            <div class="card-body overflow-auto p-0" style="max-height: 50vh;">
+                <ul class="list-group list-group-flush" >
+                    <ng-container *ngFor="let invoiceHistory of InvoiceList; index as i">
+                        <li class="list-group-item">
+                            <ng-container >
+                                <div class="d-flex justify-content-between mb-2">
+                                    <div class="invoice-history-number">
+                                        <span>#{{invoiceHistory.invoiceNumber}}</span>
+                                    </div>
+                                    <div class="invoice-history-status">
+                                        <span class="ms-3" [ngClass]="{'bg-success-color' : invoiceHistory.status == 'Paid', 'bg-danger-color' : invoiceHistory.status == 'Overdue',
+                                    'bg-warning-color' : invoiceHistory.status == 'Pending'}"> {{invoiceHistory.status}}</span>
+                                    </div>
+                                </div>
+                                <div class="invoice-history-container d-flex justify-content-between">
+                                    <div class="invoice-history-details">
+                                        <div class="invoice-history-recepient-name">{{invoiceHistory.recipientName}}</div>
+                                        <div class="invoice-history-type">
+                                            <span>{{invoiceHistory.invoiceType}}</span>
+                                            <span class="separator mx-2">&#124;</span>
+                                            <span>Due: {{invoiceHistory.dueDate}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="invoice-history-amount">{{invoiceHistory.invoiceAmount}}</div>
+                                </div>
+                        </ng-container>
+                     </li>
+                    </ng-container>
+                </ul>
+            </div>
+            <div class="card-footer bg-transparent">
+                <button class="btn">View all invoices <i class="bi bi-chevron-right ms-2"></i></button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,6 +1,59 @@
+.btn{
+  font-size: var(--md-font-size);
+}
 .btn-full{
   width: 100%;
 }
 .btn-small{
   width: 30%;
+}
+.btn-bordered{
+  border-color: var(--bs-gray-300);
+  background: var(--bs-white);
+  color: var(--bs-gray-600);
+  font-size: var(--md-font-size);
+}
+
+.btn-dark{
+  background: var(--bs-black);
+  border-color: var(--bs-gray-300);
+  color: var(--bs-white);
+  font-size: var(--md-font-size);
+}
+
+.btn-bordered:hover,
+.btn-bordered:focus,
+.btn-bordered:active
+{
+  background: #FFffff;
+  color: var(--primary-darker-color);
+  border-color: var(--bs-gray-200);
+}
+
+
+.btn-rounded-primary{
+  background-color: var(--primary-lighter-color);
+}
+.btn-rounded-secondary{
+  background-color: var(--secondary-color);
+}
+.btn-rounded-success{
+  background-color: var(--success-lighter-color);
+}
+.btn-rounded-danger{
+  background-color: var(--danger-lighter-color);
+}
+.btn-rounded-warning{
+  background-color: var(--warning-color);
+}
+.submit-button-right{
+  display: flex;
+  align-items: end;
+  flex-direction: column;
+}
+.btn-status{
+  height: 6px;
+  width: 6px;
+  padding: 4px;
+  border-radius: 50px;
 }

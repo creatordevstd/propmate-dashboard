@@ -2,3 +2,32 @@
   flex-direction: row;
   align-items: center;
 }
+
+.right-menu .nav-link {
+  color: var(--bs-black);
+  font-size: var(--lg-font-size);
+  font-weight: var(--regular-weight);
+  cursor: pointer;
+}
+.navbar-nav li{
+  padding: 0 10px;
+}
+.navbar-nav li a {
+  font-size: var(--lg-font-size);
+  font-weight: var(--regular-weight);
+}
+.right-menu .btn{
+  // background: var(--bs-white);
+  color: var(--bs-white);
+  border-color: var(--bs-white);
+  cursor: pointer;
+}
+.navbar-brand img{
+  width: 96px;
+}
+.navbar{
+  border-bottom: 1px solid #e1e1e1;
+}
+.custom-container{
+  padding: 0 180px;
+}

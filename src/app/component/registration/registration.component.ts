@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {NgbAccordionItem} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-registration',
@@ -9,6 +8,10 @@ import {NgbAccordionItem} from "@ng-bootstrap/ng-bootstrap";
 })
 export class RegistrationComponent implements OnInit{
 
+  defaultInputTypePassword ='password';
+  defaultInputTypeConfirmedPassword ='password';
+  showPasswordIcon = false;
+  showConfirmPasswordIcon = false;
   registrationForm = new FormGroup({
     applicationType: new FormControl(null, [Validators.required]),
     firstName: new FormControl('', [Validators.required]),
@@ -27,7 +30,24 @@ export class RegistrationComponent implements OnInit{
 
   onSubmit(){
     if (this.registrationForm.valid){
-      alert('Navigate to next page');
+
+    }
+  }
+  setToggleIcon(inputCtrlName: any){
+    if(inputCtrlName === 'password'){
+      this.showPasswordIcon = !this.showPasswordIcon;
+      if(this.showPasswordIcon){
+       this.defaultInputTypePassword ='text'
+      } else {
+       this.defaultInputTypePassword = 'password'
+      }
+    } else if(inputCtrlName === 'confirmPassword'){
+      this.showConfirmPasswordIcon = !this.showConfirmPasswordIcon;
+      if(this.showConfirmPasswordIcon){
+      this.defaultInputTypeConfirmedPassword ='text'
+      } else {
+      this.defaultInputTypeConfirmedPassword = 'password'
+      }
     }
   }
 }

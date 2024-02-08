@@ -1,0 +1,728 @@
+<div class="row mb-3">
+    <div class="col-3">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex align-items-start">
+                    <div class="nav flex-column  me-3 settings-tablist" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        <a class="nav-link active" id="v-pills-info-tab" data-bs-toggle="pill"
+                            data-bs-target="#v-pills-info" type="button" role="tab" aria-controls="v-pills-home"
+                            aria-selected="true">General settings</a>
+                        <a class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill"
+                            data-bs-target="#v-pills-user" type="button" role="tab" aria-controls="v-pills-user"
+                            aria-selected="false">User management</a>
+                        <a class="nav-link" id="v-pills-notification-tab" data-bs-toggle="pill"
+                            data-bs-target="#v-pills-notifcation" type="button" role="tab"
+                            aria-controls="v-pills-notifcation" aria-selected="false">Notification</a>
+                        <a class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill"
+                            data-bs-target="#v-pills-property-details" type="button" role="tab"
+                            aria-controls="v-pills-property-details" aria-selected="false">Property details</a>
+                        <a class="nav-link" id="v-pills-lease-tab" data-bs-toggle="pill" data-bs-target="#v-pills-lease"
+                            type="button" role="tab" aria-controls="v-pills-lease" aria-selected="false">Lease and
+                            Tenancy settings</a>
+                        <a class="nav-link" id="v-pills-security-tab" data-bs-toggle="pill"
+                            data-bs-target="#v-pills-security" type="button" role="tab" aria-controls="v-pills-security"
+                            aria-selected="false">Security and Access Control</a>
+                        <a class="nav-link" id="v-pills-files-tab" data-bs-toggle="pill" data-bs-target="#v-pills-files"
+                            type="button" role="tab" aria-controls="v-pills-files" aria-selected="false">File
+                            management</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-9">
+        <form [formGroup]="buildingEditForm">
+            <div class="tab-content" id="v-pills-tabContent">
+                <div class="tab-pane fade show active" id="v-pills-info" role="tabpanel"
+                    aria-labelledby="v-pills-info-tab">
+
+                    <div class="card mb-3">
+                        <div class="card-header bg-transparent">
+                            <div class="card-heading">Preferences</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row mb-3">
+                                <div class="col-3 d-flex align-items-center">
+                                    <label for="">Languages</label>
+                                </div>
+                                <div class="col-9">
+                                    <div class="form-group">
+                                        <select class="form-select" aria-label="Default select example"
+                                            formControlName="languageList">
+                                            <option [value]="item.value" *ngFor="let item of languageList">{{item.name}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-3 d-flex align-items-center">
+                                    <label for="">Time zone</label>
+                                </div>
+                                <div class="col-9">
+                                    <div class="form-group">
+                                        <input type="text" name="" id="" class="form-control"
+                                            placeholder="Enter time zone" formControlName="timeZone" value="GMT+02:00">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-8 d-flex align-items-center">
+                                    <label for="">Set the default currency for financial transactions</label>
+                                </div>
+                                <div class="col-4 justify-content-end d-flex">
+                                    <div class="form-check form-switch form-switch-md">
+                                        <input class="form-check-input" type="checkbox" id="switchCheckCurrency">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent border-top-0 mb-3">
+                            <div class="d-flex justify-content-end">
+                                <button class="btn btn-primary"> Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="v-pills-user" role="tabpanel" aria-labelledby="v-pills-user-tab">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <div class="card-heading">User roles</div>
+                                    <span class="font-14 color-gray">Add or manage user role</span>
+                                </div>
+                                <button class="btn btn-transparent"><i class="bi bi-plus-lg me-2"></i>Add user</button>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card mb-3">
+                        <div class="card-header bg-transparent">
+                            <div class="d-flex justify-content-between">
+                                <div class="card-heading">All users</div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-responsive table-borderless table-align-middle">
+                                <tbody>
+                                    <tr *ngFor="let user of tenantList; index as i">
+                                        <ng-container *ngIf="i < 4">
+                                            <td>
+                                                <div class="d-flex">
+                                                    <img src="{{user.img}}" alt=""
+                                                        class="img-fluid avatar-rounded me-2">
+                                                    <div class="d-flex flex-column">
+                                                        <div class="name tenant-name">
+                                                            <span class="member-name">{{user.name}}</span>
+                                                        </div>
+                                                        <div class="email">{{user.email}}</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="accountStatus" [ngClass]="{'active-status' :user.accountStatus == 'active', 
+                                            'inactive-status': user.accountStatus == 'inactive'}">{{user.accountStatus | titlecase}}</div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <ng-container *ngIf="i == 0">
+                                                        <div class="userRole">Admin</div>
+                                                    </ng-container>
+                                                    <ng-container *ngIf=" i > 0">
+                                                        <select class="form-select" aria-label="Default select example"
+                                                            formControlName="userRole">
+                                                            <option [value]="item.value" *ngFor="let item of userRole">
+                                                                {{item.name}}
+                                                            </option>
+                                                        </select>
+                                                    </ng-container>
+                                                </div>
+                                            </td>
+                                            <td><i class="bi bi-trash3"></i></td>
+                                        </ng-container>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="card-footer bg-transparent border-top-0 mb-3">
+                            <div class="d-flex justify-content-end">
+                                <button class="btn btn-primary"> Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="v-pills-notifcation" role="tabpanel"
+                    aria-labelledby="v-pills-notification-tab">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <div class="card-heading">Email notifications</div>
+                                <div class="card-content">
+                                    <div class="row ">
+                                        <div class="col-8 d-flex align-items-center">
+                                            <label for="">Receive emails when new maintenance or repair requests are
+                                                submitted</label>
+                                        </div>
+                                        <div class="col-4 justify-content-end d-flex">
+                                            <div class="form-check form-switch form-switch-md">
+                                                <input class="form-check-input" type="checkbox"
+                                                    id="switchCheckCurrency">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-8 d-flex align-items-center">
+                                            <label for="">Get notified when leases are about to expire</label>
+                                        </div>
+                                        <div class="col-4 justify-content-end d-flex">
+                                            <div class="form-check form-switch form-switch-md">
+                                                <input class="form-check-input" type="checkbox"
+                                                    id="switchCheckCurrency">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-8 d-flex align-items-center">
+                                            <label for="">Receive reminders for upcoming rent payments.
+                                            </label>
+                                        </div>
+                                        <div class="col-4 justify-content-end d-flex">
+                                            <div class="form-check form-switch form-switch-md">
+                                                <input class="form-check-input" type="checkbox"
+                                                    id="switchCheckCurrency">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="separtor">
+                                <hr>
+                            </div>
+                            <div class="mb-3">
+                                <div class="card-heading">Tenants Notification</div>
+                                <div class="card-content">
+                                    <div class="row ">
+                                        <div class="col-8 d-flex align-items-center">
+                                            <label for="">Receive notifications when tenants make rent payments.
+                                            </label>
+                                        </div>
+                                        <div class="col-4 justify-content-end d-flex">
+                                            <div class="form-check form-switch form-switch-md">
+                                                <input class="form-check-input" type="checkbox"
+                                                    id="switchCheckCurrency">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-8 d-flex align-items-center">
+                                            <label for="">Get alerted to any changes or updates to lease agreements.
+                                            </label>
+                                        </div>
+                                        <div class="col-4 justify-content-end d-flex">
+                                            <div class="form-check form-switch form-switch-md">
+                                                <input class="form-check-input" type="checkbox"
+                                                    id="switchCheckCurrency">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-8 d-flex align-items-center">
+                                            <label for="">Do not send a notification if the tenant has already paid.
+                                            </label>
+                                        </div>
+                                        <div class="col-4 justify-content-end d-flex">
+                                            <div class="form-check form-switch form-switch-md">
+                                                <input class="form-check-input" type="checkbox"
+                                                    id="switchCheckCurrency">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="separtor">
+                                <hr>
+                            </div>
+                            <div class="mb-3">
+                                <div class="card-heading">Maintenance Notification</div>
+                                <div class="card-content">
+                                    <div class="row ">
+                                        <div class="col-8 d-flex align-items-center">
+                                            <label for="">Receive notifications about upcoming planned maintenance.
+                                            </label>
+                                        </div>
+                                        <div class="col-4 justify-content-end d-flex">
+                                            <div class="form-check form-switch form-switch-md">
+                                                <input class="form-check-input" type="checkbox"
+                                                    id="switchCheckCurrency">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-8 d-flex align-items-center">
+                                            <label for="">Be notified when a maintenance task is assigned to a specific
+                                                team or individual.</label>
+                                        </div>
+                                        <div class="col-4 justify-content-end d-flex">
+                                            <div class="form-check form-switch form-switch-md">
+                                                <input class="form-check-input" type="checkbox"
+                                                    id="switchCheckCurrency">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="separtor">
+                                <hr>
+                            </div>
+                            <div class="mb-3">
+                                <div class="card-heading">Help and support Notification</div>
+                                <div class="card-content">
+                                    <div class="row ">
+                                        <div class="col-8 d-flex align-items-center">
+                                            <label for=""> Receive notifications on the status of submitted support
+                                                tickets.
+
+                                            </label>
+                                        </div>
+                                        <div class="col-4 justify-content-end d-flex">
+                                            <div class="form-check form-switch form-switch-md">
+                                                <input class="form-check-input" type="checkbox"
+                                                    id="switchCheckCurrency">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-8 d-flex align-items-center">
+                                            <label for="">Be informed about new help articles or documentation releases.
+                                            </label>
+                                        </div>
+                                        <div class="col-4 justify-content-end d-flex">
+                                            <div class="form-check form-switch form-switch-md">
+                                                <input class="form-check-input" type="checkbox"
+                                                    id="switchCheckCurrency">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="card-footer bg-transparent border-top-0 mb-3">
+                            <div class="d-flex justify-content-end">
+                                <button class="btn btn-primary"> Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="v-pills-property-details" role="tabpanel"
+                    aria-labelledby="v-pills-property-details-tab">
+                    <div class="card mb-3">
+                        <div class="card-header bg-transparent">
+                            <div class="card-heading">Property details</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row mb-3">
+                                <div class="col-3 d-flex align-items-center">
+                                    <label for="">Type</label>
+                                </div>
+                                <div class="col-9">
+                                    <div class="form-group">
+                                        <select class="form-select" aria-label="Default select example"
+                                            formControlName="propertyType">
+                                            <option [value]="item.value" *ngFor="let item of propertyType">{{item.name}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-3 d-flex align-items-center">
+                                    <label for="">Property name</label>
+                                </div>
+                                <div class="col-9">
+                                    <div class="form-group">
+                                        <input type="text" name="" id="" class="form-control"
+                                            placeholder="Property name" formControlName="propertyName" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-3 d-flex align-items-top">
+                                    <label for="">Address details</label>
+                                </div>
+                                <div class="col-9">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-6 mb-3">
+                                                <input type="text" name="" id="" class="form-control"
+                                                    placeholder="Address 1" formControlName="address1" readonly>
+                                            </div>
+                                            <div class="col-6 mb-3">
+                                                <input type="text" name="" id="" class="form-control"
+                                                    placeholder="Address 2" formControlName="address2">
+                                            </div>
+                                            <div class="col-6 mb-3">
+                                                <input type="text" name="" id="" class="form-control" placeholder="City"
+                                                    formControlName="city" readonly>
+                                            </div>
+                                            <div class="col-6 mb-3">
+                                                <input type="text" name="" id="" class="form-control"
+                                                    placeholder="Province" formControlName="province" readonly>
+                                            </div>
+                                            <div class="col-6 mb-3">
+                                                <input type="text" name="" id="" class="form-control"
+                                                    placeholder="Postal code" formControlName="postalCode" >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent border-top-0 mb-3">
+                            <div class="d-flex justify-content-end">
+                                <button class="btn btn-primary"> Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="v-pills-lease" role="tabpanel" aria-labelledby="v-pills-lease-tab">
+                    <div class="card mb-3">
+                        <div class="card-header bg-transparent">
+                            <div class="card-heading">Property units</div>
+                        </div>
+                        <div class="card-body p-0">
+                            <table class="table table-responsive table-borderless" id="buildingUnitTable">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th></th>
+                                        <th>Unit number</th>
+                                        <th>Beds</th>
+                                        <th>Bathrooms</th>
+                                        <th>Size &#13217; </th>
+                                        <th>Rental fee</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <ng-container formArrayName="buildingUnitItemArray">
+                                        <ng-container
+                                            *ngFor="let buildingUnitForm of buildingItemArray.controls; let index = index">
+                                            <ng-container [formGroupName]="index">
+                                                <tr>
+                                                    <td> {{index+1}}</td>
+                                                    <td>
+                                                        <input type="text" name="unitName" id="unitName"
+                                                            formControlName="unitName" class="form-control"
+                                                            placeholder="Number">
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="unitBed" id="unitBed"
+                                                            formControlName="unitBed" class="form-control"
+                                                            placeholder="Beds">
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="unitBathroom" id="unitBathroom"
+                                                            formControlName="unitBathroom" class="form-control"
+                                                            placeholder="Bathrooms">
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="unitSize" id="unitSize"
+                                                            formControlName="unitSize" class="form-control"
+                                                            placeholder="Size">
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="unitRent" id="unitRent"
+                                                            formControlName="unitRent" class="form-control"
+                                                            placeholder="Monthly Rent">
+                                                    </td>
+                                                    <td class="remove" width="5%">
+
+                                                        <button class="btn btn-transparent border-0"
+                                                            (click)="deleteUnitItem(index)" [disabled]="index  === 0">
+                                                            <i class="bi bi-trash3"></i></button>
+                                                    </td>
+                                                </tr>
+
+                                            </ng-container>
+                                        </ng-container>
+                                    </ng-container>
+
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td with="100%">
+                                            <button class="btn bg-transparent mb-3" (click)="addUnitItem()"><i
+                                                    class="bi bi-plus-lg me-2"></i>Add another unit</button>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <div class="card-footer bg-transparent border-top-0 mb-3">
+                            <div class="d-flex justify-content-end">
+                                <button class="btn btn-primary"> Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="tab-pane fade" id="v-pills-security" role="tabpanel" aria-labelledby="v-pills-security-tab">
+                    <div class="card mb-3">
+                        <div class="card-header bg-transparent">
+                            <div class="card-heading">Email</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-3 font-14 color-gray">Your current email address is email@domain.com</div>
+                            <div class="row mb-3">
+                                <div class="col-3 d-flex align-items-center">
+                                    <label for="">New email address</label>
+                                </div>
+                                <div class="col-9">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Enter new email address">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent border-top-0 mb-3">
+                            <div class="d-flex justify-content-end">
+                                <button class="btn btn-primary"> Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mb-3">
+                        <div class="card-header bg-transparent">
+                            <div class="card-heading">Change password</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row mb-3">
+                                <div class="col-3 d-flex align-items-center">
+                                    <label for="">Current password</label>
+                                </div>
+                                <div class="col-9">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Enter current password">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-3 d-flex align-items-center">
+                                    <label for="">Enter new password</label>
+                                </div>
+                                <div class="col-9">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Enter new password">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-3 d-flex align-items-center">
+                                    <label for="">Confirm new password</label>
+                                </div>
+                                <div class="col-9">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Confirm new password">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-9 offset-3">
+                                    <div class="password-requirements">
+                                        <div class="font-14">Password requirements:</div>
+                                        <div class="font-14 color-gray">Ensure that these requirements are met:</div>
+                                        <ul>
+                                            <li class="font-14 color-gray">Minimum 8 characters long - the more, the better</li>
+                                            <li  class="font-14 color-gray">At least one lowercase character</li>
+                                            <li  class="font-14 color-gray">At least one uppercase character</li>
+                                            <li  class="font-14 color-gray">At least one number, symbol, or whitespace character</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent border-top-0 mb-3">
+                            <div class="d-flex justify-content-end">
+                                <button class="btn btn-primary"> Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mb-3">
+                        <div class="card-header bg-transparent">
+                            <div class="card-heading">
+                                Two-set authentication
+                            </div>
+
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-3 font-14 color-gray">Start by entering your password so that we know it's you</div>
+                            <div class="row mb-3">
+                                <div class="col-3 d-flex align-items-center">
+                                    <label for="">Account password</label>
+                                </div>
+                                <div class="col-9">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Enter current password">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-9 offset-3">
+                                    <small>This is the password you use to log in to your Front account.</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent border-top-0 mb-3">
+                            <div class="d-flex justify-content-end">
+                                <button class="btn btn-primary"> Set up</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="v-pills-files" role="tabpanel" aria-labelledby="v-pills-files-tab">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <div class=" card-heading">Tenants files</div>
+                                <div class="row ">
+                                    <div class="col-8 d-flex align-items-center">
+                                        <label for=""> Enable tenant to upload proof of identification (ID or passport copy certified)
+                                        </label>
+                                    </div>
+                                    <div class="col-4 justify-content-end d-flex">
+                                        <div class="form-check form-switch form-switch-md">
+                                            <input class="form-check-input" type="checkbox" id="switchCheckCurrency">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row ">
+                                    <div class="col-8 d-flex align-items-center">
+                                        <label for=""> Enable tenant to upload bank statement (3 months certified bank statement)
+                                        </label>
+                                    </div>
+                                    <div class="col-4 justify-content-end d-flex">
+                                        <div class="form-check form-switch form-switch-md">
+                                            <input class="form-check-input" type="checkbox" id="switchCheckCurrency">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row ">
+                                    <div class="col-8 d-flex align-items-center">
+                                        <label for=""> Enable tenant to upload proof of residence (water or utility bill)
+                                        </label>
+                                    </div>
+                                    <div class="col-4 justify-content-end d-flex">
+                                        <div class="form-check form-switch form-switch-md">
+                                            <input class="form-check-input" type="checkbox" id="switchCheckCurrency">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row ">
+                                    <div class="col-8 d-flex align-items-center">
+                                        <label for=""> Enable tenant to upload Lease agreement (water or utility bill)
+                                        </label>
+                                    </div>
+                                    <div class="col-4 justify-content-end d-flex">
+                                        <div class="form-check form-switch form-switch-md">
+                                            <input class="form-check-input" type="checkbox" id="switchCheckCurrency">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="separator"><hr></div>
+                            </div>
+                            <div class=" card-heading">Property files</div>
+                            <div class="row ">
+                                <div class="col-8 d-flex align-items-center">
+                                    <label for=""> Enable Occupancy Certificate file upload
+                                    </label>
+                                </div>
+                                <div class="col-4 justify-content-end d-flex">
+                                    <div class="form-check form-switch form-switch-md">
+                                        <input class="form-check-input" type="checkbox" id="switchCheckCurrency">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row ">
+                                <div class="col-8 d-flex align-items-center">
+                                    <label for=""> Enable Zone Certificate file upload
+                                    </label>
+                                </div>
+                                <div class="col-4 justify-content-end d-flex">
+                                    <div class="form-check form-switch form-switch-md">
+                                        <input class="form-check-input" type="checkbox" id="switchCheckCurrency">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row ">
+                                <div class="col-8 d-flex align-items-center">
+                                    <label for=""> Enable Valuation documents file upload
+                                    </label>
+                                </div>
+                                <div class="col-4 justify-content-end d-flex">
+                                    <div class="form-check form-switch form-switch-md">
+                                        <input class="form-check-input" type="checkbox" id="switchCheckCurrency">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row ">
+                                <div class="col-8 d-flex align-items-center">
+                                    <label for=""> Enable Title Deed file upload
+                                    </label>
+                                </div>
+                                <div class="col-4 justify-content-end d-flex">
+                                    <div class="form-check form-switch form-switch-md">
+                                        <input class="form-check-input" type="checkbox" id="switchCheckCurrency">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row ">
+                                <div class="col-8 d-flex align-items-center">
+                                    <label for=""> Enable Electrical Certificate file upload
+                                    </label>
+                                </div>
+                                <div class="col-4 justify-content-end d-flex">
+                                    <div class="form-check form-switch form-switch-md">
+                                        <input class="form-check-input" type="checkbox" id="switchCheckCurrency">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row ">
+                                <div class="col-8 d-flex align-items-center">
+                                    <label for=""> Enable Municipal approved building plans file upload
+                                    </label>
+                                </div>
+                                <div class="col-4 justify-content-end d-flex">
+                                    <div class="form-check form-switch form-switch-md">
+                                        <input class="form-check-input" type="checkbox" id="switchCheckCurrency">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row ">
+                                <div class="col-8 d-flex align-items-center">
+                                    <label for=""> Enable Fire Safety Certificate file upload
+                                    </label>
+                                </div>
+                                <div class="col-4 justify-content-end d-flex">
+                                    <div class="form-check form-switch form-switch-md">
+                                        <input class="form-check-input" type="checkbox" id="switchCheckCurrency">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent border-top-0 mb-3">
+                            <div class="d-flex justify-content-end">
+                                <button class="btn btn-primary"> Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

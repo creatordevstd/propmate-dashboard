@@ -1,0 +1,41 @@
+.card{
+  border-color: var(--border-color);
+  box-shadow: var(--boxshadow-color);
+}
+.card-padding{
+  padding: 45px;
+}
+.card-header{
+  border-bottom-color:  var(--border-color);
+  font-weight: var(--regular-weight);
+}
+.card-footer{
+  border-color: var(--border-color);
+}
+.card-heading{
+  font-size: large;
+  color: var(--text-color-primary);
+  font-weight: 500;
+}
+.card-title{
+  font-size: small;
+  font-weight: 400;
+  color:var(--text-color-secondary);
+}
+.card-figure .amount{
+  font-size: x-large;
+  font-weight: 600;
+}
+.card-figure .card-subtitle-description{
+  font-size: smaller;
+  color:var(--text-color-secondary);
+  text-transform: lowercase;
+}
+.card-details{
+  display: flex;
+  justify-content: space-between;
+}
+.card-table{
+  border: 1px solid var(--border-color);
+  border-radius: var(--bs-border-radius);
+}

@@ -1,0 +1,112 @@
+.invoice-history-status span{
+    padding: 6px 21px;
+    font-size: smaller;
+}
+.invoice-history-status > span{
+    padding: 6px 21px;
+    border-radius: var(--bs-border-radius);
+    font-size: smaller;
+}
+.invoice-history-status > span.bg-success-color{
+    background: var(--bg-success-color);
+    color: var(--success-color);
+    border-color: var(--success-color);
+}
+.invoice-history-status > span.bg-warning-color{
+    background: var(--bg-warning-color);
+    color: var(--warning-color);
+    border-color: var(--warning-color);
+}
+.invoice-history-status > span.bg-danger-color{
+    background: var(--bg-danger-color);
+    color: var(--danger-color);
+    border-color:var(--danger-color);
+}
+.list-group > li{
+    font-size: 14px;
+}
+.invoice-history-recepient-name,
+.invoice-history-number{
+    font-weight: 500;
+}
+.invoice-history-type{
+    color: var(--text-color-secondary);
+    font-size: small;
+}
+.card-footer{
+    text-align: center;
+}
+.card-footer button{
+    font-size: 14px;
+}
+.col-filter{
+    justify-content: space-between;
+}
+.filter-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: end;
+}
+.select-recipient{
+    align-self: flex-end;
+}
+.invoice-recipient-container,
+.invoice-property-container{
+    justify-content: space-between;
+}
+.invoice-property-profile-cover{
+    background-color: aliceblue;
+    height: 64px;
+    width: 64px;
+    color: #377DFF;
+    text-align: center;
+    font-size: large;
+    font-weight: 500;
+    text-transform: uppercase;
+    border-radius: 50%;
+    position: relative;
+}
+.invoice-property-cover-name{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.invoice-property-details{
+    max-width: 20%;
+    text-align: right;
+    text-wrap: wrap;
+}
+.col-invoice{
+    font-size: 14px;
+}
+.recipient-heading{
+    text-transform: uppercase;
+}
+.invoice-heading,
+.recipient-heading{
+    font-weight: 500;
+    color: var(--bs-black);
+    font-size: 16px;
+}
+.invoice-property-name,
+.invoice-property-location,
+.date-create-value,
+.due-date-value{
+    color: var(--text-color-secondary);
+    
+}
+.recipient-name,
+.recipient-email{
+    color: var(--text-color-secondary);
+    
+}
+.date-created-heading,
+.due-date-heading{
+    text-transform: uppercase;
+}
+.btn-add-item{
+    font-weight: 500;
+    font-size: 12px;
+}

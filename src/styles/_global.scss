@@ -1,43 +1,102 @@
-.main-heading{
-  font-weight: 500;
-  font-size: 32px;
+:root{
+  //Font size
+  --title-size: 32px;
+  --xl-font-size: 24px;
+  --lg-font-size: 16px;
+  --md-font-size: 14px;
+  --sm-font-size: 12px;
+
+  //Font weight
+  --bold-weight: 600;
+  --semi-bold-weight: 500;
+  --regular-weight: 400;
+  --light-weight: 300;
+
+  //color
+
+  --dark-color: #000000;
+  --primary-lighter-color: #15a1ff;
+  --primary-darker-color: #196dff;
+  --secondary-color: #377dff;
+  --tertiary-color: #e5edff;
+  --success-color: #53d533;
+  --success-lighter-color: #0ed7b5;
+  --danger-color: #d63f39;
+  --danger-lighter-color: #ec5244;
+  --warning-color: #d68939;
+  --warning-light-color: #fdd14e;
+  --info-color: #00dffc;
+  --indigo-color: #2d1582;
+  --gray-color: #e7eaf3;
+  --gray-lighter: #bcc5d1;
+  --placeholder-color: #ced3d9;
+  --light-color: #71869D;
+
+  //background color
+  --bg-light-color: #f0f3f5;
+  --bg-secondary-color: #e5edfB;
+  --bg-success-color:#ebf9f6;
+  --bg-danger-color:#feedf1;
+  --bg-warning-color:#fcfaf4;
+  --bg-info-color: #d5f4fA;
+  --bg-indigo-color: #e3e2ef;
+  --bg-activated-color: #065cff;
+
+  //text color
+  --paragraph-color : #677788;
+
+  --text-color-primary: #000000;
+  --text-color-secondary: #677788;
+
+  //Border
+  --border-color: rgba(231, 234, 243, 0.7);
+  //--border-color: rgba(231, 234, 243, 0.7);
+
+  //Box shadow
+  --boxshadow-color: 0 .375rem .75rem rgba(140,152,164,.075);
+
+  //Table head background color
+  --bg-thead-color: #f8fafd;
+
+  //document color
+  --pdf-color : #E21B23;
+  --doc-color : #377CF4;
+
 }
-.sub-heading, .form-check-label{
-  font-weight: 400;
+body{
+  font-family: "Helvetica Neue", sans-serif;
+  height: 100svh;
 }
-.card-title{
+header.stick-top{
+  z-index: 1000;
+}
+a{
+  cursor: pointer;
+}
+p{
   font-size: 14px;
-  font-weight: 500;
-  color: #000000;
-  text-transform: capitalize;
-}
-.card-text{
-  font-size: 13px;
   font-weight: 400;
-  color: #525b75;
 }
-.badge-style{
-  //border-radius: 50px;
-  border-style: solid;
-  border-width: 1px;
-  padding: 2px 8px;
-  text-transform: uppercase;
+hr{
+  border: 1px solid var(--bs-border-color)
 }
-.badge-success-bg{
-  background: #d9fbd0;
-  color: #53d633;
-  border-color:#53d633 ;
+.heading-title{
+  font-weight: var(--semi-bold-weight);
 }
-.badge-warning-bg{
-  background: #f8DDA8;
-  color: #d68839;
-  border-color: #d68839;
+.subtitle-text{
+  font-size: var(--lg-font-size);
+  color: var(--bs-gray-600);
 }
-.badge-danger-bg{
-  background: #f7dad9;
-  color: #d63f3a;
-  border-color: #d63f3a;
+
+.form-check-label{
+  // font-size: var(--sm-font-size);
+  font-size: var(--bs);
 }
+
+.bi-gray {
+  color: var(--bs-gray-600);
+}
+
 .chart-total-value{
   font-weight: 600;
   color:  #000000;
@@ -52,4 +111,87 @@
 }
 .avatar{
   max-width: 30%;
+}
+.avatar-lg{
+  max-width: 80%;
+}
+.avatar-sm{
+  max-width: 10%;
+}
+.rounded-avatar{
+  border-radius: 50%;
+}
+.icon-bg{
+  background-color: var(--bs-white);
+  height: 48px;
+  width: 48px;
+  text-align: center;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+}
+.alert{
+  padding: 8px 10px;
+  font-size: 12px;
+}
+hr{
+  border-color: #e1e1e1;
+}
+.dropdown-item{
+  font-size: 14px;
+}
+.card-legend-title, .card-legend-value{
+  font-size: 13px;
+}
+.accordion{
+  border-color: red;
+}
+.accordion-button:focus, .accordion-button.collapsed{
+  box-shadow: none;
+  border-bottom: 1px solid rgba(231, 234, 243, 0.7);
+}
+.accordion-item{
+  border: 1px solid rgba(231, 234, 243, 0.7);
+}
+
+small{
+  color: var(--bs-gray-600);
+}
+.rounded{
+  border-radius: 50%;
+}
+.legend-indicator{
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+}
+
+.avatar-rounded{
+  height: 42px;
+  width: 42px;
+  border-radius: 50%;
+}
+.avatar-rounded-large{
+  height: 84px;
+  width: 84px;
+  border-radius: 50%;
+}
+
+.progress-bar.bg-success-color{
+  background-color: var(--success-color);
+}
+.progress-bar.bg-transparent{
+  background: transparent;
+}
+.progress-bar.bg-dark-color{
+  background: var(--bs-black);
+}
+// .progress-bar{
+//   font-size: xx-small;
+// }
+.progress{
+  height: 4px;
 }

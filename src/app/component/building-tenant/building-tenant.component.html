@@ -1,0 +1,154 @@
+<div class="row mb-3">
+
+    <div class="col mb-3">
+        <div class="card h-100">
+          <div class="card-body">
+            <div class="card-title">
+              New Tenants
+            </div>
+            <div class="card-details d-flex">
+              <div class="card-figure">
+                <span class="amount">7</span>
+                <span class="card-subtitle-description ms-2">Last 30 days</span>
+              </div>
+              <div class="card-graph d-none">
+                <span class="badge badge-style border-0 p-2  badge-danger-bg ms-2"><i class="bi bi-graph-down"></i> -15.7%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="col mb-3">
+        <div class="card h-100">
+          <div class="card-body">
+            <div class="card-title">
+              Outgoing Tenants
+            </div>
+            <div class="card-details d-flex">
+              <div class="card-figure">
+                <span class="amount">16</span>
+                <span class="card-subtitle-description ms-2">expiring leases</span>
+              </div>
+              <div class="card-graph d-none">
+                <span class="badge badge-style border-0 p-2  badge-success-bg ms-2"><i class="bi bi-graph-down"></i> -1.9%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="col mb-3">
+        <div class="card h-100">
+          <div class="card-body">
+            <div class="card-title">
+               Unit occupancy
+            </div>
+            <div class="card-details d-flex">
+              <div class="card-figure">
+                <span class="amount">11</span>
+                <span class="card-subtitle-description ms-2">occupied units</span>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="col mb-3">
+      <div class="card h-100">
+        <div class="card-body">
+          <div class="card-title">
+             Unit occupancy
+          </div>
+          <div class="card-details d-flex">
+            <div class="card-figure">
+              <span class="amount">4</span>
+              <span class="card-subtitle-description ms-2">vacant units</span>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+<div class="row">
+    <div class="col-12 mb-3">
+      <div class="d-flex justify-content-between align-items-center">
+        <div>
+          <div class="card-table-header d-none">Tenants list</div>
+          <div class="input-group">
+            <div class="input-group-prepend bg-white">
+             <span class="input-group-text bg-white" id="input-group-icon">
+             <i class="bi bi-search bi-gray"></i>
+             </span>
+            </div>
+            <input type="text" id="searchInputId" (keyup)="filterTable('tenantTableId', 'searchInputId')" class="form-control" placeholder="Search tenant">
+          </div>
+        </div>
+        <div class="d-flex">
+          <div class="dropdown">
+            <button class="btn btn-bordered  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-download me-1 bi-gray"></i>
+              Export
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#"> <img src="../../../assets/icons/sheets.png" alt="" width="16" class="me-1">Excel</a></li>
+              <li><a class="dropdown-item" href="#"><img src="../../../assets/icons/pdf.png" alt="" width="16" class="me-1">PDF</a></li>
+              <li><a class="dropdown-item" href="#"><img src="../../../assets/icons/csv-file.png" alt="" width="16" class="me-1">.CSV</a></li>
+            </ul>
+          </div>
+          <button class="btn btn-dark ms-2" [routerLink]="['/'.concat(Constants.TENANT_ROUTE.concat('/'.concat(Constants.TENANT_LEASE)))]"><i class="bi bi-plus-lg me-2"></i>Add new lease</button>
+        </div>
+      </div>
+    </div>
+      <div class="col-12">
+        <div class="table-card">
+          <div class="card-body p-0" >
+            <table class="table table-responsive table-borderless table-align-middle " id="buildingTenantList" style="width: 100%;">
+              <thead class="thead-light">
+              <tr>
+                <!-- <th></th> -->
+                <th>Tenant</th>
+                <th>Unit</th>
+                <th>Lease Start date</th>
+                <th>Lease End date</th>
+                <th>Monthly Rent</th>
+                <th>Status</th>
+                <th class="view-link"></th>
+              </tr>
+              </thead>
+              <tbody class="p-5">
+              <tr *ngFor="let tenant of tenantList; index as i">
+                <!-- <td class="tenant-id">{{i +1}}</td> -->
+                <td>
+                  <div class="d-flex">
+                    <img src="{{tenant.img}}" alt="" class="img-fluid avatar-rounded me-2" >
+                    <div class="d-flex flex-column">
+                      <div class="name tenant-name">
+                        <a
+                          [routerLink]="'/'.concat(Constants.DASHBOARD_ROUTE.concat('/'.concat(Constants.TENANT_PROFILE_ROUTE)))"
+                          [queryParams]="{id: tenant.id}"
+                          class="building-name-link">{{tenant.name}}</a>
+                      </div>
+                      <div class="email">{{tenant.email}}</div>
+                    </div>
+                  </div>
+  
+                </td>
+                <td class="unit">{{tenant.unitNumber}}</td>
+                <td class="start-date">{{tenant.leaseStartDate}}</td>
+                <td class="end-date">{{tenant.leaseEndDate}}</td>
+                <td class="rental-fee">
+                  <span class="amount">R{{tenant.monthlyRentalFee}}</span>
+                </td>
+                <td class="status">
+                  <span class="legend-indicator" [ngClass]="{'btn-rounded-success' : tenant.status != 'Overdue', 'btn-rounded-danger' : tenant.status == 'Overdue'}"></span>
+                  {{tenant.status}}
+                </td>
+                <td class="edit">
+                  <a class="btn btn-sm btn-edit"><i class="bi bi-three-dots-vertical"></i></a>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+</div>
+  

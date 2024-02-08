@@ -1,0 +1,569 @@
+<ng-container *ngFor="let tenant of filterTenant">
+  <div class="row mb-5">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="d-flex justify-content-between  mb-3">
+            <div class="tenant-details card-border-left d-flex  align-items-center">
+              <div class="tenant-profile">
+                <div class="profile-background-cover">
+                  <div class="profile-image"> {{helperService.getFirstCharacters(tenant.name)}}</div>
+                </div>
+              </div>
+              <div class="ms-3 tenant-name-wrapper">
+                  <span class="tenant-name"> {{tenant.name}}</span>
+                  <span class="verification-status ms-1" *ngIf="tenant.isVerified == 'false'"><i class="bi bi-patch-check-fill bi-not-verified me-1"></i>Not verified</span>
+                  <span *ngIf="tenant.isVerified == 'true'" class="verification-status ms-1">
+                    <i class="bi bi-patch-check-fill me-1 bi-verified"></i> verified
+                  </span>
+                  <div class="occupation">{{tenant.occupation}}</div>
+              </div>
+            </div>
+            <div class="d-block">
+              <button class="btn btn-bordered"><i class="bi bi-person-add me-2"></i>Edit profile</button>
+            </div>
+          </div>
+          <div class="joined-date mb-3">
+            <i class="bi bi-calendar2-event me-2"></i>Joined {{tenant.joinedDate}}
+          </div>
+          <div class="contact-information d-flex">
+            <button class="btn btn-bordered"><i class="bi bi-envelope me-2"></i>{{tenant.email}}</button>
+            <button class="btn btn-bordered ms-3"><i class="bi bi-telephone me-2"></i>{{tenant.email}}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <div class="card">
+        <div class="card-body">
+          <div class="d-flex justify-content-between mb-3">
+            <div class="card-heading">
+              Profile
+            </div>
+          </div>
+          <div class="profile-details">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+     <div class="col-8">
+      <div class="card mb-3">
+        <div class="card-body">
+          <div class="d-flex justify-content-between mb-3">
+            <div class="card-heading">
+              Lease details
+            </div>
+          </div>
+          <div class="empty-message-container text-center">
+            <div>
+              <span><i class="bi bi-inbox-fill"></i></span>
+              <span class="empty-message-container ms-2 card-title">There is currently no lease</span>
+            </div>
+            <button class="btn"><i class="bi bi-plus-lg me-2"></i>Add lease</button>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-3 d-none">
+        <div class="card-body">
+          <div class="d-flex justify-content-between mb-3">
+            <div class="card-heading">
+              Lease details
+            </div>
+          </div>
+          <div class="empty-message-container text-center">
+            <span><i class="bi bi-inbox-fill"></i></span>
+            <span class="empty-message-container ms-2 card-title">There is currently no lease</span>
+            <button class="btn"><i class="bi bi-plus-lg me-2"></i>Add lease</button>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-3">
+       
+        <div class="card-body">
+          <table class="table table-responsive table-borderless table-align-middle">
+            <thead>
+            <tr>
+              <th>Accounting</th>
+              <th class="text-end">
+                <button class="btn btn-sm btn-bordered" >Add invoice</button>
+              </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td class="balance-name">Opening Balance</td>
+              <td class="balance-amount">
+                0.00
+              </td>
+            </tr>
+            <tr>
+              <td class="balance-name">Invoiced (Invoices, debit & credit notes)</td>
+              <td class="balance-amount">
+                32,384.00
+              </td>
+            </tr>
+            <tr>
+              <td class="balance-name">Amount paid</td>
+              <td class="balance-amount">
+                11,500.00
+              </td>
+            </tr>
+            </tbody>
+            <tfoot class="table-light">
+            <tr>
+              <td class="balance-name">Closing Balance (due)</td>
+              <td class="balance-amount">
+                -20,884.00
+              </td>
+            </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+
+<!-- 
+<ng-container *ngFor="let tenant of filterTenant">
+  <div class="row mb-5">
+    <div class="col">
+      <div class="card">
+        <div class="card-body pb-0">
+          <div class="profile-image-container d-flex justify-content-between mb-3">
+            <div class="profile-content d-flex align-items-center">
+              <div class="user-profile d-inline-block mb-3">
+                <img src="{{tenant.img}}" alt="" class="img-fluid avatar-rounded-large avatar-large">
+              </div>
+              <div class="ms-3 d-inline-block">
+                <div class="user-details">
+                  <span class="name"> {{tenant.name}}</span>
+                  <span class="verification-status ms-2" *ngIf="tenant.isVerified == 'false'"><i class="bi bi-patch-check-fill bi-not-verified me-2"></i>Not verified</span>
+                  <span *ngIf="tenant.isVerified == 'true'" class="verification-status ms-2">
+                    <i class="bi bi-patch-check-fill me-2 bi-verified"></i> verified
+                 </span>
+                </div>
+                <div class="user-contacts">
+                  <span class="user-email"> {{tenant.email}}</span>
+                  <span class="separtor mx-2">&#124;</span>
+                  <span class="user-phone-number">  {{tenant.phoneNumber}}</span>
+                </div>
+              </div>
+            </div>
+            <div class="edit-button">
+              <button class="btn btn-dark"><i class="bi bi-pencil me-2"></i>Edit Profile</button>
+            </div>
+          </div>
+          <div class="navigation ">
+            <nav>
+              <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Profile</button>
+                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Accounting</button>
+                <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Documents</button>
+                <button class="nav-link" id="nav-disabled-tab" data-bs-toggle="tab" data-bs-target="#nav-disabled" type="button" role="tab" aria-controls="nav-disabled" aria-selected="false" disabled>Activity</button>
+              </div>
+            </nav>
+            
+          </div>
+        </div>
+      </div>
+     
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+          <div class="row">
+            <div class="col-4">
+              <div class="card h-100">
+                <div class="card-header bg-transparent">
+                  <div class="card-heading">Profile</div>
+                </div>
+                <div class="card-body">
+                  <div class="mb-3">
+                    <div class="card-label">Email</div>
+                    <div class="email-value">{{tenant.email}}</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="phoneNumber">Phone</label>
+                    <div class="phone-number" id="phoneNumber">{{tenant.phoneNumber}}</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="joinedDate">Joined date</label>
+                    <div class="joined-date" id="joinedDate">{{tenant.joinedDate}}</div>
+                  </div>
+                </div>
+              </div>
+            </div><div class="col-8">
+              <div class="card h-100">
+                <div class="card-header bg-transparent">
+                  <div class="card-heading">Lease details</div>
+                </div>
+                <div class="card-body">
+                  <div class="d-flex justify-content-between mb-3">
+                    <div class="content-heading">Property</div>
+                    <div class="property-details text-end">
+                      <div class="property-name">Emerald Heights</div>
+                      <div class="property-address">7 Ocean View Drive, Cape Town, Western Cape, 8001</div>
+                      <div class="property-info"></div>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-between mb-3">
+                    <div class="content-heading">Unit number</div>
+                    <div class="unit-number text-end">
+                      3
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-between mb-3">
+                    <div class="content-heading">Lease start date</div>
+                    <div class="start-date text-end">20 January, 2023</div>
+                  </div>
+                  <div class="d-flex justify-content-between mb-3">
+                    <div class="content-heading">Lease end date</div>
+                    <div class="end-date text-end">19 January, 2024</div>
+                  </div>
+                  <div class="d-flex justify-content-between mb-3">
+                    <div class="content-heading">Notice period</div>
+                    <div class="notice-period text-end">60 days</div>
+                  </div>
+                  <div class="d-flex justify-content-between mb-3">
+                    <div class="content-heading">Monthly rent</div>
+                    <div class="start-date text-end">R8,900</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">...</div>
+        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">...</div>
+        <div class="tab-pane fade" id="nav-disabled" role="tabpanel" aria-labelledby="nav-disabled-tab" tabindex="0">...</div>
+      </div>
+    </div>
+    
+  </div>
+  <div class="row d-none mb-5">
+    <div class="col col-navigation">
+      <div class="d-flex justify-content-between">
+        <div class="navigation ">
+          <ul class="nav nav-underline">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#"
+              [routerLink]=""
+              [queryParams]="">Lease</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" [routerLink]=""
+              >Accounting</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="" [routerLink]=""
+              >Documents</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Reports</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="" [routerLink]=""
+              >Activity</a>
+            </li>
+          </ul>
+        </div>
+        <div class="edit-button">
+          <button class="btn btn-dark"><i class="bi bi-pencil me-2"></i>Edit Profile</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row d-none mb-5">
+    <div class="col">
+      <div class="card">
+       <div class="card-body pb-0">
+        <div class="d-flex justify-content-between mb-3">
+          <div class="user-details card-border-left">
+              <div class="username-card">
+                <div class="username d-flex align-items-center">
+                  <div class="user-profile">
+                    <img src="{{tenant.img}}" alt="" class="img-fluid avatar-rounded-large avatar-large">
+                  </div>
+                  <div class="ms-3">
+                    <div class="user-details">
+                      <span class="name"> {{tenant.name}}</span>
+                      <span class="verification-status ms-2" *ngIf="tenant.isVerified == 'false'">Not verified</span>
+                      <span *ngIf="tenant.isVerified == 'true'" class="verification-status ms-2">
+                        <i class="bi bi-patch-check-fill"></i> verified
+                     </span>
+                    </div>
+                    <div class="user-contacts">
+                      <span class="user-email"> {{tenant.email}}</span>
+                      <span class="separtor mx-2">&#124;</span>
+                      <span class="user-phone-number">  {{tenant.phoneNumber}}</span>
+                    </div>
+                  </div>
+                </div>
+               </div>
+              <div class="property-location-card d-none">
+                <span class="tenant-id"><i class="bi bi-geo-alt me-1"></i>Unique Identification: {{tenant.id}}</span>
+                <span class="separator mx-2">&#124;</span>
+                <span class="joined-date"><i class="bi bi-bank m-1"></i>Joined {{tenant.joinedDate}}</span>
+              </div>
+          </div>
+          <div>
+            <button class="btn btn-dark"><i class="bi bi-person-add me-2"></i>Edit Profile</button>
+          </div>
+        </div>
+        <div class="navigation ">
+          <ul class="nav nav-underline">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#"
+              [routerLink]=""
+              [queryParams]="">Lease</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" [routerLink]=""
+              >Accounting</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="" [routerLink]=""
+              >Documents</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Reports</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="" [routerLink]=""
+              >Activity</a>
+            </li>
+          </ul>
+        </div>
+       </div>
+      </div>
+    </div>
+  </div>
+  <div class="row d-none">
+    <div class="col-4">
+      <div class="card">
+        <div class="card-header bg-transparent">
+          <div class="card-heading">Profile</div>
+        </div>
+        <div class="card-body">
+          <div class="mb-3">
+            <div class="card-label">Email</div>
+            <div class="email-value">{{tenant.email}}</div>
+          </div>
+          <div class="mb-3">
+            <label for="phoneNumber">Phone</label>
+            <div class="phone-number" id="phoneNumber">{{tenant.phoneNumber}}</div>
+          </div>
+          <div class="mb-3">
+            <label for="joinedDate">Joined date</label>
+            <div class="joined-date" id="joinedDate">{{tenant.joinedDate}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-8">
+      <div class="mb-3">
+        <div class="card">
+          <div class="card-header bg-transparent">
+            <div class="card-heading">Lease details</div>
+          </div>
+          <div class="card-body">
+            <div class="d-flex justify-content-between mb-3">
+              <div class="content-heading">Property</div>
+              <div class="property-details text-end">
+                <div class="property-name">Emerald Heights</div>
+                <div class="property-address">7 Ocean View Drive, Cape Town, Western Cape, 8001</div>
+                <div class="property-info"></div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between mb-3">
+              <div class="content-heading">Unit number</div>
+              <div class="unit-number text-end">
+                3
+              </div>
+            </div>
+            <div class="d-flex justify-content-between mb-3">
+              <div class="content-heading">Lease start date</div>
+              <div class="start-date text-end">20 January, 2023</div>
+            </div>
+            <div class="d-flex justify-content-between mb-3">
+              <div class="content-heading">Lease end date</div>
+              <div class="end-date text-end">19 January, 2024</div>
+            </div>
+            <div class="d-flex justify-content-between mb-3">
+              <div class="content-heading">Notice period</div>
+              <div class="notice-period text-end">60 days</div>
+            </div>
+            <div class="d-flex justify-content-between mb-3">
+              <div class="content-heading">Monthly rent</div>
+              <div class="start-date text-end">R8,900</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <div class="card mb-3">
+          <div class="card-header bg-transparent">
+            <div class="d-flex justify-content-between">
+              <div class="card-heading">Accounting</div>
+              <div>
+                <button class="btn btn-dark">Generate Invoice</button>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="card">
+              <div class="card-body">
+                <table class="table table-responsive table-borderless table-align-middle">
+                  <thead>
+                  <tr>
+                    <th>Tenant Balance</th>
+                    <th class="text-end">
+                      <button class="btn btn-sm btn-bordered" >View Details</button>
+                    </th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td class="balance-name">Opening Balance</td>
+                    <td class="balance-amount">
+                      0.00
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="balance-name">Invoiced (Invoices, debit & credit notes)</td>
+                    <td class="balance-amount">
+                      32,384.00
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="balance-name">Amount paid</td>
+                    <td class="balance-amount">
+                      11,500.00
+                    </td>
+                  </tr>
+                  </tbody>
+                  <tfoot class="table-light">
+                  <tr>
+                    <td class="balance-name">Closing Balance (due)</td>
+                    <td class="balance-amount">
+                      -20,884.00
+                    </td>
+                  </tr>
+                  </tfoot>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <div class="card">
+          <div class="card-header bg-transparent">
+            <div class="card-heading">Documents</div>
+          </div>
+          <div class="card-body">
+            <div class="mb-3">
+              <div class="alert-container">
+                <div class="alert alert-danger d-flex align-items-start justify-content-between" role="alert">
+                  <div class="alert-message-container d-flex">
+                    <i class="bi bi-exclamation-triangle-fill me-3"></i>
+                    <div class="alert-message">
+                      Some required documents are missing from your account.
+                     </div>
+                  </div>
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+              </div>
+            </div>
+            <div class="table-card">
+              <div class="card-body p-0">
+                <div class="document-item mb-3">
+                  <table class="table table-responsive table-borderless table-align-middle">
+                    <thead class="thead-light">
+                    <tr>
+                      <th>Document name</th>
+                      <th>Category</th>
+                      <th>Last modified</th>
+                      <th>Status</th>
+                    </tr>
+                    </thead>
+                    <tbody >
+                    <tr>
+                      <td>
+                        <div class="d-flex">
+                          <img src="../../../assets/icons/jpg-file.png" alt="" class="img-fluid me-2 document-icon">
+                          <div>
+                            <div class="document-name">id-copy-document.pdf</div>
+                            <div class="document-size">11.55kb</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="document-description">Proof of Identity</div>
+                      </td>
+                      <td>
+                        <div class="date-modified">12 june, 2023</div>
+                      </td>
+                      <td>
+                        <i class="bi bi-check-circle-fill bg-success-color"></i>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="d-flex">
+                          <img src="../../../assets/icons/pdf.png" alt="" class="img-fluid me-2 document-icon">
+                          <div>
+                            <div class="document-name">lease-agreement.pdf</div>
+                            <div class="document-size">19.55kb</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="document-description">Lease Agreement</div>
+                      </td>
+                      <td>
+                        <div class="date-modified">8 jan, 2021</div>
+                      </td>
+                      <td>
+                        <i class="bi bi-exclamation-circle-fill bg-danger-color"></i>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="d-flex">
+                          <img src="../../../assets/icons/pdf.png" alt="" class="img-fluid me-2 document-icon">
+                          <div>
+                            <div class="document-name">payslip-copy.pdf</div>
+                            <div class="document-size">21.9kb</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="document-description">3 Months Payslip</div>
+                      </td>
+                      <td>
+                        <div class="date-modified">9 july, 2023</div>
+                      </td>
+                      <td>
+                        <i class="bi bi-exclamation-circle-fill bg-danger-color"></i>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+      </div>
+    </div>
+  </div>
+</ng-container> -->
