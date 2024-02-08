@@ -16,6 +16,7 @@ import { BuildingEditComponent } from '../building-edit/building-edit.component'
 import { BuildingLeaseComponent } from '../building-lease/building-lease.component';
 import { BuildingTenantComponent } from '../building-tenant/building-tenant.component';
 import { BuildingStatementComponent } from '../building-statement/building-statement.component';
+import { ReportsComponent } from '../reports/reports.component';
 
 
 @Component({
@@ -68,6 +69,7 @@ export class BuildingDetailsComponent implements OnInit {
     })
     this.loadComponent( this.componentName);
   });
+  
   }
 
   getDaysDifference(){
@@ -203,6 +205,9 @@ export class BuildingDetailsComponent implements OnInit {
       case Constants.BUILDING_STATEMENT:
             this.currentComponent = BuildingStatementComponent;
             break;
+            case Constants.REPORT_ROUTE:
+              this.currentComponent = ReportsComponent
+              break;
         default:
           this.currentComponent = BuildingOverviewComponent;
     }

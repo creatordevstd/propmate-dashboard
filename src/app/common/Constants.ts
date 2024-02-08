@@ -13,6 +13,7 @@ export class Constants{
   static MAITNENACE_ROUTE = 'maintenance';
   static OWNER_FINANCIAL_ROUTE = 'transaction-history';
   static INVOICE_ROUTE = 'invoice';
+  static REPORT_ROUTE = 'report';
   
   static BUILDING_ACCOUNTING_ROUTE = 'accounting';
   static BUILDING_ROUTE = 'building';
@@ -354,7 +355,8 @@ export class Constants{
       occupation: 'Software Engineer',
       joinedDate: '12 June, 2021',
       isVerified: 'true',
-      unitNumber: '12'
+      unitNumber: '12',
+      accountStatus: 'active'
     },
     {
       id: 2,
@@ -369,7 +371,8 @@ export class Constants{
       occupation: 'Registered Nurse',
       joinedDate: '12 June, 2021',
       isVerified: 'true',
-      unitNumber: '5'
+      unitNumber: '5',
+      accountStatus: 'active'
     },
     {
       id: 3,
@@ -384,7 +387,8 @@ export class Constants{
       occupation: 'Teacher',
       joinedDate: '12 June, 2021',
       isVerified: 'true',
-      unitNumber: '101'
+      unitNumber: '101',
+      accountStatus: 'inactive'
     },
     {
       id: 4,
@@ -399,7 +403,8 @@ export class Constants{
       occupation: 'Electrician',
       joinedDate: '12 June, 2021',
       isVerified: 'false',
-      unitNumber: '36'
+      unitNumber: '36',
+      accountStatus: 'inactive'
     },
     {
       id: 5,
@@ -414,7 +419,8 @@ export class Constants{
       occupation: 'Accountant',
       joinedDate: '12 June, 2021',
       isVerified: 'false',
-      unitNumber: '22'
+      unitNumber: '22',
+      accountStatus: 'active'
     },
     {
       id: 6,
@@ -429,7 +435,8 @@ export class Constants{
       occupation: 'Police officer',
       joinedDate: '12 June, 2021',
       isVerified: 'true',
-      unitNumber: '9'
+      unitNumber: '9',
+      accountStatus: 'active'
     },
     {
       id: 7,
@@ -444,7 +451,8 @@ export class Constants{
       occupation: 'Marketing Manager',
       joinedDate: '12 June, 2021',
       isVerified: 'false',
-      unitNumber: '203'
+      unitNumber: '203',
+      accountStatus: 'inactive'
     },
     {
       id: 8,
@@ -459,7 +467,8 @@ export class Constants{
       occupation: 'Graphic Designer',
       joinedDate: '12 June, 2021',
       isVerified: 'false',
-      unitNumber: '34'
+      unitNumber: '34',
+      accountStatus: 'inactive'
     },
     {
       id: 9,
@@ -474,7 +483,8 @@ export class Constants{
       occupation: 'Teacher',
       joinedDate: '12 June, 2021',
       isVerified: 'true',
-      unitNumber: '2'
+      unitNumber: '2',
+      accountStatus: 'active'
     },
     {
       id: 10,
@@ -489,7 +499,8 @@ export class Constants{
       occupation: 'Chef',
       joinedDate: '12 June, 2021',
       isVerified: 'false',
-      unitNumber: '54'
+      unitNumber: '54',
+      accountStatus: 'active'
     },
     {
       id: 11,
@@ -504,7 +515,8 @@ export class Constants{
       occupation: 'Chef',
       joinedDate: '12 June, 2021',
       isVerified: 'false',
-      unitNumber: '61'
+      unitNumber: '61',
+      accountStatus: 'active'
     },
   ];
 static TRANSACTION_HISTORY_LIST = 

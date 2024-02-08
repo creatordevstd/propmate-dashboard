@@ -16,6 +16,7 @@ import { MaintenanceComponent } from '../maintenance/maintenance.component';
 import { OwnerFinanceComponent } from '../owner-finance/owner-finance.component';
 import { GenerateInvoiceComponent } from '../generate-invoice/generate-invoice.component';
 import { BuildingStatementComponent } from '../building-statement/building-statement.component';
+import { ReportsComponent } from '../reports/reports.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -132,6 +133,11 @@ export class DashboardComponent implements OnInit, AfterViewInit{
           this.title = 'Owner\'s Statement';
           this.subTitle = 'Showing Owner statement'
         break;
+        case Constants.REPORT_ROUTE:
+          this.title = 'Reports';
+          this.subTitle = 'Showing Owner report'
+          this.currentComponent = ReportsComponent
+          break;
       default:
         this.currentComponent = DashboardComponent;
         break;

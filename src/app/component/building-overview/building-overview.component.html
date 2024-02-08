@@ -1,3 +1,26 @@
+<div class="row d-none">
+  <div class="col-9">
+    <div class="property-details">
+      <div class="accordion" id="accordionPropertyDetails">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingPropertyDetails">
+            <button class="accordion-button bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePropertyDetails" aria-expanded="true" aria-controls="collapsePropertyDetails">
+              Property details
+            </button>
+          </h2>
+          <div id="collapsePropertyDetails" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionPropertyDetails">
+            <div class="accordion-body">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-3">
+
+  </div>
+</div>
 
 <div class="row mb-3">
   <div class="col-12">
@@ -15,6 +38,7 @@
     </div>
   </div>
 </div>
+
 <div class="row mb-3">
   <div class="col">
     <div class="card">
@@ -50,32 +74,317 @@
     </div>
   </div>
 </div>
-
-<div class="row mb-3">
-  <div class="col-6">
+<div class="row mb-3 d-none">
+  <div class="col-6 mb-3">
     <div class="card">
       <div class="card-body">
-        <div class="d-flex justify-content-between">
-          <div class="card-heading">
-            Property photos
-          </div>
-          <button class="btn"><i class="bi bi-plus-lg me-2"></i>Upload photos</button>
-        </div>
-       
-        <div class="empty-message-container">
-          <span><i class="bi bi-inbox-fill"></i></span>
-          <span class="empty-message-container ms-2 card-title">There are currently no photos uploaded</span>
-          
-        </div>
+        <div class="card-heading">Rental revenue and income</div>
+        <div echarts [options]="chartOptionRevenue" class="account-chart"></div>
       </div>
     </div>
   </div>
   <div class="col-6">
+    <div class="row">
+      <div class="col-6 mb-3">
+        <div class="card h-100">
+          <div class="card-body">
+            <div class="card-title">
+             Total Rental Revenue
+            </div>
+            <div class="card-details d-flex">
+              <div class="card-figure">
+                <span class="amount">R98,361</span>
+                <span class="card-subtitle-description ms-2">Last 7 days</span>
+              </div>
+              <div class="card-graph d-none">
+                <span class="badge badge-style border-0 p-2  badge-success-bg ms-2"><i class="bi bi-graph-up"></i> +11.2%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 mb-3">
+        <div class="card h-100">
+          <div class="card-body">
+            <div class="card-title">
+              Total Operation Cost
+            </div>
+            <div class="card-details d-flex">
+              <div class="card-figure">
+                <span class="amount">R26,789</span>
+                <span class="card-subtitle-description ms-2">last 30 days</span>
+              </div>
+              <div class="card-graph d-none">
+                <span class="badge badge-style border-0 p-2  badge-success-bg ms-2"><i class="bi bi-graph-down"></i> -1.9%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 mb-3">
+        <div class="card h-100">
+          <div class="card-body">
+            <div class="card-title">
+              Total Rental Income
+            </div>
+            <div class="card-details d-flex">
+              <div class="card-figure">
+                <span class="amount">R452,782</span>
+                <span class="card-subtitle-description ms-2">Last 30 days</span>
+              </div>
+              <div class="card-graph d-none">
+                <span class="badge badge-style border-0 p-2  badge-danger-bg ms-2"><i class="bi bi-graph-down"></i> -15.7%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 mb-3">
+        <div class="card h-100">
+          <div class="card-body">
+            <div class="card-title">
+              Current Net Rental
+            </div>
+            <div class="card-details d-flex">
+              <div class="card-figure">
+                <span class="amount">R34,328</span>
+                <span class="card-subtitle-description ms-2">last 30 days</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mb-3 d-none">
+  <div class="col mb-3">
+      <div class="card h-100">
+        <div class="card-body">
+          <div class="card-title">
+           Total Rental Revenue
+          </div>
+          <div class="card-details d-flex">
+            <div class="card-figure">
+              <span class="amount">R98,361</span>
+              <span class="card-subtitle-description ms-2">Last 7 days</span>
+            </div>
+            <div class="card-graph d-none">
+              <span class="badge badge-style border-0 p-2  badge-success-bg ms-2"><i class="bi bi-graph-up"></i> +11.2%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="col mb-3">
+      <div class="card h-100">
+        <div class="card-body">
+          <div class="card-title">
+            Total Rental Income
+          </div>
+          <div class="card-details d-flex">
+            <div class="card-figure">
+              <span class="amount">R452,782</span>
+              <span class="card-subtitle-description ms-2">Last 30 days</span>
+            </div>
+            <div class="card-graph d-none">
+              <span class="badge badge-style border-0 p-2  badge-danger-bg ms-2"><i class="bi bi-graph-down"></i> -15.7%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="col mb-3">
+      <div class="card h-100">
+        <div class="card-body">
+          <div class="card-title">
+            Total Operation Cost
+          </div>
+          <div class="card-details d-flex">
+            <div class="card-figure">
+              <span class="amount">R26,789</span>
+              <span class="card-subtitle-description ms-2">last 30 days</span>
+            </div>
+            <div class="card-graph d-none">
+              <span class="badge badge-style border-0 p-2  badge-success-bg ms-2"><i class="bi bi-graph-down"></i> -1.9%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="col mb-3">
+      <div class="card h-100">
+        <div class="card-body">
+          <div class="card-title">
+            Current Net Rental
+          </div>
+          <div class="card-details d-flex">
+            <div class="card-figure">
+              <span class="amount">R34,328</span>
+              <span class="card-subtitle-description ms-2">last 30 days</span>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+<div class="row mb-3 d-none">
+  <div class="col-12">
+    <div class="row">
+      <div class="col-6">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <div class="card-heading mb-3">
+                Property Details
+              </div>
+            </div>
+            <div class="property-details-container">
+              <div class="row">
+                <div class="col-5 ">
+                  <div class="items d-flex justify-content-between mb-2">
+                    <span class="item-title">Bathrooms:</span>
+                    <span class="item-value text-end">2</span>
+                  </div>  
+                
+                  <div class="items d-flex justify-content-between mb-2">
+                    <span class="item-title">Bedrooms:</span>
+                    <span class="item-value text-end">3</span>
+                  </div>  
+                  <div class="items d-flex justify-content-between mb-2">
+                    <span class="item-title">Size:</span>
+                    <span class="item-value text-end">50m&#178;</span>
+                  </div> 
+                  <div class="items d-flex justify-content-between mb-2">
+                    <span class="item-title">Total tenants:</span>
+                    <span class="item-value text-end">11</span>
+                  </div>
+                  <div class="items d-flex justify-content-between mb-2">
+                    <span class="item-title">Status:</span>
+                    <span class="item-value text-end">Active</span>
+                  </div>
+                  
+                </div>
+                <div class="col-5 offset-2">
+                  <div class="items d-flex justify-content-between mb-2">
+                    <span class="item-title">Furninshing:</span>
+                    <span class="item-value text-end">No</span>
+                  </div>  
+                  <div class="items d-flex justify-content-between mb-2">
+                    <span class="item-title">Year Built:</span>
+                    <span class="item-value text-end">2021</span>
+                  </div> 
+                  <div class="items d-flex justify-content-between mb-2">
+                    <span class="item-title">Garage:</span>
+                    <span class="item-value text-end">---</span>
+                  </div>  
+                  <div class="items d-flex justify-content-between mb-2">
+                    <span class="item-title">Total tenants:</span>
+                    <span class="item-value text-end">11</span>
+                  </div>
+                  <div class="items d-flex justify-content-between mb-2">
+                    <span class="item-title">Status:</span>
+                    <span class="item-value text-end">Active</span>
+                  </div>
+                  
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <div class="card-heading mb-3">
+                Utilies Details
+              </div>
+            </div>
+            <div class="property-details-container">
+              <div class="row">
+                <div class="col-5 ">
+                  <div class="items d-flex justify-content-between mb-2">
+                    <span class="item-title">Bathrooms:</span>
+                    <span class="item-value text-end">2</span>
+                  </div>  
+                
+                  <div class="items d-flex justify-content-between mb-2">
+                    <span class="item-title">Bedrooms:</span>
+                    <span class="item-value text-end">3</span>
+                  </div>  
+                  <div class="items d-flex justify-content-between mb-2">
+                    <span class="item-title">Size:</span>
+                    <span class="item-value text-end">50m&#178;</span>
+                  </div> 
+                  <div class="items d-flex justify-content-between mb-2">
+                    <span class="item-title">Total tenants:</span>
+                    <span class="item-value text-end">11</span>
+                  </div>
+                  <div class="items d-flex justify-content-between mb-2">
+                    <span class="item-title">Status:</span>
+                    <span class="item-value text-end">Active</span>
+                  </div>
+                  
+                </div>
+                <div class="col-5 offset-2">
+                  <div class="items d-flex justify-content-between mb-2">
+                    <span class="item-title">Furninshing:</span>
+                    <span class="item-value text-end">No</span>
+                  </div>  
+                  <div class="items d-flex justify-content-between mb-2">
+                    <span class="item-title">Year Built:</span>
+                    <span class="item-value text-end">2021</span>
+                  </div> 
+                  <div class="items d-flex justify-content-between mb-2">
+                    <span class="item-title">Garage:</span>
+                    <span class="item-value text-end">---</span>
+                  </div>  
+                  <div class="items d-flex justify-content-between mb-2">
+                    <span class="item-title">Total tenants:</span>
+                    <span class="item-value text-end">11</span>
+                  </div>
+                  <div class="items d-flex justify-content-between mb-2">
+                    <span class="item-title">Status:</span>
+                    <span class="item-value text-end">Active</span>
+                  </div>
+                  
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+     
+    </div>
+  </div>
+</div>
+<div class="row mb-3">
+  <div class="col-6  mb-3">
     <div class="card">
       <div class="card-body">
         <div class="d-flex justify-content-between">
           <div class="card-heading">
-            Property amenities
+            Photos
+          </div>
+          <button class="btn"><i class="bi bi-plus-lg me-2"></i>Upload photos</button>
+        </div>
+        <div class="empty-message-container">
+          <span><i class="bi bi-inbox-fill"></i></span>
+          <span class="empty-message-container ms-2 card-title">There are currently no photos uploaded</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-6 mb-3">
+    <div class="card">
+      <div class="card-body">
+        <div class="d-flex justify-content-between">
+          <div class="card-heading">
+            Amenities
           </div>
           <button class="btn"><i class="bi bi-plus-lg me-2"></i>Add amenities</button>
         </div>
@@ -88,8 +397,22 @@
       </div>
     </div>
   </div>
+  <div class="col-6 mb-3">
+    <div class="card">
+      <div class="card-body">
+        <div class="d-flex justify-content-between">
+          <div class="card-heading">
+            Location
+          </div>
+        </div>
+        <div class="map-container">
+
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<div class="row mb-3">
+<div class="row mb-3 d-none">
   <div class="col-6">
     <div class="card">
       <div class="card-body">
@@ -137,6 +460,7 @@
     </div>
   </div>
 </div>
+
 
 
   

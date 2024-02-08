@@ -15,7 +15,10 @@ export class BuildingTenantComponent implements OnInit {
     this.tenantList = Constants.TENANTS_LIST;
   }
   ngOnInit(): void {
-    
+    $(document).ready(function () {
+      $('#buildingTenantList').DataTable({}
+      );
+    });
   }
   filterTable(tableId: any, inputId: any){
     this.tableFilterService.searchFilter(tableId.toString(), inputId.toString());

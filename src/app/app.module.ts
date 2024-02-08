@@ -48,6 +48,7 @@ import { TenantListComponent } from './component/tenant-list/tenant-list.compone
 import { BuildingStatementComponent } from './component/building-statement/building-statement.component';
 import { ObjectnamePipe } from './common/pipes/objectname.pipe';
 import { TenantAddComponent } from './component/tenant-add/tenant-add.component';
+import { ReportsComponent } from './component/reports/reports.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -84,6 +85,7 @@ import { TenantAddComponent } from './component/tenant-add/tenant-add.component'
     BuildingStatementComponent,
     ObjectnamePipe,
     TenantAddComponent,
+    ReportsComponent,
   ],
     imports: [
         BrowserModule,

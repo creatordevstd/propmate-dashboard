@@ -18,7 +18,10 @@ export class BuildingStatementComponent implements OnInit {
     this.ownerStatement = Constants.OWNER_STATEMENT;
   }
   ngOnInit(): void {
-    
+    // $(document).ready(function () {
+    //   $('#buildingListTable').DataTable({}
+    //   );
+    // });
   }
 
   getObjKeyValue(obj: any){

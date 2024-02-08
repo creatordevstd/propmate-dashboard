@@ -10,9 +10,13 @@ import { Constants } from 'src/app/common/Constants';
 })
 export class BuildingEditComponent implements OnInit {
 
-  buildingList : any = [];
+  buildingList: any = [];
   filteredBuildingList: any = [];
-  propertyType: any =[];
+  propertyType: any = [];
+  tenantList: any = [];
+
+  languageList: any = [];
+  userRole: any = [];
 
   buildingEditForm = this.formBuilder.group({
     propertyType: new FormControl(),
@@ -22,13 +26,27 @@ export class BuildingEditComponent implements OnInit {
     city: new FormControl(),
     province: new FormControl(),
     postalCode: new FormControl(),
-    buildingUnitItemArray: this.formBuilder.array([])
+    buildingUnitItemArray: this.formBuilder.array([]),
+    languageList: new FormControl(),
+    timeZone: new FormControl(),
+    userRole: new FormControl()
   });
-  constructor( private formBuilder: FormBuilder, 
-    private activatedRoute: ActivatedRoute){
+  constructor(private formBuilder: FormBuilder,
+    private activatedRoute: ActivatedRoute) {
     this.buildingList = Constants.BUILDING_LISTING;
-    this.propertyType = [{name: 'Residential', value: 'residential'},
-  {name: 'Commercial', value: 'commercial'}]
+    this.propertyType = [{ name: 'Residential', value: 'residential' },
+    { name: 'Commercial', value: 'commercial' }]
+    this.languageList = [
+      {name: 'English (UK)', value: 'english'},
+      {name: 'Deutsch', value: 'deutsch'},
+      {name: 'French', value: 'french'}
+    ];
+    this.tenantList = Constants.TENANTS_LIST;
+    this.userRole = [
+      {name: 'Building Manager', value: 'buildingmanager'},
+      {name: 'Receptionist', value: 'receptionist'},
+      {name: 'Security', value: 'security'},
+    ];
   }
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe((param) => {
@@ -42,11 +60,11 @@ export class BuildingEditComponent implements OnInit {
     this.setInitFormValues();
   }
 
-  get buildingItemArray(){
+  get buildingItemArray() {
     return this.buildingEditForm.controls.buildingUnitItemArray as FormArray;
   }
 
-  addUnitItem(){
+  addUnitItem() {
     const buildingUnitItemForm = this.formBuilder.group({
       unitName: ['', Validators.required],
       unitBed: [''],
@@ -57,12 +75,12 @@ export class BuildingEditComponent implements OnInit {
     this.buildingItemArray.push(buildingUnitItemForm);
   }
 
-  deleteUnitItem(buildingUnitItemIndex: number){
+  deleteUnitItem(buildingUnitItemIndex: number) {
     this.buildingItemArray.removeAt(buildingUnitItemIndex);
   }
 
-  setInitFormValues(){
-    for(let item of this.filteredBuildingList){
+  setInitFormValues() {
+    for (let item of this.filteredBuildingList) {
       this.buildingEditForm.get('propertyType')?.patchValue(item.type.toLowerCase());
       const address = item.address.split(',');
       this.buildingEditForm.controls.propertyName.setValue(item.name)
@@ -73,12 +91,12 @@ export class BuildingEditComponent implements OnInit {
     }
   }
 
-  disableControls(formGroup:FormGroup, singleControlName?: any, multipleControlsNames?: any){
-    if(singleControlName){
+  disableControls(formGroup: FormGroup, singleControlName?: any, multipleControlsNames?: any) {
+    if (singleControlName) {
       formGroup.controls['singleControlName'].disable();
     }
-    if(multipleControlsNames){
-      for(let ctrlName of multipleControlsNames){
+    if (multipleControlsNames) {
+      for (let ctrlName of multipleControlsNames) {
         formGroup.controls[ctrlName].disable()
       }
     }
