@@ -152,7 +152,7 @@
                   <span class="amount">R{{tenant.monthlyRentalFee}}</span>
                 </td>
                 <td class="status">
-                  <span class="legend-indicator" [ngClass]="{'btn-rounded-success' : tenant.status != 'Overdue', 'btn-rounded-danger' : tenant.status == 'Overdue'}"></span>
+                  <span class="legend-indicator" [ngClass]="{'btn-rounded-success' : tenant.status != 'Overdue', 'btn-rounded-danger' : tenant.status == 'Unpaid'}"></span>
                   {{tenant.status}}
                 </td>
                 <td class="edit">
