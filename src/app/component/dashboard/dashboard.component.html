@@ -1,3 +1,5 @@
+
+
 <!-- <div class="container-fluid"> -->
   <header class="navbar navbar-light sticky-top bg-white flex-md-nowrap py-2 container-fluid ">
     <div class="container-fluid">
@@ -74,8 +76,8 @@
               <div class="dropdown-divider"></div>
               <div class="dropdown-item" >
                 <a href="#" class="dropdown-item-link">Account</a>
-                <a href="##" class="dropdown-item-link">Settings</a>
-                <a href="##" class="dropdown-item-link">Sign out</a>
+                <a href="##" class="dropdown-item-link"  [routerLink]="['/'.concat(Constants.DASHBOARD_ROUTE.concat('/'.concat(Constants.SETTINGS_ROUTE)))]">Settings</a>
+                <a href="##" class="dropdown-item-link" [routerLink]="['/']">Sign out</a>
               </div>
             </div>
           </div>
@@ -113,7 +115,8 @@
                 <i class="toggle-icon bi bi-chevron-down bi-gray"></i>
               </a>
               <div class="collapse" id="collapseUserMenu">
-                <a class="nav-link" href="">Overview</a>
+                <a class="nav-link" href=""
+                  [routerLink]="['/'.concat(Constants.DASHBOARD_ROUTE.concat('/'.concat(Constants.TENANTS_ALL_LIST)))]">Overview</a>
                 <a class="nav-link" href="" [routerLink]="['/'.concat(Constants.TENANT_ROUTE.concat('/'.concat(Constants.TENANT_ADD)))]">Add new tenant</a>
                 <a class="nav-link" href="" [routerLink]="['/'.concat(Constants.TENANT_ROUTE.concat('/'.concat(Constants.TENANT_LEASE)))]">Add new lease</a>
               </div>
@@ -167,7 +170,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#"
-               [routerLink]="['/'.concat(Constants.DASHBOARD_ROUTE.concat('/'.concat(Constants.EDIT_TENANT_PROFILE)))]">
+               [routerLink]="['/'.concat(Constants.DASHBOARD_ROUTE.concat('/'.concat(Constants.SETTINGS_ROUTE)))]">
               <i class="bi bi-gear me-2 bi-gray"></i>
               Settings
             </a>

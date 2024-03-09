@@ -187,7 +187,7 @@
                 <td>
                     <span class="transaction-status" [ngClass]="{'bg-success-color': transactionHistory.transactionStatus == 'Paid',
                 'bg-warning-color': transactionHistory.transactionStatus == 'Pending', 'bg-danger-color': 
-                transactionHistory.transactionStatus == 'Declined'}">{{transactionHistory.transactionStatus}}</span>
+                transactionHistory.transactionStatus == 'Unpaid'}">{{transactionHistory.transactionStatus}}</span>
                 </td>
                 <td>
                   <a class="btn btn-sm btn-bordered btn-view" type="button">View</a>

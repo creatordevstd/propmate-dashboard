@@ -1,80 +1,92 @@
+
 <div class="row mb-3">
-    <div class="col mb-3">
-        <div class="card h-100">
-          <div class="card-body">
-            <div class="card-title">
-             Total Rental Revenue
+  <div class="col-6 mb-3">
+    <div class="card bg-white h-100">
+      <div class="card-body">
+        <div class="d-flex justify-content-between">
+          <div>
+            <div class="card-title mb-0">
+              Total Rental Revenue
+              <span class="badge badge-style border-0 p-2 badge-success-bg ms-2"> +15%</span>
             </div>
-            <div class="card-details d-flex">
-              <div class="card-figure">
-                <span class="amount">R98,361</span>
-                <span class="card-subtitle-description ms-2">Last 7 days</span>
-              </div>
-              <div class="card-graph d-none">
-                <span class="badge badge-style border-0 p-2  badge-success-bg ms-2"><i class="bi bi-graph-up"></i> +11.2%</span>
-              </div>
-            </div>
+            <div class="card-text">Last 30 days</div>
           </div>
+          <h5 class="card-value ">
+            R98,361
+          </h5>
         </div>
+        <div echarts [options]="chartOptionTotalRevenue" class="tenant-chart"></div>
+
+      </div>
     </div>
-    <div class="col mb-3">
-        <div class="card h-100">
-          <div class="card-body">
-            <div class="card-title">
+  </div>   
+  <div class="col-6 mb-3">
+    <div class="card bg-white h-100">
+      <div class="card-body">
+        <div class="d-flex justify-content-between">
+          <div>
+            <div class="card-title mb-0">
               Total Rental Income
+              <span class="badge badge-style border-0 p-2 badge-success-bg ms-2"> +5%</span>
             </div>
-            <div class="card-details d-flex">
-              <div class="card-figure">
-                <span class="amount">R452,782</span>
-                <span class="card-subtitle-description ms-2">Last 30 days</span>
-              </div>
-              <div class="card-graph d-none">
-                <span class="badge badge-style border-0 p-2  badge-danger-bg ms-2"><i class="bi bi-graph-down"></i> -15.7%</span>
-              </div>
-            </div>
+            <div class="card-text">Last 30 days</div>
           </div>
+          <h5 class="card-value ">
+            R452,782
+          </h5>
         </div>
+        <div echarts [options]="chartOptionTotalIncome" class="tenant-chart"></div>
+
+      </div>
     </div>
-    <div class="col mb-3">
-        <div class="card h-100">
-          <div class="card-body">
-            <div class="card-title">
+  </div>  
+  <div class="col-6 mb-3">
+    <div class="card bg-white h-100">
+      <div class="card-body">
+        <div class="d-flex justify-content-between">
+          <div>
+            <div class="card-title mb-0">
               Total Operation Cost
+              <span class="badge badge-style border-0 p-2 badge-success-bg ms-2"> +7%</span>
             </div>
-            <div class="card-details d-flex">
-              <div class="card-figure">
-                <span class="amount">R26,789</span>
-                <span class="card-subtitle-description ms-2">last 30 days</span>
-              </div>
-              <div class="card-graph d-none">
-                <span class="badge badge-style border-0 p-2  badge-success-bg ms-2"><i class="bi bi-graph-down"></i> -1.9%</span>
-              </div>
-            </div>
+            <div class="card-text">Last 30 days</div>
           </div>
+          <h5 class="card-value ">
+            R34,328
+          </h5>
         </div>
+        <div echarts [options]="chartOptionTotalOperationCost" class="tenant-chart"></div>
+
+      </div>
     </div>
-    <div class="col mb-3">
-        <div class="card h-100">
-          <div class="card-body">
-            <div class="card-title">
+  </div>
+  <div class="col-6 mb-3">
+    <div class="card bg-white h-100">
+      <div class="card-body">
+        <div class="d-flex justify-content-between">
+          <div>
+            <div class="card-title mb-0">
               Current Net Rental
+              <span class="badge badge-style border-0 p-2 badge-danger-bg ms-2"> -2%</span>
             </div>
-            <div class="card-details d-flex">
-              <div class="card-figure">
-                <span class="amount">R34,328</span>
-                <span class="card-subtitle-description ms-2">last 30 days</span>
-              </div>
-            </div>
+            <div class="card-text">Last 30 days</div>
           </div>
+          <h5 class="card-value ">
+            R34,328
+          </h5>
         </div>
+        <div echarts [options]="chartOptionCurrentNetRental" class="tenant-chart"></div>
+
+      </div>
     </div>
+  </div>
 </div>
 <div class="row mb-5">
   <div class="col-12">
     <div class="d-flex justify-content-between py-3">
       <div class="card-heading">Payments</div>
       <div class="export-button">
-          <button class="btn btn-dark ms-3"><i class="bi bi-plus-lg me-2"></i>Create Payments</button>
+        <button class="btn btn-dark ms-3"><i class="bi bi-plus-lg me-2"></i>Create Payments</button>
       </div>
     </div>
   </div>
@@ -94,16 +106,18 @@
     <div class="d-flex justify-content-between py-3">
       <div class="card-heading">Invoices</div>
       <div class="export-button">
-          <button class="btn btn-bordered"><i class="bi bi-send me-2"></i>Send reminder</button>
-          <button class="btn btn-dark ms-3" [routerLink]="['/'.concat(Constants.DASHBOARD_ROUTE.concat('/'.concat(Constants.INVOICE_ROUTE)))]"><i class="bi bi-plus-lg me-2"></i>Create Invoice</button>
+        <button class="btn btn-bordered"><i class="bi bi-send me-2"></i>Send reminder</button>
+        <button class="btn btn-dark ms-3"
+          [routerLink]="['/'.concat(Constants.DASHBOARD_ROUTE.concat('/'.concat(Constants.INVOICE_ROUTE)))]"><i
+            class="bi bi-plus-lg me-2"></i>Create Invoice</button>
       </div>
     </div>
   </div>
-    <div class="col-12">
-      <div class="table-card">
-        <div class="card-body p-0">
-          <table class="table table-responsive table-borderless table-align-middle" id="transactionHistoryTable">
-            <thead class="thead-light">
+  <div class="col-12">
+    <div class="table-card">
+      <div class="card-body p-0">
+        <table class="table table-responsive table-borderless table-align-middle" id="transactionHistoryTable">
+          <thead class="thead-light">
             <tr>
               <th>
                 <div class="form-check">
@@ -118,8 +132,8 @@
 
               <th class="view-link"></th>
             </tr>
-            </thead>
-            <tbody>
+          </thead>
+          <tbody>
             <tr *ngFor="let transactionHistory of transactionHistoryList; index as i ">
               <ng-container>
                 <td>
@@ -129,44 +143,44 @@
                 </td>
                 <td>
                   <div class="tenant-profile-container d-flex">
-                      <div class="tenant-profile-cover">
-                          <div class="tenant-profile">{{helperService.getFirstCharacters(transactionHistory.tenantFullName)}}</div>
-                      </div>
-                      <div class="ms-2">
-                        <div class="tenant-name">
-                          {{transactionHistory.tenantFullName}}
-                        </div>
-                        <div class="tenant-mail">
-                          Unit {{transactionHistory.unitNumber}}
-                        </div>
-                      </div>
-                  </div>
-               </td>
-               
-                <td>
-                    <div>
-                        <span class="separtor mx-1 d-none">&#8211;</span>
-                        <div class="transctionId">{{transactionHistory.transactionId}}000{{i+12}}</div>
-                        <div class="transaction-type ">{{transactionHistory.transactionType}}</div>
+                    <div class="tenant-profile-cover">
+                      <div class="tenant-profile">
+                        {{helperService.getFirstCharacters(transactionHistory.tenantFullName)}}</div>
                     </div>
+                    <div class="ms-2">
+                      <div class="tenant-name">
+                        {{transactionHistory.tenantFullName}}
+                      </div>
+                      <div class="tenant-mail">
+                        Unit {{transactionHistory.unitNumber}}
+                      </div>
+                    </div>
+                  </div>
                 </td>
-                
+
+                <td>
+                  <div>
+                    <span class="separtor mx-1 d-none">&#8211;</span>
+                    <div class="transctionId">{{transactionHistory.transactionId}}000{{i+12}}</div>
+                    <div class="transaction-type ">{{transactionHistory.transactionType}}</div>
+                  </div>
+                </td>
+
                 <td>{{transactionHistory.transactionDate}}</td>
                 <td>{{transactionHistory.amountPaid}}</td>
                 <td>
-                    <span class="transaction-status" [ngClass]="{'bg-success-color': transactionHistory.transactionStatus == 'Paid',
+                  <span class="transaction-status" [ngClass]="{'bg-success-color': transactionHistory.transactionStatus == 'Paid',
                 'bg-warning-color': transactionHistory.transactionStatus == 'Pending', 'bg-danger-color': 
-                transactionHistory.transactionStatus == 'Declined'}">{{transactionHistory.transactionStatus}}</span>
+                transactionHistory.transactionStatus == 'Unpaid'}">{{transactionHistory.transactionStatus}}</span>
                 </td>
-                
                 <td>
                   <a class="btn btn-sm btn-edit"><i class="bi bi-three-dots-vertical"></i></a>
                 </td>
               </ng-container>
             </tr>
-            </tbody>
-          </table>
-        </div>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
+</div>
