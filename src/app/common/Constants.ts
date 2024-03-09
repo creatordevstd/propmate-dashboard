@@ -31,6 +31,9 @@ export class Constants{
   static TENANT_LIST= 'overview'
   static TENANT_ADD = 'add';
 
+  static SETTINGS_ROUTE = 'settings'
+  static TENANTS_ALL_LIST = 'tenant-overview'
+
 
   static CHART_PRIMARY_COLOR_LINE = '#3675fe';
   static CHART_SECONDARY_COLOR_LINE = '#e5edff';
@@ -348,7 +351,7 @@ export class Constants{
       leaseStartDate: '2022-01-01',
       leaseEndDate: '2023-02-01',
       monthlyRentalFee: '1000',
-      status: 'Overdue',
+      status: 'Unpaid',
       img: '../../../assets/images/avatar-1.png',
       email: 'john.doe@mail.com',
       phoneNumber:'+27 72 109 8765',
@@ -364,7 +367,7 @@ export class Constants{
       leaseStartDate: '2021-05-15',
       leaseEndDate: '2021-12-15',
       monthlyRentalFee: '1,200',
-      status: 'Overdue',
+      status: 'Unpaid',
       img: '../../../assets/images/avatar-2.png',
       email: 'jane.s@mail.com',
       phoneNumber:'+27 71 234 5678',
@@ -412,7 +415,7 @@ export class Constants{
       leaseStartDate: '2023-03-01',
       leaseEndDate: '2024-03-01',
       monthlyRentalFee: '950',
-      status: 'Overdue',
+      status: 'Unpaid',
       img: '../../../assets/images/avatar-5.png',
       email: 'awilson@mail.com',
       phoneNumber:'+27 83 876 5432',
@@ -460,7 +463,7 @@ export class Constants{
       leaseStartDate: '2022-11-01',
       leaseEndDate: '2023-11-01',
       monthlyRentalFee: '1,150',
-      status: 'Overdue',
+      status: 'Unpaid',
       img: '../../../assets/images/avatar-8.png',
       email: 'o.taylor@mail.com',
       phoneNumber:'+27 74 567 8901',
@@ -492,7 +495,7 @@ export class Constants{
       leaseStartDate: '2023-01-15',
       leaseEndDate: '2024-01-15',
       monthlyRentalFee: '1,050',
-      status: 'Overdue',
+      status: 'Unpaid',
       img: '../../../assets/images/avatar-10.png',
       email: 'mhernandez@mail.com',
       phoneNumber:'+27 73 123 4567',
@@ -502,22 +505,22 @@ export class Constants{
       unitNumber: '54',
       accountStatus: 'active'
     },
-    {
-      id: 11,
-      name: 'Emily White ',
-      leaseStartDate: '2023-02-10',
-      leaseEndDate: '2024-02-09',
-      monthlyRentalFee: '1,050',
-      status: 'Overdue',
-      img: '../../../assets/images/avatar-10.png',
-      email: 'mhernandez@mail.com',
-      phoneNumber:'+27 73 123 4567',
-      occupation: 'Chef',
-      joinedDate: '12 June, 2021',
-      isVerified: 'false',
-      unitNumber: '61',
-      accountStatus: 'active'
-    },
+    // {
+    //   id: 11,
+    //   name: 'Emily White ',
+    //   leaseStartDate: '2023-02-10',
+    //   leaseEndDate: '2024-02-09',
+    //   monthlyRentalFee: '1,050',
+    //   status: 'Unpaid',
+    //   img: '../../../assets/images/avatar-10.png',
+    //   email: 'mhernandez@mail.com',
+    //   phoneNumber:'+27 73 123 4567',
+    //   occupation: 'Chef',
+    //   joinedDate: '12 June, 2021',
+    //   isVerified: 'false',
+    //   unitNumber: '61',
+    //   accountStatus: 'active'
+    // },
   ];
 static TRANSACTION_HISTORY_LIST = 
 [
@@ -540,7 +543,7 @@ static TRANSACTION_HISTORY_LIST =
     buildingAddress: '456 Elm St, Townsville, South Africa',
     tenantFullName: 'Jane Smith',
     amountPaid: 'R2,000',
-    transactionStatus: 'Pending',
+    transactionStatus: 'Unpaid',
     unitNumber: '23'
   },
   {
@@ -573,7 +576,7 @@ static TRANSACTION_HISTORY_LIST =
     buildingAddress: '123 Main St, Cityville, South Africa',
     tenantFullName: 'John Doe',
     amountPaid: 'R3,000',
-    transactionStatus: 'Pending',
+    transactionStatus: 'Paid',
     unitNumber: '74'
   },
   {
@@ -584,7 +587,7 @@ static TRANSACTION_HISTORY_LIST =
     buildingAddress: '456 Elm St, Townsville, South Africa',
     tenantFullName: 'Jane Smith',
     amountPaid: 'R1,200',
-    transactionStatus: 'Declined',
+    transactionStatus: 'Paid',
     unitNumber: '121'
   },
   {
@@ -595,7 +598,7 @@ static TRANSACTION_HISTORY_LIST =
     buildingAddress: '789 Oak St, Villagetown, South Africa',
     tenantFullName: 'Robert Johnson',
     amountPaid: 'R1,200',
-    transactionStatus: 'Pending',
+    transactionStatus: 'Unpaid',
     unitNumber: '6'
   },
   {
@@ -617,7 +620,7 @@ static TRANSACTION_HISTORY_LIST =
     buildingAddress: '123 Main St, Cityville, South Africa',
     tenantFullName: 'John Doe',
     amountPaid: '8,000',
-    transactionStatus: 'Pending',
+    transactionStatus: 'Unpaid',
     unitNumber: '89'
   },
   {
@@ -749,6 +752,30 @@ static DOCUMENTS_LIST =
     dateModified: '2023-11-19',
     isDocumentUploaded: false,
     documentSize: '1.2mb',
+    type: 'pdf'
+  },
+  {
+    documentName:'title_deed_01.pdf',
+    category: 'Title Deed',
+    dateModified: '2024-02-10',
+    isDocumentUploaded: false,
+    documentSize: '1.1mb',
+    type: 'pdf'
+  },
+  {
+    documentName:'022_electrical_certificate.pdf',
+    category: 'Electrical Certificate',
+    dateModified: '2024-02-10',
+    isDocumentUploaded: true,
+    documentSize: '1.0mb',
+    type: 'pdf'
+  },
+  {
+    documentName:'fire_safety_324324.pdf',
+    category: 'Fire Satefy Certificate',
+    dateModified: '2024-02-10',
+    isDocumentUploaded: false,
+    documentSize: '900kb',
     type: 'pdf'
   }
 ];

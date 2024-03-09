@@ -49,6 +49,8 @@ import { BuildingStatementComponent } from './component/building-statement/build
 import { ObjectnamePipe } from './common/pipes/objectname.pipe';
 import { TenantAddComponent } from './component/tenant-add/tenant-add.component';
 import { ReportsComponent } from './component/reports/reports.component';
+import { SettingsComponent } from './component/settings/settings.component';
+import { TenantAllListComponent } from './component/tenant-all-list/tenant-all-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -86,6 +88,8 @@ import { ReportsComponent } from './component/reports/reports.component';
     ObjectnamePipe,
     TenantAddComponent,
     ReportsComponent,
+    SettingsComponent,
+    TenantAllListComponent,
   ],
     imports: [
         BrowserModule,
